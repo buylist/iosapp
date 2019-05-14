@@ -1,24 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qGc-CL-Ora">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--List Controller-->
+        <scene sceneID="OGD-uK-9sV">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="bwN-69-ZMG" customClass="ListController" customModule="BuyList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lll-ZH-h6l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="80" id="b4i-e3-X6H" customClass="ListCell" customModule="BuyList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b4i-e3-X6H" id="dxJ-WM-QmU">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название списка" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oao-xJ-m9f">
+                                            <rect key="frame" x="16" y="19" width="150" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="X3p-Kw-7bO"/>
+                                                <constraint firstAttribute="width" constant="150" id="meH-YI-HGf"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1J4-gH-Mcf">
+                                            <rect key="frame" x="180" y="29" width="48" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="grE-n2-Zi2"/>
+                                                <constraint firstAttribute="height" constant="24" id="ucY-GN-g0k"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <state key="normal" title="Добавить">
+                                                <color key="titleColor" red="0.21984855412145332" green="1" blue="0.16217982218487315" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="createPressed:" destination="b4i-e3-X6H" eventType="touchUpInside" id="aDt-Fw-9nN"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0y2-eI-QY5">
+                                            <rect key="frame" x="248" y="29" width="30" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="PMy-Rt-QaJ"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="ee3-fw-lP3"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <state key="normal" title="Ред.">
+                                                <color key="titleColor" red="1" green="0.90992391007082185" blue="0.1319287875531806" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="editPressed:" destination="b4i-e3-X6H" eventType="touchUpInside" id="W5i-IG-Mwv"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZx-hl-7ux">
+                                            <rect key="frame" x="317" y="29" width="41" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="UDb-10-yKL"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="41" id="cQi-si-fPS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <state key="normal" title="Удалить">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.1158826245" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="deletePressed:" destination="b4i-e3-X6H" eventType="touchUpInside" id="POS-Fc-7Kr"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="oao-xJ-m9f" secondAttribute="bottom" constant="10" id="1no-ZK-YBH"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="1J4-gH-Mcf" secondAttribute="bottom" constant="16" id="5KR-PA-WU3"/>
+                                        <constraint firstItem="0y2-eI-QY5" firstAttribute="top" secondItem="dxJ-WM-QmU" secondAttribute="topMargin" constant="18" id="6lH-mT-uDO"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="iZx-hl-7ux" secondAttribute="trailing" constant="1" id="7sg-0k-9sF"/>
+                                        <constraint firstItem="iZx-hl-7ux" firstAttribute="leading" secondItem="0y2-eI-QY5" secondAttribute="trailing" constant="39" id="B5O-mE-Wav"/>
+                                        <constraint firstItem="oao-xJ-m9f" firstAttribute="top" secondItem="dxJ-WM-QmU" secondAttribute="topMargin" constant="8" id="BGL-HX-jA3"/>
+                                        <constraint firstItem="1J4-gH-Mcf" firstAttribute="top" secondItem="dxJ-WM-QmU" secondAttribute="topMargin" constant="18" id="NGF-wO-Fsq"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="0y2-eI-QY5" secondAttribute="bottom" constant="16" id="OiU-zb-fz5"/>
+                                        <constraint firstItem="oao-xJ-m9f" firstAttribute="leading" secondItem="dxJ-WM-QmU" secondAttribute="leadingMargin" id="cLr-zK-YCm"/>
+                                        <constraint firstItem="0y2-eI-QY5" firstAttribute="leading" secondItem="1J4-gH-Mcf" secondAttribute="trailing" constant="20" id="clg-Ta-hUI"/>
+                                        <constraint firstItem="iZx-hl-7ux" firstAttribute="top" secondItem="dxJ-WM-QmU" secondAttribute="topMargin" constant="18" id="iLI-No-8sz"/>
+                                        <constraint firstItem="1J4-gH-Mcf" firstAttribute="leading" secondItem="oao-xJ-m9f" secondAttribute="trailing" constant="14" id="mh3-id-nqQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="iZx-hl-7ux" secondAttribute="bottom" constant="16" id="rFc-CO-agS"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="createButton" destination="1J4-gH-Mcf" id="Ztq-eb-b5g"/>
+                                    <outlet property="deleteButton" destination="iZx-hl-7ux" id="T3H-e2-y1k"/>
+                                    <outlet property="editButton" destination="0y2-eI-QY5" id="8ea-vS-2YR"/>
+                                    <outlet property="listName" destination="oao-xJ-m9f" id="XAr-yV-eG0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bwN-69-ZMG" id="tUj-tq-qMz"/>
+                            <outlet property="delegate" destination="bwN-69-ZMG" id="vW1-c7-vMz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="54G-9C-FAb"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1An-9a-Svr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="156" y="149.77511244377811"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="djT-My-J9N">
+            <objects>
+                <navigationController id="qGc-CL-Ora" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rob-Bj-9LV">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bwN-69-ZMG" kind="relationship" relationship="rootViewController" id="ogy-GF-pum"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5zd-Wg-rZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-626" y="150"/>
         </scene>
     </scenes>
 </document>
