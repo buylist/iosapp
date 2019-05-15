@@ -17,9 +17,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="2us-XF-gtf">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1J4-gH-Mcf">
+                                    <rect key="frame" x="319" y="10" width="48" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="bnI-az-fi8"/>
+                                        <constraint firstAttribute="height" constant="24" id="dBa-Jj-hJs"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <state key="normal" title="Добавить">
+                                        <color key="titleColor" red="0.21984855412145332" green="1" blue="0.16217982218487315" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="createButton:" destination="bwN-69-ZMG" eventType="touchUpInside" id="yYM-2E-wbR"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="1J4-gH-Mcf" firstAttribute="top" secondItem="2us-XF-gtf" secondAttribute="top" constant="10" id="Adm-YV-b71"/>
+                                <constraint firstAttribute="bottom" secondItem="1J4-gH-Mcf" secondAttribute="bottom" constant="10" id="FJ5-ek-0Ks"/>
+                                <constraint firstAttribute="trailing" secondItem="1J4-gH-Mcf" secondAttribute="trailing" constant="8" id="FWk-hA-zDB"/>
+                                <constraint firstItem="1J4-gH-Mcf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2us-XF-gtf" secondAttribute="leading" constant="20" symbolic="YES" id="ged-WC-dpw"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="80" id="b4i-e3-X6H" customClass="ListCell" customModule="BuyList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b4i-e3-X6H" id="dxJ-WM-QmU">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
@@ -35,20 +62,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1J4-gH-Mcf">
-                                            <rect key="frame" x="180" y="29" width="48" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="grE-n2-Zi2"/>
-                                                <constraint firstAttribute="height" constant="24" id="ucY-GN-g0k"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <state key="normal" title="Добавить">
-                                                <color key="titleColor" red="0.21984855412145332" green="1" blue="0.16217982218487315" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="createPressed:" destination="b4i-e3-X6H" eventType="touchUpInside" id="aDt-Fw-9nN"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0y2-eI-QY5">
                                             <rect key="frame" x="248" y="29" width="30" height="24"/>
                                             <constraints>
@@ -80,22 +93,18 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="oao-xJ-m9f" secondAttribute="bottom" constant="10" id="1no-ZK-YBH"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="1J4-gH-Mcf" secondAttribute="bottom" constant="16" id="5KR-PA-WU3"/>
                                         <constraint firstItem="0y2-eI-QY5" firstAttribute="top" secondItem="dxJ-WM-QmU" secondAttribute="topMargin" constant="18" id="6lH-mT-uDO"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="iZx-hl-7ux" secondAttribute="trailing" constant="1" id="7sg-0k-9sF"/>
                                         <constraint firstItem="iZx-hl-7ux" firstAttribute="leading" secondItem="0y2-eI-QY5" secondAttribute="trailing" constant="39" id="B5O-mE-Wav"/>
                                         <constraint firstItem="oao-xJ-m9f" firstAttribute="top" secondItem="dxJ-WM-QmU" secondAttribute="topMargin" constant="8" id="BGL-HX-jA3"/>
-                                        <constraint firstItem="1J4-gH-Mcf" firstAttribute="top" secondItem="dxJ-WM-QmU" secondAttribute="topMargin" constant="18" id="NGF-wO-Fsq"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="0y2-eI-QY5" secondAttribute="bottom" constant="16" id="OiU-zb-fz5"/>
                                         <constraint firstItem="oao-xJ-m9f" firstAttribute="leading" secondItem="dxJ-WM-QmU" secondAttribute="leadingMargin" id="cLr-zK-YCm"/>
-                                        <constraint firstItem="0y2-eI-QY5" firstAttribute="leading" secondItem="1J4-gH-Mcf" secondAttribute="trailing" constant="20" id="clg-Ta-hUI"/>
                                         <constraint firstItem="iZx-hl-7ux" firstAttribute="top" secondItem="dxJ-WM-QmU" secondAttribute="topMargin" constant="18" id="iLI-No-8sz"/>
-                                        <constraint firstItem="1J4-gH-Mcf" firstAttribute="leading" secondItem="oao-xJ-m9f" secondAttribute="trailing" constant="14" id="mh3-id-nqQ"/>
+                                        <constraint firstItem="0y2-eI-QY5" firstAttribute="leading" secondItem="oao-xJ-m9f" secondAttribute="trailing" constant="82" id="if1-OZ-oj3"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="iZx-hl-7ux" secondAttribute="bottom" constant="16" id="rFc-CO-agS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="createButton" destination="1J4-gH-Mcf" id="Ztq-eb-b5g"/>
                                     <outlet property="deleteButton" destination="iZx-hl-7ux" id="T3H-e2-y1k"/>
                                     <outlet property="editButton" destination="0y2-eI-QY5" id="8ea-vS-2YR"/>
                                     <outlet property="listName" destination="oao-xJ-m9f" id="XAr-yV-eG0"/>
@@ -107,7 +116,9 @@
                             <outlet property="delegate" destination="bwN-69-ZMG" id="vW1-c7-vMz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="54G-9C-FAb"/>
+                    <navigationItem key="navigationItem" id="54G-9C-FAb">
+                        <nil key="title"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1An-9a-Svr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

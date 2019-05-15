@@ -12,20 +12,14 @@ class ListCell: UITableViewCell {
     
     @IBOutlet weak var listName: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     
     var index: Int = 0
     var onDeletePressed: ((Int) -> ())?
-    var onCreatePressed: ((Int) -> ())?
     var onEditPressed: ((Int) -> ())?
     
     @IBAction func deletePressed(_ sender: Any) {
         onDeletePressed?(index)
-    }
-    
-    @IBAction func createPressed(_ sender: Any) {
-        onCreatePressed?(index)
     }
     
     @IBAction func editPressed(_ sender: Any) {
