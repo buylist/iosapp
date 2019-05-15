@@ -12,57 +12,104 @@ class ListController: UITableViewController {
     
     var listTextField: UITextField?
     
-    var ListArray = ["Список1", "Список2", "Список3"]
+    var ListSectionArray = [0: " Список продуктов", 1: "Список шаблонов", 2: "Список рецептов"]
+    var ListArray = [0: ["Список1", "Список2", "Список3"], 1: ["Шаблон1", "Шаблон2", "Шаблон3"], 2: ["Рецепт1", "Рецепт2", "Рецепт3"]]
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let headerNib = UINib.init(nibName: "HeaderList", bundle: Bundle.main)
+        tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderList")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return ListArray.count
+        
+        return (ListArray[section]?.count)!
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListCell
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderList") as! HeaderList
         
-        var listArray = ListArray[indexPath.row]
+        headerView.headerName.text = ListSectionArray[section]
         
-        cell.listName.text = listArray
-        cell.onDeletePressed = {
-            [weak self] index in
-            self?.ListArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
-        }
-        
-        cell.onEditPressed = {
+        headerView.onHeaderCreatePressed = {
             [weak self] index in
             
-            let alertController = UIAlertController(title: "Изменить название списка?", message: nil, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Изменить", style: .default, handler: editOkHandler)
+            let alertController = UIAlertController(title: "Добавить новый список?", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Добавить", style: .default, handler: newOkHandler)
             let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-            alertController.addTextField(configurationHandler: editTextField)
+            alertController.addTextField(configurationHandler: newTextField)
             alertController.addAction(okAction)
             alertController.addAction(cancelAction)
             
             self?.present(alertController, animated: true)
         }
         
+        func newTextField(textField: UITextField!) {
+            listTextField = textField
+            listTextField?.placeholder = "Новый список"
+        }
+        
+        func newOkHandler(alert: UIAlertAction!) {
+            if !(ListArray[section]?.contains(listTextField!.text!))! && listTextField!.text! != "" {
+                ListArray[section]?.append(listTextField!.text!)
+                tableView.reloadData()
+            } else if  listTextField!.text! == "" {
+                let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            } else {
+                let alertController = UIAlertController(title: "Ошибка!", message:  "Список с таким название уже существует.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }
+        }
+
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListCell
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderList") as! HeaderList
+        
+        var listArray = ListArray[indexPath.section]?[indexPath.row]
+        
+        cell.listName.text = listArray
+        
+        cell.onDeletePressed = {
+            [weak self] index in
+            self?.ListArray[indexPath.section]?.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+        }
+        
+        cell.onEditPressed = {
+            [weak self] index in
+
+            let alertController = UIAlertController(title: "Изменить название списка?", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Изменить", style: .default, handler: editOkHandler)
+            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+            alertController.addTextField(configurationHandler: editTextField)
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+
+            self?.present(alertController, animated: true)
+        }
+
         func editTextField(textField: UITextField!) {
             listTextField = textField
             listTextField?.placeholder = listArray
         }
-        
+
         func editOkHandler(alert: UIAlertAction!) {
-            if (!ListArray.contains(listTextField!.text!) || ListArray[indexPath.row] == listTextField!.text!) && listTextField!.text! != "" {
-                ListArray[indexPath.row] = listTextField!.text!
+            if (!(ListArray[indexPath.section]?.contains(listTextField!.text!))! || ListArray[indexPath.section]?[indexPath.row] == listTextField!.text!) && listTextField!.text! != "" {
+                ListArray[indexPath.section]?[indexPath.row] = listTextField!.text!
                 tableView.reloadData()
             } else if listTextField!.text! == "" {
                 let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
@@ -79,39 +126,5 @@ class ListController: UITableViewController {
         
         return cell
     }
-    
-    @IBAction func createButton(_ sender: Any) {
-        
-        let alertController = UIAlertController(title: "Добавить новый список?", message: nil, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Добавить", style: .default, handler: newOkHandler)
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        alertController.addTextField(configurationHandler: newTextField)
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true)
-    }
-    
-    func newTextField(textField: UITextField!) {
-        listTextField = textField
-        listTextField?.placeholder = "Новый список"
-    }
-    
-    func newOkHandler(alert: UIAlertAction!) {
-        if !ListArray.contains(listTextField!.text!) && listTextField!.text! != "" {
-            ListArray.append(listTextField!.text!)
-            tableView.reloadData()
-        } else if  listTextField!.text! == "" {
-            let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true)
-        } else {
-            let alertController = UIAlertController(title: "Ошибка!", message:  "Список с таким название уже существует.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true)
-            }
-        }
-    }
+}
 

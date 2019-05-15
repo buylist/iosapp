@@ -17,36 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="2us-XF-gtf">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1J4-gH-Mcf">
-                                    <rect key="frame" x="319" y="10" width="48" height="24"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="bnI-az-fi8"/>
-                                        <constraint firstAttribute="height" constant="24" id="dBa-Jj-hJs"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                    <state key="normal" title="Добавить">
-                                        <color key="titleColor" red="0.21984855412145332" green="1" blue="0.16217982218487315" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="createButton:" destination="bwN-69-ZMG" eventType="touchUpInside" id="yYM-2E-wbR"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="1J4-gH-Mcf" firstAttribute="top" secondItem="2us-XF-gtf" secondAttribute="top" constant="10" id="Adm-YV-b71"/>
-                                <constraint firstAttribute="bottom" secondItem="1J4-gH-Mcf" secondAttribute="bottom" constant="10" id="FJ5-ek-0Ks"/>
-                                <constraint firstAttribute="trailing" secondItem="1J4-gH-Mcf" secondAttribute="trailing" constant="8" id="FWk-hA-zDB"/>
-                                <constraint firstItem="1J4-gH-Mcf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2us-XF-gtf" secondAttribute="leading" constant="20" symbolic="YES" id="ged-WC-dpw"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="80" id="b4i-e3-X6H" customClass="ListCell" customModule="BuyList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b4i-e3-X6H" id="dxJ-WM-QmU">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
