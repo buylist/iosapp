@@ -12,7 +12,7 @@ class HeaderRecipe: UITableViewHeaderFooterView {
     
     @IBOutlet weak var headerName: UILabel!
     @IBOutlet weak var headerCreateButton: UIButton!
-    @IBOutlet weak var headerCancelButtin: UIButton!
+    @IBOutlet weak var headerCancelButton: UIButton!
     
     
     var index: Int = 0
@@ -23,7 +23,7 @@ class HeaderRecipe: UITableViewHeaderFooterView {
         onHeaderCreatePressed?(index)
     }
     
-    @IBAction func cancelButton(_ semder: Any) {
+    @IBAction func cancelButton(_ sender: Any) {
         onHeaderCencelPressed?(index)
     }
 }

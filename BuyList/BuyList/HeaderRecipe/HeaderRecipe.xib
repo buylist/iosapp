@@ -44,7 +44,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Назад"/>
                             <connections>
-                                <action selector="cancelButton:" destination="nJl-tt-Vgm" eventType="touchUpInside" id="AFU-DM-b8D"/>
+                                <action selector="cancelButton:" destination="nJl-tt-Vgm" eventType="touchUpInside" id="XbF-mK-r2P"/>
                             </connections>
                         </button>
                     </subviews>
@@ -66,7 +66,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="eLs-HO-3WX"/>
             <connections>
-                <outlet property="headerCancelButtin" destination="Ppc-Hc-GCj" id="Vsl-a9-sxO"/>
+                <outlet property="headerCancelButton" destination="Ppc-Hc-GCj" id="NP4-0g-UK7"/>
                 <outlet property="headerCreateButton" destination="gXa-km-I4m" id="ZrI-ND-ewq"/>
                 <outlet property="headerName" destination="rNh-fb-BDq" id="WVJ-Aq-dY7"/>
             </connections>

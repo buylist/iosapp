@@ -11,9 +11,9 @@
 		55417679229452F000AE8E8F /* HeaderRecipe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55417678229452F000AE8E8F /* HeaderRecipe.xib */; };
 		5541767B2294541400AE8E8F /* HeaderRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541767A2294541400AE8E8F /* HeaderRecipe.swift */; };
 		5541767F229458A700AE8E8F /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541767E229458A700AE8E8F /* RecipeController.swift */; };
-		55417681229458D000AE8E8F /* RecipeInstructionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55417680229458D000AE8E8F /* RecipeInstructionController.swift */; };
+		55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55417680229458D000AE8E8F /* RecipeInstructionCell.swift */; };
 		554176832294591800AE8E8F /* RecipeInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554176822294591800AE8E8F /* RecipeInformationController.swift */; };
-		554176852294595700AE8E8F /* RecipeProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554176842294595700AE8E8F /* RecipeProductController.swift */; };
+		554176852294595700AE8E8F /* RecipeProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554176842294595700AE8E8F /* RecipeProductCell.swift */; };
 		55417687229463A900AE8E8F /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55417686229463A900AE8E8F /* RecipeCell.swift */; };
 		55772E0C228C5ACF00211630 /* HeaderList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55772E0B228C5ACF00211630 /* HeaderList.xib */; };
 		55772E0E228C5AE000211630 /* HeaderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772E0D228C5AE000211630 /* HeaderList.swift */; };
@@ -29,9 +29,9 @@
 		55417678229452F000AE8E8F /* HeaderRecipe.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderRecipe.xib; sourceTree = "<group>"; };
 		5541767A2294541400AE8E8F /* HeaderRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRecipe.swift; sourceTree = "<group>"; };
 		5541767E229458A700AE8E8F /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
-		55417680229458D000AE8E8F /* RecipeInstructionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInstructionController.swift; sourceTree = "<group>"; };
+		55417680229458D000AE8E8F /* RecipeInstructionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInstructionCell.swift; sourceTree = "<group>"; };
 		554176822294591800AE8E8F /* RecipeInformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInformationController.swift; sourceTree = "<group>"; };
-		554176842294595700AE8E8F /* RecipeProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeProductController.swift; sourceTree = "<group>"; };
+		554176842294595700AE8E8F /* RecipeProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeProductCell.swift; sourceTree = "<group>"; };
 		55417686229463A900AE8E8F /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		55772E0B228C5ACF00211630 /* HeaderList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderList.xib; sourceTree = "<group>"; };
 		55772E0D228C5AE000211630 /* HeaderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderList.swift; sourceTree = "<group>"; };
@@ -70,8 +70,8 @@
 				5541767E229458A700AE8E8F /* RecipeController.swift */,
 				55417686229463A900AE8E8F /* RecipeCell.swift */,
 				554176822294591800AE8E8F /* RecipeInformationController.swift */,
-				554176842294595700AE8E8F /* RecipeProductController.swift */,
-				55417680229458D000AE8E8F /* RecipeInstructionController.swift */,
+				554176842294595700AE8E8F /* RecipeProductCell.swift */,
+				55417680229458D000AE8E8F /* RecipeInstructionCell.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -193,11 +193,11 @@
 			files = (
 				5541767B2294541400AE8E8F /* HeaderRecipe.swift in Sources */,
 				55772E0E228C5AE000211630 /* HeaderList.swift in Sources */,
-				554176852294595700AE8E8F /* RecipeProductController.swift in Sources */,
+				554176852294595700AE8E8F /* RecipeProductCell.swift in Sources */,
 				554176832294591800AE8E8F /* RecipeInformationController.swift in Sources */,
 				550DCA5A228ACAF400A04E7F /* ListCell.swift in Sources */,
 				55417687229463A900AE8E8F /* RecipeCell.swift in Sources */,
-				55417681229458D000AE8E8F /* RecipeInstructionController.swift in Sources */,
+				55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */,
 				89FFE2DC2289928100784297 /* ListController.swift in Sources */,
 				89FFE2DA2289928100784297 /* AppDelegate.swift in Sources */,
 				5541767F229458A700AE8E8F /* RecipeController.swift in Sources */,

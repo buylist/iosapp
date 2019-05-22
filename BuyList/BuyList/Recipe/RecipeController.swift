@@ -13,16 +13,16 @@ class RecipeController: UITableViewController {
     var RecipeName = ["Рецепттт1", "Рецепттт2", "Рецепттт3"]
     
     override func viewDidLoad() {
-        let headerNib = UINib.init(nibName: "HeaderRecipe", bundle: Bundle.main)
-        tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderRecipe")
+//        let headerNib = UINib.init(nibName: "HeaderRecipe", bundle: Bundle.main)
+//        tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderRecipe")
         
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderRecipe") as! HeaderRecipe
-        
-        return headerView
-    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderRecipe") as! HeaderRecipe
+//
+//        return headerView
+//    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -42,8 +42,8 @@ class RecipeController: UITableViewController {
         return cell
     }
     
-//    @IBAction func backButton(_ sender: UIBarButtonItem) {
-//
-//        dismiss(animated: true, completion: nil)
-//    }
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+
+        dismiss(animated: true, completion: nil)
+    }
 }
