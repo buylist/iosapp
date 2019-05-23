@@ -51,14 +51,10 @@ class RecipeController: UITableViewController {
         
         if segue.identifier == "lableName" {
             
-            if let recipeController = segue.source as? RecipeController {
-                
-                if let indexPath = recipeController.tableView.indexPathForSelectedRow {
-                    let name = RecipeName[indexPath.row]
-                    let rrrr = RecipeInformationController()
-                    rrrr.lableRecipeName.text = name
-                    recipeController.tableView.reloadData()
-                }
+            if let recipeControllerInfo = segue.destination as? RecipeInformationController {
+                let indexPath = tableView.indexPathForSelectedRow
+                let name = RecipeName[indexPath!.row]
+                recipeControllerInfo.nameLable = name
             }
         }
     }

@@ -93,7 +93,7 @@
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="ycu-fb-d3k">
                             <connections>
-                                <segue destination="Da3-cQ-iTv" kind="show" id="6Pd-AP-ZGM"/>
+                                <segue destination="Da3-cQ-iTv" kind="show" identifier="recipeArray" id="fQI-Cr-DIH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

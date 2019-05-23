@@ -14,7 +14,7 @@ class RecipeInformationController: UITableViewController {
     @IBOutlet weak var EditRecipe: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
-    var nameLable = "Название"
+    var nameLable: String!
     
     var ProductNameArray = ["Бананы", "Ананасы", "Яблоки"]
     var ProductMassArray = ["400г", "500г", "250г"]
@@ -25,7 +25,7 @@ class RecipeInformationController: UITableViewController {
         let headerNib = UINib.init(nibName: "HeaderRecipeInfo", bundle: Bundle.main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderRecipeInfo")
         
-//        lableRecipeName.text = nameLable
+        lableRecipeName.text = nameLable
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
