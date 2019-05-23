@@ -46,4 +46,20 @@ class RecipeController: UITableViewController {
 
         dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "lableName" {
+            
+            if let recipeController = segue.source as? RecipeController {
+                
+                if let indexPath = recipeController.tableView.indexPathForSelectedRow {
+                    let name = RecipeName[indexPath.row]
+                    let rrrr = RecipeInformationController()
+                    rrrr.lableRecipeName.text = name
+                    recipeController.tableView.reloadData()
+                }
+            }
+        }
+    }
 }
