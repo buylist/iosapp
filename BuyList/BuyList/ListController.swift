@@ -127,17 +127,13 @@ class ListController: UITableViewController {
         return cell
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if segue.identifier == "recipeArray" {
-//            if ((segue.destination as? UINavigationController) != nil) {
-//                let recipeController = RecipeController()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "recipeArray" {
+            if let recipeController = segue.destination as? RecipeController {
 //                let indexPath = tableView.indexPathForSelectedRow
-//                let recipeArray = ListArray
-//                recipeController.RecipeName.append(ListArray.index(forKey: 2))
-//                recipeController.tableView.reloadData()
-//                print("!!!!!!!!!!")
-//            }
-//        }
-//    }
+                recipeController.RecipeName = ListArray[2]!
+            }
+        }
+    }
 }
