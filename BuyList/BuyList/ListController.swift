@@ -127,6 +127,70 @@ class ListController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = editAction(at: indexPath)
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete, edit])
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        
+        let action = UIContextualAction(style: .destructive, title: "Удалить") {
+            (action, view, complection) in
+            self.ListArray[indexPath.section]?.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
+        }
+        
+        action.backgroundColor = UIColor.red
+        
+        return action
+    }
+    
+    func editAction(at indexPath: IndexPath) -> UIContextualAction {
+        
+        var listArray = ListArray[indexPath.section]?[indexPath.row]
+        
+        let action = UIContextualAction(style: .destructive, title: "Ред.") {
+            (action, view, complection) in
+            
+            let alertController = UIAlertController(title: "Изменить название списка?", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Изменить", style: .default, handler: editOkHandler)
+            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+            alertController.addTextField(configurationHandler: editTextField)
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true)
+        }
+        
+        func editTextField(textField: UITextField!) {
+            listTextField = textField
+            listTextField?.placeholder = listArray
+        }
+        
+        func editOkHandler(alert: UIAlertAction!) {
+            if (!(ListArray[indexPath.section]?.contains(listTextField!.text!))! || ListArray[indexPath.section]?[indexPath.row] == listTextField!.text!) && listTextField!.text! != "" {
+                ListArray[indexPath.section]?[indexPath.row] = listTextField!.text!
+                tableView.reloadData()
+            } else if listTextField!.text! == "" {
+                let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            } else {
+                let alertController = UIAlertController(title: "Ошибка!", message:  "Список с таким название уже существует.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }
+        }
+        
+        action.backgroundColor = UIColor.orange
+        
+        return action
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "recipeArray" {
