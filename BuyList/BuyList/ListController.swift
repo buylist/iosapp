@@ -14,6 +14,7 @@ class ListController: UITableViewController {
     
     var ListSectionArray = [0: " Список продуктов", 1: "Список шаблонов", 2: "Список рецептов"]
     var ListArray = [0: ["Список1", "Список2", "Список3"], 1: ["Шаблон1", "Шаблон2", "Шаблон3"], 2: ["Рецепт1", "Рецепт2", "Рецепт3"]]
+    var ListOpen = [0: false, 1: false , 2: false]
 
     override func viewDidLoad() {
         
@@ -23,18 +24,43 @@ class ListController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 3
+        return ListSectionArray.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         return (ListArray[section]?.count)!
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if ListOpen[indexPath.section]! {
+            return 0
+        } else {
+            return 80
+        }
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderList") as! HeaderList
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as! ListCell
         
         headerView.headerName.text = ListSectionArray[section]
+        
+        func listOpen() {
+            if ListOpen[section]! {
+                ListOpen[section] = false
+            } else {
+                ListOpen[section] = true
+            }
+        }
+        
+        headerView.onHeaderOpenCellPressed = {
+            [weak self] index in
+            
+            listOpen()
+            self?.tableView.reloadData()
+        }
         
         headerView.onHeaderCreatePressed = {
             [weak self] index in
@@ -45,7 +71,7 @@ class ListController: UITableViewController {
             alertController.addTextField(configurationHandler: newTextField)
             alertController.addAction(okAction)
             alertController.addAction(cancelAction)
-            
+
             self?.present(alertController, animated: true)
         }
         
@@ -56,7 +82,7 @@ class ListController: UITableViewController {
         
         func newOkHandler(alert: UIAlertAction!) {
             if !(ListArray[section]?.contains(listTextField!.text!))! && listTextField!.text! != "" {
-                ListArray[section]?.append(listTextField!.text!)
+                ListArray[section]?.insert(listTextField!.text!, at: 0)
                 tableView.reloadData()
             } else if  listTextField!.text! == "" {
                 let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
@@ -75,12 +101,17 @@ class ListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListCell
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderList") as! HeaderList
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListCell
         
         var listArray = ListArray[indexPath.section]?[indexPath.row]
         
         cell.listName.text = listArray
+        
+//        if indexPath.row == 0 {
+//            var cell = tableView.dequeueReusableCell(withIdentifier: "qqq")
+//            return cell!
+//        }
         
         cell.onDeletePressed = {
             [weak self] index in

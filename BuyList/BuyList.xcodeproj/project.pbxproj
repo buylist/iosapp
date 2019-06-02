@@ -103,8 +103,8 @@
 		555AB63D228C720B00D098D8 /* HeaderList */ = {
 			isa = PBXGroup;
 			children = (
-				55772E0B228C5ACF00211630 /* HeaderList.xib */,
 				55772E0D228C5AE000211630 /* HeaderList.swift */,
+				55772E0B228C5ACF00211630 /* HeaderList.xib */,
 			);
 			path = HeaderList;
 			sourceTree = "<group>";

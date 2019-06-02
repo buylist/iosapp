@@ -19,6 +19,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e28-jf-uh9">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8A3-54-gZL">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="375" id="9En-uR-KbS"/>
+                                <constraint firstAttribute="height" constant="30" id="rLf-Nl-5qX"/>
+                            </constraints>
+                            <connections>
+                                <action selector="onHeaderOpenCellPressed:" destination="5zI-1n-SLt" eventType="touchUpInside" id="8dn-N6-0De"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название списка" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd7-bG-XhZ">
                             <rect key="frame" x="87" y="4" width="200" height="21"/>
                             <constraints>
@@ -46,11 +56,15 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="HFt-Jf-Xxx" secondAttribute="bottom" constant="-2" id="2A6-dN-zxf"/>
+                        <constraint firstAttribute="bottom" secondItem="8A3-54-gZL" secondAttribute="bottom" constant="-2" id="9OV-78-Msv"/>
+                        <constraint firstItem="8A3-54-gZL" firstAttribute="top" secondItem="e28-jf-uh9" secondAttribute="top" id="EI8-Ag-tHX"/>
                         <constraint firstAttribute="bottom" secondItem="Sd7-bG-XhZ" secondAttribute="bottom" constant="3" id="LNu-Wk-bqy"/>
                         <constraint firstAttribute="trailing" secondItem="HFt-Jf-Xxx" secondAttribute="trailing" id="Qss-gd-dYY"/>
+                        <constraint firstItem="8A3-54-gZL" firstAttribute="leading" secondItem="e28-jf-uh9" secondAttribute="leading" id="Smq-ts-6m1"/>
                         <constraint firstItem="HFt-Jf-Xxx" firstAttribute="leading" secondItem="Sd7-bG-XhZ" secondAttribute="trailing" constant="19" id="Ubl-PE-Jqo"/>
                         <constraint firstItem="Sd7-bG-XhZ" firstAttribute="top" secondItem="e28-jf-uh9" secondAttribute="top" constant="4" id="hpu-xL-mcy"/>
                         <constraint firstItem="HFt-Jf-Xxx" firstAttribute="top" secondItem="e28-jf-uh9" secondAttribute="top" id="qK8-Lj-bbF"/>
+                        <constraint firstAttribute="trailing" secondItem="8A3-54-gZL" secondAttribute="trailing" id="qgg-6S-2ud"/>
                         <constraint firstItem="Sd7-bG-XhZ" firstAttribute="leading" secondItem="e28-jf-uh9" secondAttribute="leading" constant="87" id="wZY-Td-zsE"/>
                     </constraints>
                 </view>
@@ -66,6 +80,7 @@
             <viewLayoutGuide key="safeArea" id="POI-5Q-caw"/>
             <connections>
                 <outlet property="headerButton" destination="HFt-Jf-Xxx" id="H4U-Rg-OPt"/>
+                <outlet property="headerButtonOpenCell" destination="8A3-54-gZL" id="zBZ-pV-8YD"/>
                 <outlet property="headerName" destination="Sd7-bG-XhZ" id="EWN-Aw-hPj"/>
             </connections>
             <point key="canvasLocation" x="138.40000000000001" y="147.52623688155924"/>

@@ -12,11 +12,16 @@ class HeaderList: UITableViewHeaderFooterView {
     
     @IBOutlet weak var headerName: UILabel!
     @IBOutlet weak var headerButton: UIButton!
+    @IBOutlet weak var headerButtonOpenCell: UIButton!
     
     var index: Int = 0
     var onHeaderCreatePressed: ((Int) -> ())?
+    var onHeaderOpenCellPressed: ((Int) -> ())?
     
     @IBAction func createPressed(_ sender: Any) {
         onHeaderCreatePressed?(index)
+    }
+    @IBAction func onHeaderOpenCellPressed(_ sender: Any) {
+        onHeaderOpenCellPressed?(index)
     }
 }
