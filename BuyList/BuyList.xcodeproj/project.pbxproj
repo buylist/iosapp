@@ -15,6 +15,7 @@
 		55417687229463A900AE8E8F /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55417686229463A900AE8E8F /* RecipeCell.swift */; };
 		55772E0C228C5ACF00211630 /* HeaderList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55772E0B228C5ACF00211630 /* HeaderList.xib */; };
 		55772E0E228C5AE000211630 /* HeaderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772E0D228C5AE000211630 /* HeaderList.swift */; };
+		5591EB8A22A8306F00E924AF /* Qqq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5591EB8922A8306F00E924AF /* Qqq.swift */; };
 		55BC4F102296E9F8001D231A /* HeaderRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC4F0F2296E9F8001D231A /* HeaderRecipe.swift */; };
 		55BC4F122296EA0B001D231A /* HeaderRecipe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BC4F112296EA0B001D231A /* HeaderRecipe.xib */; };
 		55BDA4CC22A024F70044B6AE /* NewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4CB22A024F70044B6AE /* NewCategoryViewController.swift */; };
@@ -40,6 +41,7 @@
 		55417686229463A900AE8E8F /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		55772E0B228C5ACF00211630 /* HeaderList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderList.xib; sourceTree = "<group>"; };
 		55772E0D228C5AE000211630 /* HeaderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderList.swift; sourceTree = "<group>"; };
+		5591EB8922A8306F00E924AF /* Qqq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Qqq.swift; sourceTree = "<group>"; };
 		55BC4F0F2296E9F8001D231A /* HeaderRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRecipe.swift; sourceTree = "<group>"; };
 		55BC4F112296EA0B001D231A /* HeaderRecipe.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderRecipe.xib; sourceTree = "<group>"; };
 		55BDA4CB22A024F70044B6AE /* NewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				89FFE2D92289928100784297 /* AppDelegate.swift */,
 				89FFE2DB2289928100784297 /* ListController.swift */,
 				550DCA59228ACAF400A04E7F /* ListCell.swift */,
+				5591EB8922A8306F00E924AF /* Qqq.swift */,
 				89FFE2DD2289928100784297 /* Main.storyboard */,
 				5541767C2294586300AE8E8F /* Recipe */,
 				555AB63D228C720B00D098D8 /* HeaderList */,
@@ -255,14 +258,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BuyList/Pods-BuyList-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -304,6 +305,7 @@
 				55BC4F102296E9F8001D231A /* HeaderRecipe.swift in Sources */,
 				554176832294591800AE8E8F /* RecipeInformationController.swift in Sources */,
 				550DCA5A228ACAF400A04E7F /* ListCell.swift in Sources */,
+				5591EB8A22A8306F00E924AF /* Qqq.swift in Sources */,
 				55417687229463A900AE8E8F /* RecipeCell.swift in Sources */,
 				55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */,
 				55BDA4CE22A026320044B6AE /* CategoryCircleView.swift in Sources */,

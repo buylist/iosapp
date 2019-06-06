@@ -12,7 +12,7 @@ class ListController: UITableViewController {
     
     var listTextField: UITextField?
     
-    var ListSectionArray = [0: " Список продуктов", 1: "Список шаблонов", 2: "Список рецептов"]
+    var ListSectionArray = [0: "Коллекция списков", 1: "Шаблоны", 2: "Рецепты"]
     var ListArray = [0: ["Список1", "Список2", "Список3"], 1: ["Шаблон1", "Шаблон2", "Шаблон3"], 2: ["Рецепт1", "Рецепт2", "Рецепт3"]]
     var ListOpen = [0: false, 1: false , 2: false]
 
@@ -39,6 +39,10 @@ class ListController: UITableViewController {
         } else {
             return 80
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 120
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -101,25 +105,30 @@ class ListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListCell
-        
-        var listArray = ListArray[indexPath.section]?[indexPath.row]
-        
-        cell.listName.text = listArray
-        
+//        var cell111: UITableViewCell!
 //        if indexPath.row == 0 {
-//            var cell = tableView.dequeueReusableCell(withIdentifier: "qqq")
-//            return cell!
+//            cell111 = tableView.dequeueReusableCell(withIdentifier: "qqq", for: indexPath)
+//        } else if indexPath.row != 0 {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListCell
+//        cell111 = cell
+
+        var listArray = ListArray[indexPath.section]?[indexPath.row]
+
+        cell.listName.text = listArray
+
+//        if indexPath.row == 0 {
+//            cell111 = tableView.dequeueReusableCell(withIdentifier: "qqq")
+//            var cell2 = tableView.dequeueReusableCell(withIdentifier: "qqq")
+//            return cell2!
 //        }
-        
+
         cell.onDeletePressed = {
             [weak self] index in
             self?.ListArray[indexPath.section]?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
         }
-        
+
         cell.onEditPressed = {
             [weak self] index in
 
@@ -154,7 +163,6 @@ class ListController: UITableViewController {
                 self.present(alertController, animated: true)
             }
         }
-        
         return cell
     }
     
