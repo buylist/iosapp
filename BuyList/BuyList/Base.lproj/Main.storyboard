@@ -71,6 +71,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="listName" destination="oao-xJ-m9f" id="XAr-yV-eG0"/>
+                                    <segue destination="OAA-tl-fEK" kind="show" id="fZp-m8-oZg"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="qqq" id="1JW-Al-6VL" customClass="Qqq" customModule="BuyList" customModuleProvider="target">
@@ -111,6 +112,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="54G-9C-FAb">
                         <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="8Rj-KU-bIW"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" id="bgP-NN-n1J">
                             <connections>
                                 <segue destination="MR2-i0-T6j" kind="show" id="gvt-Jt-mQ0"/>
@@ -126,6 +128,146 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1An-9a-Svr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="174" y="150"/>
+        </scene>
+        <!--Название-->
+        <scene sceneID="ekj-w7-y1Y">
+            <objects>
+                <tableViewController id="OAA-tl-fEK" customClass="ListDetailController" customModule="BuyList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DAK-WU-CrP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="6gN-d7-J25">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sE9-kh-QoB">
+                                    <rect key="frame" x="8" y="5.5" width="173" height="36"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="sE9-kh-QoB" secondAttribute="height" multiplier="24:5" id="GGG-fL-WQe"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="По шаблону">
+                                        <color key="titleColor" red="0.2156862745" green="0.2784313725" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                            <real key="value" value="0.25"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="point" keyPath="layer.shadowOffset">
+                                            <point key="value" x="0.0" y="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                            <integer key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="shablonButton:" destination="OAA-tl-fEK" eventType="touchUpInside" id="dd0-5o-ieY"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9K-Bo-KsF">
+                                    <rect key="frame" x="194" y="5.5" width="173" height="36"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Y9K-Bo-KsF" secondAttribute="height" multiplier="24:5" id="X6D-af-yYz"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="По рецепту">
+                                        <color key="titleColor" red="0.2156862745" green="0.2784313725" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                            <real key="value" value="0.25"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="point" keyPath="layer.shadowOffset">
+                                            <point key="value" x="0.0" y="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                            <integer key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="riciptButton:" destination="OAA-tl-fEK" eventType="touchUpInside" id="noI-bk-qBX"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="sE9-kh-QoB" firstAttribute="leading" secondItem="6gN-d7-J25" secondAttribute="leading" constant="8" id="4Ax-zL-0CD"/>
+                                <constraint firstItem="sE9-kh-QoB" firstAttribute="top" secondItem="6gN-d7-J25" secondAttribute="top" constant="5.5" id="Iw5-al-o0J"/>
+                                <constraint firstItem="Y9K-Bo-KsF" firstAttribute="leading" relation="lessThanOrEqual" secondItem="sE9-kh-QoB" secondAttribute="trailing" constant="14" id="Pow-pe-WU5"/>
+                                <constraint firstItem="Y9K-Bo-KsF" firstAttribute="centerY" secondItem="6gN-d7-J25" secondAttribute="centerY" constant="-7.5" id="VP0-5o-9sx"/>
+                                <constraint firstItem="Y9K-Bo-KsF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sE9-kh-QoB" secondAttribute="trailing" constant="12" id="Vy4-Nh-JOm"/>
+                                <constraint firstItem="sE9-kh-QoB" firstAttribute="centerY" secondItem="6gN-d7-J25" secondAttribute="centerY" constant="-7.5" id="Ygj-Ri-jcF"/>
+                                <constraint firstAttribute="trailing" secondItem="Y9K-Bo-KsF" secondAttribute="trailing" constant="8" id="cV6-KS-K8j"/>
+                                <constraint firstItem="Y9K-Bo-KsF" firstAttribute="top" secondItem="6gN-d7-J25" secondAttribute="top" constant="5.5" id="e1G-Ev-dci"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListDetailCell" rowHeight="54" id="l9G-rD-8s7" customClass="ListDetailCell" customModule="BuyList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="90" width="375" height="54"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l9G-rD-8s7" id="lk8-dI-CGc">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Морковь" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sho-tk-U26">
+                                            <rect key="frame" x="58" y="14" width="88.5" height="26"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <color key="textColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5P-Mi-37E">
+                                            <rect key="frame" x="32" y="19" width="16" height="16"/>
+                                            <color key="backgroundColor" red="0.29803921568627451" green="0.70980392156862748" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="IXd-y2-ZaG"/>
+                                                <constraint firstAttribute="height" constant="16" id="fJi-0n-bXH"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Sho-tk-U26" firstAttribute="top" secondItem="lk8-dI-CGc" secondAttribute="top" constant="14" id="97h-h6-sgA"/>
+                                        <constraint firstAttribute="bottom" secondItem="Sho-tk-U26" secondAttribute="bottom" constant="14" id="Nlz-ta-tYm"/>
+                                        <constraint firstItem="F5P-Mi-37E" firstAttribute="centerY" secondItem="lk8-dI-CGc" secondAttribute="centerY" id="U70-eu-92M"/>
+                                        <constraint firstItem="Sho-tk-U26" firstAttribute="leading" secondItem="F5P-Mi-37E" secondAttribute="trailing" constant="10" id="XXE-vx-7uf"/>
+                                        <constraint firstItem="F5P-Mi-37E" firstAttribute="leading" secondItem="lk8-dI-CGc" secondAttribute="leading" constant="32" id="ppG-Ir-6jx"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="listName" destination="Sho-tk-U26" id="IMR-9q-KT2"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OAA-tl-fEK" id="TKt-f1-Acg"/>
+                            <outlet property="delegate" destination="OAA-tl-fEK" id="0kg-re-JT9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Название" id="xGb-qd-WKz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QQ3-fX-LIv">
+                            <connections>
+                                <action selector="addButton:" destination="OAA-tl-fEK" id="tQS-bn-KGg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2bZ-3z-D4n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1200.8" y="11.244377811094454"/>
         </scene>
         <!--Recipe Controller-->
         <scene sceneID="tMI-0x-0eB">
@@ -265,7 +407,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1u-dS-pQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-322"/>
+            <point key="canvasLocation" x="1201" y="-702"/>
         </scene>
         <!--Recipe Information Controller-->
         <scene sceneID="tIl-tG-uef">
@@ -526,7 +668,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAl-q0-RTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2597.5999999999999" y="-322.48875562218893"/>
+            <point key="canvasLocation" x="1934" y="-702"/>
         </scene>
         <!--Рецепт-->
         <scene sceneID="0oJ-NC-JEN">
@@ -674,7 +816,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HU-M0-MKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="367"/>
+            <point key="canvasLocation" x="1201" y="721"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="djT-My-J9N">

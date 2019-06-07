@@ -25,6 +25,8 @@
 		55DA3785229D8BEA000712CA /* VPAutoCompleteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */; };
 		8989784222AA79D700918F95 /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8989784122AA79D700918F95 /* ExampleData.swift */; };
 		8989784422AA809F00918F95 /* FooterList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8989784322AA809F00918F95 /* FooterList.xib */; };
+		8989784622AAAAAF00918F95 /* ListDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8989784522AAAAAF00918F95 /* ListDetailController.swift */; };
+		8989784822AAAABA00918F95 /* ListDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8989784722AAAABA00918F95 /* ListDetailCell.swift */; };
 		89FFE2DA2289928100784297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FFE2D92289928100784297 /* AppDelegate.swift */; };
 		89FFE2DC2289928100784297 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FFE2DB2289928100784297 /* ListController.swift */; };
 		89FFE2DF2289928100784297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FFE2DD2289928100784297 /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 		855E86923BAA10D101038F08 /* Pods-BuyList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyList.debug.xcconfig"; path = "Target Support Files/Pods-BuyList/Pods-BuyList.debug.xcconfig"; sourceTree = "<group>"; };
 		8989784122AA79D700918F95 /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
 		8989784322AA809F00918F95 /* FooterList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterList.xib; sourceTree = "<group>"; };
+		8989784522AAAAAF00918F95 /* ListDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailController.swift; sourceTree = "<group>"; };
+		8989784722AAAABA00918F95 /* ListDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCell.swift; sourceTree = "<group>"; };
 		89FFE2D62289928100784297 /* BuyList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FFE2D92289928100784297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89FFE2DB2289928100784297 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				89FFE2D92289928100784297 /* AppDelegate.swift */,
 				89FFE2DB2289928100784297 /* ListController.swift */,
 				550DCA59228ACAF400A04E7F /* ListCell.swift */,
+				8989784522AAAAAF00918F95 /* ListDetailController.swift */,
+				8989784722AAAABA00918F95 /* ListDetailCell.swift */,
 				8989784122AA79D700918F95 /* ExampleData.swift */,
 				5591EB8922A8306F00E924AF /* Qqq.swift */,
 				89FFE2DD2289928100784297 /* Main.storyboard */,
@@ -314,6 +320,8 @@
 				554176832294591800AE8E8F /* RecipeInformationController.swift in Sources */,
 				550DCA5A228ACAF400A04E7F /* ListCell.swift in Sources */,
 				5591EB8A22A8306F00E924AF /* Qqq.swift in Sources */,
+				8989784822AAAABA00918F95 /* ListDetailCell.swift in Sources */,
+				8989784622AAAAAF00918F95 /* ListDetailController.swift in Sources */,
 				55417687229463A900AE8E8F /* RecipeCell.swift in Sources */,
 				55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */,
 				55BDA4CE22A026320044B6AE /* CategoryCircleView.swift in Sources */,

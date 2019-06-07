@@ -56,7 +56,30 @@ extension ListController {
         
         headerView.headerName.text = sections[section].name
         headerView.headerImage.image = listSectionImages[section]
-       
+        
+        headerView.onHeaderCreatePressed = {
+            [weak self] index in
+            
+            let alertController = UIAlertController(title: "Добавить новый список?", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Добавить", style: .default, handler: newOkHandler)
+            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+            alertController.addTextField(configurationHandler: newTextField)
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+
+            self?.present(alertController, animated: true)
+        }
+
+        func newTextField(textField: UITextField!) {
+            listTextField = textField
+            listTextField?.placeholder = "Новый список"
+        }
+        
+        func newOkHandler(alert: UIAlertAction!) {
+            sections[section].items.insert(Item.init(name: listTextField!.text!), at: 0)
+            tableView.reloadData()
+        }
+
         headerView.index = section
         headerView.delegate = self
         
