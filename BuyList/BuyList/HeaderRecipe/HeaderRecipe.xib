@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,17 +13,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iyu-gT-c3Y" customClass="HeaderRecipe" customModule="BuyList" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWi-iO-2Ww">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qi2-Ps-iBn">
-                            <rect key="frame" x="306" y="0.0" width="69" height="30"/>
+                            <rect key="frame" x="367" y="10" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="CRj-MB-Fz1"/>
-                                <constraint firstAttribute="width" constant="69" id="dyX-VG-b4V"/>
+                                <constraint firstAttribute="width" secondItem="qi2-Ps-iBn" secondAttribute="height" multiplier="4:3" constant="-13.333333333333329" id="JJk-pn-OnG"/>
                             </constraints>
                             <state key="normal" title="Добавить">
                                 <color key="titleColor" red="0.21984855410000001" green="1" blue="0.16217982219999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -32,26 +31,24 @@
                                 <action selector="createPressed:" destination="iyu-gT-c3Y" eventType="touchUpInside" id="UsU-Yc-4Hf"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рецепты" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-QM-hhl">
-                            <rect key="frame" x="8" y="4" width="240" height="21"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="240" id="1Zu-NH-2DG"/>
-                                <constraint firstAttribute="height" constant="21" id="aef-CZ-Fx8"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Игредиенты" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-QM-hhl">
+                            <rect key="frame" x="27" y="17" width="140" height="26"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="qi2-Ps-iBn" secondAttribute="trailing" id="HiQ-zX-XI3"/>
-                        <constraint firstItem="qi2-Ps-iBn" firstAttribute="leading" secondItem="TEY-QM-hhl" secondAttribute="trailing" constant="58" id="Mgy-9S-MlH"/>
-                        <constraint firstItem="TEY-QM-hhl" firstAttribute="top" secondItem="yWi-iO-2Ww" secondAttribute="top" constant="4" id="TAR-Qf-3Uj"/>
-                        <constraint firstAttribute="bottom" secondItem="qi2-Ps-iBn" secondAttribute="bottom" constant="-2" id="UKG-6r-41o"/>
-                        <constraint firstItem="TEY-QM-hhl" firstAttribute="leading" secondItem="yWi-iO-2Ww" secondAttribute="leading" constant="8" id="i9K-Zr-VA6"/>
-                        <constraint firstItem="qi2-Ps-iBn" firstAttribute="top" secondItem="yWi-iO-2Ww" secondAttribute="top" id="jTt-pq-x5k"/>
-                        <constraint firstAttribute="bottom" secondItem="TEY-QM-hhl" secondAttribute="bottom" constant="3" id="mZ2-9J-oMw"/>
+                        <constraint firstItem="TEY-QM-hhl" firstAttribute="top" secondItem="yWi-iO-2Ww" secondAttribute="top" constant="17" id="Cjo-m4-oS4"/>
+                        <constraint firstAttribute="bottom" secondItem="TEY-QM-hhl" secondAttribute="bottom" constant="17" id="YKO-PQ-2IT"/>
+                        <constraint firstItem="qi2-Ps-iBn" firstAttribute="top" secondItem="yWi-iO-2Ww" secondAttribute="top" constant="10" id="aiR-Or-cwI"/>
+                        <constraint firstItem="TEY-QM-hhl" firstAttribute="centerX" secondItem="yWi-iO-2Ww" secondAttribute="centerX" constant="-110" id="b9f-QX-o62"/>
+                        <constraint firstAttribute="bottom" secondItem="qi2-Ps-iBn" secondAttribute="bottom" constant="10" id="eOe-vx-5F6"/>
+                        <constraint firstItem="qi2-Ps-iBn" firstAttribute="centerY" secondItem="yWi-iO-2Ww" secondAttribute="centerY" id="foh-n2-hCK"/>
+                        <constraint firstAttribute="trailing" secondItem="qi2-Ps-iBn" secondAttribute="trailing" constant="7" id="p0R-1s-7Rq"/>
+                        <constraint firstItem="TEY-QM-hhl" firstAttribute="leading" secondItem="yWi-iO-2Ww" secondAttribute="leading" constant="27" id="wAJ-1Y-924"/>
+                        <constraint firstItem="TEY-QM-hhl" firstAttribute="centerY" secondItem="yWi-iO-2Ww" secondAttribute="centerY" id="xlA-Df-gq7"/>
                     </constraints>
                 </view>
             </subviews>
@@ -68,7 +65,7 @@
                 <outlet property="createButton" destination="qi2-Ps-iBn" id="4H2-nw-HpG"/>
                 <outlet property="headerName" destination="TEY-QM-hhl" id="0Bb-uq-QlI"/>
             </connections>
-            <point key="canvasLocation" x="74" y="155"/>
+            <point key="canvasLocation" x="71.739130434782609" y="154.07608695652175"/>
         </view>
     </objects>
 </document>

@@ -105,22 +105,12 @@ class ListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        var cell111: UITableViewCell!
-//        if indexPath.row == 0 {
-//            cell111 = tableView.dequeueReusableCell(withIdentifier: "qqq", for: indexPath)
-//        } else if indexPath.row != 0 {
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListCell
-//        cell111 = cell
 
         var listArray = ListArray[indexPath.section]?[indexPath.row]
 
         cell.listName.text = listArray
-
-//        if indexPath.row == 0 {
-//            cell111 = tableView.dequeueReusableCell(withIdentifier: "qqq")
-//            var cell2 = tableView.dequeueReusableCell(withIdentifier: "qqq")
-//            return cell2!
-//        }
 
         cell.onDeletePressed = {
             [weak self] index in

@@ -11,10 +11,7 @@ import UIKit
 class RecipeInformationController: UITableViewController {
     
     @IBOutlet weak var lableRecipeName: UILabel!
-    @IBOutlet weak var editRecipeButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    
-    var indexIsHidden: Int = 0
     
     var nameLable: String!
     var textFieldName: UITextField?
@@ -48,14 +45,12 @@ class RecipeInformationController: UITableViewController {
         return section
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderRecipe") as! HeaderRecipe
-        
-        if indexIsHidden == 0 {
-            headerView.createButton.isHidden = true
-        } else if indexIsHidden == 1 {
-            headerView.createButton.isHidden = false
-        }
         
         // section1
         if section == 0 {
@@ -156,26 +151,6 @@ class RecipeInformationController: UITableViewController {
             let cellProduct = tableView.dequeueReusableCell(withIdentifier: "RecipeProductCell", for: indexPath) as! RecipeProductCell
             cellProduct.productName.text = ProductNameArray[indexPath.row]
             cellProduct.productMass.text = ProductMassArray[indexPath.row]
-            cellProduct.productView.backgroundColor = UIColor.red
-            
-            if indexIsHidden == 0 {
-                cellProduct.probuctEditButton.isHidden = true
-                cellProduct.productDeleteButton.isHidden = true
-            } else if indexIsHidden == 1 {
-                cellProduct.probuctEditButton.isHidden = false
-                cellProduct.productDeleteButton.isHidden = false
-            }
-            
-            cellProduct.onViewPressed = {
-                [weak self] index in
-                if cellProduct.productView.backgroundColor == UIColor.red {
-                    cellProduct.productView.backgroundColor = UIColor.green
-                    cellProduct.productButtonView.setTitle("ok", for: .normal)
-                } else if cellProduct.productView.backgroundColor == UIColor.green {
-                    cellProduct.productView.backgroundColor = UIColor.red
-                    cellProduct.productButtonView.setTitle("", for: .normal)
-                }
-            }
             
             cellProduct.onDeletePressed = {
                 [weak self] index in
@@ -238,14 +213,6 @@ class RecipeInformationController: UITableViewController {
             cellInstruction.instructionText.text = InstructArray[indexPath.row]
             cellInstruction.instructionNumber.text = "\(indexNumber)."
             
-            if indexIsHidden == 0 {
-                cellInstruction.instructionEditButton.isHidden = true
-                cellInstruction.instructionDeleteButton.isHidden = true
-            } else if indexIsHidden == 1 {
-                cellInstruction.instructionEditButton.isHidden = false
-                cellInstruction.instructionDeleteButton.isHidden = false
-            }
-            
             cellInstruction.onDeletePressed = {
                 [weak self] index in
                 self?.InstructArray.remove(at: indexPath.row)
@@ -296,19 +263,5 @@ class RecipeInformationController: UITableViewController {
     
     @IBAction func cencelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func editButton(_ sender: Any) {
-        
-        if editRecipeButton.titleLabel?.text == "Ред." {
-            editRecipeButton.setTitle("Отмена", for: .normal)
-            editRecipeButton.setTitleColor(UIColor.red, for: .normal)
-            indexIsHidden = 1
-        } else if editRecipeButton.titleLabel?.text == "Отмена"{
-            editRecipeButton.setTitle("Ред.", for: .normal)
-            editRecipeButton.setTitleColor(UIColor.blue, for: .normal)
-            indexIsHidden = 0
-        }
-        tableView.reloadData()
     }
 }
