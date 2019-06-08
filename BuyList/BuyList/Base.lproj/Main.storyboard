@@ -325,7 +325,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydZ-jK-JjW">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydZ-jK-JjW" customClass="CategoryCircleView" customModule="BuyList" customModuleProvider="target">
                                             <rect key="frame" x="27" y="14" width="16" height="16"/>
                                             <color key="backgroundColor" red="1" green="0.0" blue="0.1158826245" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>

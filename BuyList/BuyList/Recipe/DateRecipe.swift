@@ -23,7 +23,7 @@ public struct Section {
     var items: [Item]
     var collapsed: Bool
     
-    public init(name: String, items: [Item], collapsed: Bool = true) {
+    public init(name: String, items: [Item], collapsed: Bool = false) {
         self.name = name
         self.items = items
         self.collapsed = collapsed
@@ -32,11 +32,13 @@ public struct Section {
 
 public var sectionsDataRecipe: [Section] = [
     Section(name: "Ингредиенты", items: [
-        Item(name: "Ашан", count: "200"),
-        Item(name: "Косметика", count: "150")
+        Item(name: "Бананы", count: "400г"),
+        Item(name: "Ананасы", count: "500г"),
+        Item(name: "Яблоки", count: "250г")
         ]),
     Section(name: "Инструкция", items: [
-        Item(name: "Вечеринка", count: "200"),
-        Item(name: "Бытовая", count: "200")
+        Item(name: "Купить.", count: ""),
+        Item(name: "Помыть.", count: ""),
+        Item(name: "Скушать.", count: "")
         ]),
 ]
