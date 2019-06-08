@@ -19,6 +19,7 @@
 		55BC4F122296EA0B001D231A /* HeaderRecipe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BC4F112296EA0B001D231A /* HeaderRecipe.xib */; };
 		55BDA4CC22A024F70044B6AE /* NewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4CB22A024F70044B6AE /* NewCategoryViewController.swift */; };
 		55BDA4CE22A026320044B6AE /* CategoryCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4CD22A026320044B6AE /* CategoryCircleView.swift */; };
+		55CA361E22ABD15C00900BDF /* DateRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA361D22ABD15C00900BDF /* DateRecipe.swift */; };
 		55DA3781229D8BA3000712CA /* VPAutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA3780229D8BA3000712CA /* VPAutoComplete.swift */; };
 		55DA3783229D8BC6000712CA /* VPAutoCompleteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA3782229D8BC6000712CA /* VPAutoCompleteViewCell.swift */; };
 		55DA3785229D8BEA000712CA /* VPAutoCompleteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */; };
@@ -44,6 +45,7 @@
 		55BC4F112296EA0B001D231A /* HeaderRecipe.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderRecipe.xib; sourceTree = "<group>"; };
 		55BDA4CB22A024F70044B6AE /* NewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryViewController.swift; sourceTree = "<group>"; };
 		55BDA4CD22A026320044B6AE /* CategoryCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCircleView.swift; sourceTree = "<group>"; };
+		55CA361D22ABD15C00900BDF /* DateRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRecipe.swift; sourceTree = "<group>"; };
 		55DA3780229D8BA3000712CA /* VPAutoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPAutoComplete.swift; sourceTree = "<group>"; };
 		55DA3782229D8BC6000712CA /* VPAutoCompleteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPAutoCompleteViewCell.swift; sourceTree = "<group>"; };
 		55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VPAutoCompleteViewCell.xib; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				554176822294591800AE8E8F /* RecipeInformationController.swift */,
 				554176842294595700AE8E8F /* RecipeProductCell.swift */,
 				55417680229458D000AE8E8F /* RecipeInstructionCell.swift */,
+				55CA361D22ABD15C00900BDF /* DateRecipe.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				55BC4F102296E9F8001D231A /* HeaderRecipe.swift in Sources */,
 				554176832294591800AE8E8F /* RecipeInformationController.swift in Sources */,
 				550DCA5A228ACAF400A04E7F /* ListCell.swift in Sources */,
+				55CA361E22ABD15C00900BDF /* DateRecipe.swift in Sources */,
 				55417687229463A900AE8E8F /* RecipeCell.swift in Sources */,
 				55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */,
 				55BDA4CE22A026320044B6AE /* CategoryCircleView.swift in Sources */,
