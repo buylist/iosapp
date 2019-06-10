@@ -32,7 +32,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Игредиенты" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-QM-hhl">
-                            <rect key="frame" x="27" y="17" width="140" height="26"/>
+                            <rect key="frame" x="27" y="17" width="124" height="26"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -43,12 +43,10 @@
                         <constraint firstItem="TEY-QM-hhl" firstAttribute="top" secondItem="yWi-iO-2Ww" secondAttribute="top" constant="17" id="Cjo-m4-oS4"/>
                         <constraint firstAttribute="bottom" secondItem="TEY-QM-hhl" secondAttribute="bottom" constant="17" id="YKO-PQ-2IT"/>
                         <constraint firstItem="qi2-Ps-iBn" firstAttribute="top" secondItem="yWi-iO-2Ww" secondAttribute="top" constant="10" id="aiR-Or-cwI"/>
-                        <constraint firstItem="TEY-QM-hhl" firstAttribute="centerX" secondItem="yWi-iO-2Ww" secondAttribute="centerX" constant="-110" id="b9f-QX-o62"/>
                         <constraint firstAttribute="bottom" secondItem="qi2-Ps-iBn" secondAttribute="bottom" constant="10" id="eOe-vx-5F6"/>
                         <constraint firstItem="qi2-Ps-iBn" firstAttribute="centerY" secondItem="yWi-iO-2Ww" secondAttribute="centerY" id="foh-n2-hCK"/>
                         <constraint firstAttribute="trailing" secondItem="qi2-Ps-iBn" secondAttribute="trailing" constant="7" id="p0R-1s-7Rq"/>
                         <constraint firstItem="TEY-QM-hhl" firstAttribute="leading" secondItem="yWi-iO-2Ww" secondAttribute="leading" constant="27" id="wAJ-1Y-924"/>
-                        <constraint firstItem="TEY-QM-hhl" firstAttribute="centerY" secondItem="yWi-iO-2Ww" secondAttribute="centerY" id="xlA-Df-gq7"/>
                     </constraints>
                 </view>
             </subviews>

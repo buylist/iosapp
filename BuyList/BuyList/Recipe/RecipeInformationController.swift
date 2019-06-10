@@ -12,12 +12,14 @@ class RecipeInformationController: UITableViewController {
     
     @IBOutlet weak var lableRecipeName: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var cencelView: UIView!
     
     var nameLable: String!
     var textFieldName: UITextField?
     var textFieldMass: UITextField?
     
     var recipe = sectionsDataRecipe
+    var indexView = 0
     
     override func viewDidLoad() {
         
@@ -25,6 +27,7 @@ class RecipeInformationController: UITableViewController {
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderRecipe")
         
         lableRecipeName.text = nameLable
+        cencelView.backgroundColor = UIColor(patternImage: UIImage(named: "Back")!)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,7 +80,7 @@ class RecipeInformationController: UITableViewController {
             
             func newOkHandler(alert: UIAlertAction!) {
                 if !(recipe[section].name.contains(textFieldName!.text!)) && textFieldName!.text! != "" {
-                    recipe[section].items.append(Item.init(name: textFieldName!.text!, count: textFieldMass!.text!))
+                    recipe[section].items.append(Item.init(name: textFieldName!.text!, count: textFieldMass!.text!, okView: false))
                     tableView.reloadData()
                 } else if  textFieldName!.text! == "" {
                     let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
@@ -116,7 +119,7 @@ class RecipeInformationController: UITableViewController {
             
             func newOkHandler(alert: UIAlertAction!) {
                 if textFieldName!.text! != "" {
-                    recipe[section].items.append(Item.init(name: textFieldName!.text!, count: ""))
+                    recipe[section].items.append(Item.init(name: textFieldName!.text!, count: "", okView: false))
                     tableView.reloadData()
                 } else {
                     let alertController = UIAlertController(title: "Ошибка!", message:  "Пусто.", preferredStyle: .alert)
@@ -138,7 +141,7 @@ class RecipeInformationController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell!
         
-        let item: Item = recipe[indexPath.section].items[indexPath.row]
+        var item: Item = recipe[indexPath.section].items[indexPath.row]
         
         if indexPath.section == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "RecipeProductCell", for: indexPath) as? RecipeProductCell ?? RecipeProductCell(style: .default, reuseIdentifier: "RecipeProductCell")
@@ -150,6 +153,17 @@ class RecipeInformationController: UITableViewController {
             cellProduct.productView.layer.borderWidth = 1
             cellProduct.productView.layer.borderColor = UIColor.red.cgColor
             cellProduct.productView.backgroundColor = UIColor.white
+            
+            cellProduct.onViewPressed = {
+                [weak self] index in
+                if !item.okView {
+                    cellProduct.productView.backgroundColor = UIColor.red
+                    item.okView = true
+                } else if item.okView {
+                    cellProduct.productView.backgroundColor = UIColor.white
+                    item.okView = false
+                }
+            }
             
             return cellProduct
             
@@ -184,14 +198,13 @@ class RecipeInformationController: UITableViewController {
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         
-        let action = UIContextualAction(style: .destructive, title: "Удалить") {
+        let action = UIContextualAction(style: .normal, title: nil) {
             (action, view, complection) in
             self.recipe[indexPath.section].items.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.reloadData()
         }
-        
-        action.backgroundColor = UIColor.red
+        action.backgroundColor = UIColor(patternImage: UIImage(named: "Удалить")!)
         
         return action
     }
@@ -200,7 +213,7 @@ class RecipeInformationController: UITableViewController {
         
         var item = recipe[indexPath.section].items[indexPath.row]
         
-        let action = UIContextualAction(style: .destructive, title: "Ред.") {
+        let action = UIContextualAction(style: .normal, title: nil) {
             (action, view, complection) in
             
             let alertController = UIAlertController(title: "Изменить название Ингредиента?", message: nil, preferredStyle: .alert)
@@ -242,7 +255,7 @@ class RecipeInformationController: UITableViewController {
             }
         }
         
-        action.backgroundColor = UIColor.orange
+        action.backgroundColor = UIColor(patternImage: UIImage(named: "Ред")!)
         
         return action
     }
