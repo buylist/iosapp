@@ -23,6 +23,8 @@ class RecipeInformationController: UITableViewController {
     
     override func viewDidLoad() {
         
+        self.tableView.separatorColor = UIColor.clear
+        
         let headerNib = UINib.init(nibName: "HeaderRecipe", bundle: Bundle.main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderRecipe")
         
@@ -150,17 +152,17 @@ class RecipeInformationController: UITableViewController {
             cellProduct.productName.text = item.name
             cellProduct.productMass.text = item.count
             
-            cellProduct.productView.layer.borderWidth = 1
-            cellProduct.productView.layer.borderColor = UIColor.red.cgColor
-            cellProduct.productView.backgroundColor = UIColor.white
+            cellProduct.productButtonView.layer.borderWidth = 1
+            cellProduct.productButtonView.layer.borderColor = UIColor.red.cgColor
+            cellProduct.productButtonView.backgroundColor = UIColor.white
             
             cellProduct.onViewPressed = {
                 [weak self] index in
                 if !item.okView {
-                    cellProduct.productView.backgroundColor = UIColor.red
+                    cellProduct.productButtonView.backgroundColor = UIColor.red
                     item.okView = true
                 } else if item.okView {
-                    cellProduct.productView.backgroundColor = UIColor.white
+                    cellProduct.productButtonView.backgroundColor = UIColor.white
                     item.okView = false
                 }
             }

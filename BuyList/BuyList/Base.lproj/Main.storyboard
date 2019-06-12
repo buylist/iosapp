@@ -327,25 +327,25 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeProductCell" rowHeight="44" id="vyd-x8-tEi" customClass="RecipeProductCell" customModule="BuyList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RecipeProductCell" rowHeight="44" id="vyd-x8-tEi" customClass="RecipeProductCell" customModule="BuyList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vyd-x8-tEi" id="mcp-Xw-oWN">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydZ-jK-JjW" customClass="CategoryCircleView" customModule="BuyList" customModuleProvider="target">
-                                            <rect key="frame" x="27" y="14" width="16" height="16"/>
-                                            <color key="backgroundColor" red="1" green="0.0" blue="0.1158826245" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="ydZ-jK-JjW" secondAttribute="height" multiplier="1:1" id="kL3-bz-Az9"/>
-                                            </constraints>
-                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5U-Rr-8MJ">
                                             <rect key="frame" x="27" y="14" width="16" height="16"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="06n-k4-FHQ"/>
                                                 <constraint firstAttribute="width" secondItem="A5U-Rr-8MJ" secondAttribute="height" multiplier="1:1" id="A45-BF-rEr"/>
+                                                <constraint firstAttribute="height" constant="16" id="rTZ-L3-1P9"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="onViewPressed:" destination="vyd-x8-tEi" eventType="touchUpInside" id="mTg-ay-eyT"/>
                                             </connections>
@@ -364,31 +364,26 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="A5U-Rr-8MJ" firstAttribute="centerY" secondItem="ydZ-jK-JjW" secondAttribute="centerY" id="9Pp-3q-PhG"/>
+                                        <constraint firstAttribute="bottom" secondItem="A5U-Rr-8MJ" secondAttribute="bottom" constant="13.67" id="ChJ-24-lVO"/>
                                         <constraint firstItem="zBl-Sx-Sjv" firstAttribute="top" secondItem="mcp-Xw-oWN" secondAttribute="topMargin" constant="1" id="Fqd-pu-LYT"/>
-                                        <constraint firstItem="A5U-Rr-8MJ" firstAttribute="bottom" secondItem="ydZ-jK-JjW" secondAttribute="bottom" id="GxN-X9-CnC"/>
-                                        <constraint firstItem="A5U-Rr-8MJ" firstAttribute="top" secondItem="ydZ-jK-JjW" secondAttribute="top" id="Q8C-oC-5aI"/>
-                                        <constraint firstItem="A5U-Rr-8MJ" firstAttribute="firstBaseline" secondItem="ydZ-jK-JjW" secondAttribute="firstBaseline" id="QJp-LD-ekh"/>
-                                        <constraint firstAttribute="bottom" secondItem="ydZ-jK-JjW" secondAttribute="bottom" constant="13.67" id="R6K-he-6Rx"/>
+                                        <constraint firstItem="A5U-Rr-8MJ" firstAttribute="top" secondItem="mcp-Xw-oWN" secondAttribute="top" constant="14" id="Pgb-ta-zTs"/>
+                                        <constraint firstItem="A5U-Rr-8MJ" firstAttribute="leading" secondItem="mcp-Xw-oWN" secondAttribute="leading" constant="27" id="SFt-h7-MOZ"/>
                                         <constraint firstItem="Pmk-XF-o3F" firstAttribute="top" secondItem="mcp-Xw-oWN" secondAttribute="top" constant="11" id="TDu-WZ-Ebi"/>
-                                        <constraint firstItem="ydZ-jK-JjW" firstAttribute="top" secondItem="mcp-Xw-oWN" secondAttribute="top" constant="14" id="U3v-lx-jtm"/>
                                         <constraint firstItem="zBl-Sx-Sjv" firstAttribute="trailing" secondItem="mcp-Xw-oWN" secondAttribute="trailingMargin" id="XPi-gK-RDw"/>
                                         <constraint firstAttribute="bottom" secondItem="Pmk-XF-o3F" secondAttribute="bottom" constant="11.67" id="YGc-IM-3DM"/>
-                                        <constraint firstItem="A5U-Rr-8MJ" firstAttribute="leading" secondItem="ydZ-jK-JjW" secondAttribute="trailing" constant="-16" id="dqb-hj-E7v"/>
+                                        <constraint firstAttribute="bottom" secondItem="Pmk-XF-o3F" secondAttribute="bottom" constant="11.67" id="Z2T-eQ-gnF"/>
+                                        <constraint firstItem="Pmk-XF-o3F" firstAttribute="leading" secondItem="A5U-Rr-8MJ" secondAttribute="trailing" constant="14" id="cTq-AZ-B2x"/>
                                         <constraint firstItem="zBl-Sx-Sjv" firstAttribute="bottom" secondItem="mcp-Xw-oWN" secondAttribute="bottomMargin" id="f1T-zw-d29"/>
-                                        <constraint firstItem="Pmk-XF-o3F" firstAttribute="leading" secondItem="ydZ-jK-JjW" secondAttribute="trailing" constant="14" id="jwH-xG-7RF"/>
-                                        <constraint firstItem="ydZ-jK-JjW" firstAttribute="leading" secondItem="mcp-Xw-oWN" secondAttribute="leading" constant="27" id="nlb-Mk-xZP"/>
-                                        <constraint firstItem="A5U-Rr-8MJ" firstAttribute="top" secondItem="ydZ-jK-JjW" secondAttribute="bottom" constant="-16" id="w4d-f0-dC3"/>
+                                        <constraint firstItem="Pmk-XF-o3F" firstAttribute="top" secondItem="mcp-Xw-oWN" secondAttribute="top" constant="11" id="fkP-2l-HWO"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="productButtonView" destination="A5U-Rr-8MJ" id="RXy-S3-H0Q"/>
                                     <outlet property="productMass" destination="zBl-Sx-Sjv" id="mSr-IW-Tq6"/>
                                     <outlet property="productName" destination="Pmk-XF-o3F" id="cXi-eC-rar"/>
-                                    <outlet property="productView" destination="ydZ-jK-JjW" id="Dir-6H-Ewl"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeInstructionCell" id="A5t-N1-jTp" customClass="RecipeInstructionCell" customModule="BuyList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RecipeInstructionCell" id="A5t-N1-jTp" customClass="RecipeInstructionCell" customModule="BuyList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A5t-N1-jTp" id="GOF-6f-uy8">

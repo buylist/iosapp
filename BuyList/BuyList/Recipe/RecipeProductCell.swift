@@ -10,7 +10,6 @@ import UIKit
 
 class RecipeProductCell: UITableViewCell {
 
-    @IBOutlet weak var productView: UIView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productMass: UILabel!
     @IBOutlet weak var productButtonView: UIButton!
