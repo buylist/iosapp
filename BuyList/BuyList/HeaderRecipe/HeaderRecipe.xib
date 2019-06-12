@@ -19,20 +19,26 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWi-iO-2Ww">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qi2-Ps-iBn">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qi2-Ps-iBn">
                             <rect key="frame" x="367" y="10" width="40" height="40"/>
+                            <color key="backgroundColor" red="1" green="0.0" blue="0.1158826245" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="qi2-Ps-iBn" secondAttribute="height" multiplier="4:3" constant="-13.333333333333329" id="JJk-pn-OnG"/>
                             </constraints>
-                            <state key="normal" title="Добавить">
+                            <state key="normal" image="Shape">
                                 <color key="titleColor" red="0.21984855410000001" green="1" blue="0.16217982219999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="createPressed:" destination="iyu-gT-c3Y" eventType="touchUpInside" id="UsU-Yc-4Hf"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Игредиенты" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-QM-hhl">
-                            <rect key="frame" x="27" y="17" width="124" height="26"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ингредиенты" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-QM-hhl">
+                            <rect key="frame" x="27" y="17" width="136" height="26"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -66,4 +72,7 @@
             <point key="canvasLocation" x="71.739130434782609" y="154.07608695652175"/>
         </view>
     </objects>
+    <resources>
+        <image name="Shape" width="14" height="14"/>
+    </resources>
 </document>
