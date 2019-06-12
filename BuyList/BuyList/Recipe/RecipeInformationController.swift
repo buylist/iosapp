@@ -204,7 +204,8 @@ class RecipeInformationController: UITableViewController {
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.reloadData()
         }
-        action.backgroundColor = UIColor(patternImage: UIImage(named: "Удалить")!)
+        action.backgroundColor = .red
+        action.image = UIImage(named: "remove")
         
         return action
     }
@@ -254,8 +255,8 @@ class RecipeInformationController: UITableViewController {
                 self.present(alertController, animated: true)
             }
         }
-        
-        action.backgroundColor = UIColor(patternImage: UIImage(named: "Ред")!)
+        action.backgroundColor = .gray
+        action.image = UIImage(named: "edit")
         
         return action
     }
