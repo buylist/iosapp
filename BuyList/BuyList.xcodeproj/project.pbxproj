@@ -23,6 +23,9 @@
 		55DA3781229D8BA3000712CA /* VPAutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA3780229D8BA3000712CA /* VPAutoComplete.swift */; };
 		55DA3783229D8BC6000712CA /* VPAutoCompleteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA3782229D8BC6000712CA /* VPAutoCompleteViewCell.swift */; };
 		55DA3785229D8BEA000712CA /* VPAutoCompleteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */; };
+		55ECB6AB22B3E2B100C95EE7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECB6AA22B3E2B100C95EE7 /* Session.swift */; };
+		55ECB6AD22B3E2E900C95EE7 /* TestGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECB6AC22B3E2E900C95EE7 /* TestGet.swift */; };
+		55ECB6AF22B3E37900C95EE7 /* TestGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECB6AE22B3E37900C95EE7 /* TestGetService.swift */; };
 		89FFE2DA2289928100784297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FFE2D92289928100784297 /* AppDelegate.swift */; };
 		89FFE2DC2289928100784297 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FFE2DB2289928100784297 /* ListController.swift */; };
 		89FFE2DF2289928100784297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FFE2DD2289928100784297 /* Main.storyboard */; };
@@ -49,6 +52,9 @@
 		55DA3780229D8BA3000712CA /* VPAutoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPAutoComplete.swift; sourceTree = "<group>"; };
 		55DA3782229D8BC6000712CA /* VPAutoCompleteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPAutoCompleteViewCell.swift; sourceTree = "<group>"; };
 		55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VPAutoCompleteViewCell.xib; sourceTree = "<group>"; };
+		55ECB6AA22B3E2B100C95EE7 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		55ECB6AC22B3E2E900C95EE7 /* TestGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGet.swift; sourceTree = "<group>"; };
+		55ECB6AE22B3E37900C95EE7 /* TestGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGetService.swift; sourceTree = "<group>"; };
 		855E86923BAA10D101038F08 /* Pods-BuyList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyList.debug.xcconfig"; path = "Target Support Files/Pods-BuyList/Pods-BuyList.debug.xcconfig"; sourceTree = "<group>"; };
 		89FFE2D62289928100784297 /* BuyList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FFE2D92289928100784297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +137,23 @@
 			path = "VPAutoComplete-Source";
 			sourceTree = "<group>";
 		};
+		55ECB6A822B3E26800C95EE7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				55ECB6AE22B3E37900C95EE7 /* TestGetService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		55ECB6A922B3E27000C95EE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55ECB6AA22B3E2B100C95EE7 /* Session.swift */,
+				55ECB6AC22B3E2E900C95EE7 /* TestGet.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		67145A9783A1BEB0F12F7774 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +187,8 @@
 				89FFE2DB2289928100784297 /* ListController.swift */,
 				550DCA59228ACAF400A04E7F /* ListCell.swift */,
 				89FFE2DD2289928100784297 /* Main.storyboard */,
+				55ECB6A922B3E27000C95EE7 /* Model */,
+				55ECB6A822B3E26800C95EE7 /* Networking */,
 				5541767C2294586300AE8E8F /* Recipe */,
 				555AB63D228C720B00D098D8 /* HeaderList */,
 				554176752294525400AE8E8F /* HeaderRecipe */,
@@ -279,13 +304,21 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BuyList/Pods-BuyList-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -307,12 +340,15 @@
 				550DCA5A228ACAF400A04E7F /* ListCell.swift in Sources */,
 				55CA361E22ABD15C00900BDF /* DateRecipe.swift in Sources */,
 				55417687229463A900AE8E8F /* RecipeCell.swift in Sources */,
+				55ECB6AD22B3E2E900C95EE7 /* TestGet.swift in Sources */,
 				55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */,
 				55BDA4CE22A026320044B6AE /* CategoryCircleView.swift in Sources */,
 				89FFE2DC2289928100784297 /* ListController.swift in Sources */,
 				89FFE2DA2289928100784297 /* AppDelegate.swift in Sources */,
+				55ECB6AB22B3E2B100C95EE7 /* Session.swift in Sources */,
 				5541767F229458A700AE8E8F /* RecipeController.swift in Sources */,
 				55DA3783229D8BC6000712CA /* VPAutoCompleteViewCell.swift in Sources */,
+				55ECB6AF22B3E37900C95EE7 /* TestGetService.swift in Sources */,
 				55DA3781229D8BA3000712CA /* VPAutoComplete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

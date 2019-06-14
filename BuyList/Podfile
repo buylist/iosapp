@@ -6,6 +6,9 @@ target 'BuyList' do
   use_frameworks!
 
   pod 'IQKeyboardManagerSwift'
+  pod 'Alamofire'
+  pod 'SwiftyJSON', '~> 4.2.0'
+  pod 'RealmSwift'
 
   # Pods for BuyList
 

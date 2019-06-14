@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ListController: UITableViewController {
     
@@ -15,11 +16,33 @@ class ListController: UITableViewController {
     var ListSectionArray = [0: "Коллекция списков", 1: "Шаблоны", 2: "Рецепты"]
     var ListArray = [0: ["Список1", "Список2", "Список3"], 1: ["Шаблон1", "Шаблон2", "Шаблон3"], 2: ["Рецепт1", "Рецепт2", "Рецепт3"]]
     var ListOpen = [0: false, 1: false , 2: false]
+    
+    let testGetService = TestGetService()
 
     override func viewDidLoad() {
         
         let headerNib = UINib.init(nibName: "HeaderList", bundle: Bundle.main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderList")
+        
+        testGetService.loadListFriends()
+//            { [weak self] friends, error in
+//            guard let self = self, error == nil,
+//                let friends = friends else { print(error?.localizedDescription as Any); return }
+//
+//            //            self.friends = friends
+//
+//            let realm = try? Realm()
+//            try? realm?.write {
+//                if self.friends != nil {
+//                    realm?.delete(self.friends!)
+//                }
+//            }
+//
+//            try? DatabaseService.save(friends, update: true)
+//            //            DispatchQueue.main.async {
+//            //                self.tableView.reloadData()
+//            //            }
+//        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
