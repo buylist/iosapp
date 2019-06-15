@@ -17,14 +17,19 @@ class ListController: UITableViewController {
     var ListArray = [0: ["Список1", "Список2", "Список3"], 1: ["Шаблон1", "Шаблон2", "Шаблон3"], 2: ["Рецепт1", "Рецепт2", "Рецепт3"]]
     var ListOpen = [0: false, 1: false , 2: false]
     
-    let testGetService = TestGetService()
+    let categoriesService = CategoryService()
+    let listService = ListService()
+    let itemService = ItemService()
+    let checklistService = ChecklistService()
+    let tokenService = TokenService()
 
     override func viewDidLoad() {
         
         let headerNib = UINib.init(nibName: "HeaderList", bundle: Bundle.main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderList")
         
-        testGetService.loadListFriends()
+        listService.loadListListGet()
+        
 //            { [weak self] friends, error in
 //            guard let self = self, error == nil,
 //                let friends = friends else { print(error?.localizedDescription as Any); return }

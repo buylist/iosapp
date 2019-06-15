@@ -10,19 +10,21 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-class TestGet: Object {
+class CategoryGet: Object {
     
     @objc dynamic var uuid = UUID().uuidString
-    @objc dynamic var modified = ""
-    @objc dynamic var name = ""
     @objc dynamic var url = ""
+    @objc dynamic var name = ""
+    @objc dynamic var modified = ""
+    @objc dynamic var color = ""
     
     convenience init(json: JSON) {
         self.init()
         
-        self.modified = json["modified"].stringValue
-        self.name = json["name"].stringValue
         self.url = json["url"].stringValue
+        self.name = json["name"].stringValue
+        self.modified = json["modified"].stringValue
+        self.color = json["color"].stringValue
     }
     
     override static func primaryKey() -> String? {
@@ -30,6 +32,11 @@ class TestGet: Object {
     }
 }
 
-//[{'modified': '2019-05-22T13:40:01Z',
-//    'name': 'Apple',
-//    'url': 'http://127.0.0.1:8000/api/v1/items/1/'},
+//[
+//    {
+//        "url": "http://35.228.148.217:8000/api/v1/items/3/",
+//        "item_id": 653,
+//        "name": "Cola",
+//        "buyer_id": 2,
+//        "category_id": 4
+//    },

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		550DCA5A228ACAF400A04E7F /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550DCA59228ACAF400A04E7F /* ListCell.swift */; };
+		55253FBE22B518F300D092AB /* ListGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253FBD22B518F300D092AB /* ListGet.swift */; };
+		55253FC022B5191700D092AB /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253FBF22B5191700D092AB /* ListService.swift */; };
+		55253FC222B5267000D092AB /* ItemGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253FC122B5267000D092AB /* ItemGet.swift */; };
+		55253FC422B5267F00D092AB /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253FC322B5267F00D092AB /* ItemService.swift */; };
+		55253FC622B5309D00D092AB /* ChecklistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253FC522B5309D00D092AB /* ChecklistService.swift */; };
+		55253FC822B5528200D092AB /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253FC722B5528200D092AB /* TokenService.swift */; };
 		5541767F229458A700AE8E8F /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541767E229458A700AE8E8F /* RecipeController.swift */; };
 		55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55417680229458D000AE8E8F /* RecipeInstructionCell.swift */; };
 		554176832294591800AE8E8F /* RecipeInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554176822294591800AE8E8F /* RecipeInformationController.swift */; };
@@ -24,8 +30,8 @@
 		55DA3783229D8BC6000712CA /* VPAutoCompleteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA3782229D8BC6000712CA /* VPAutoCompleteViewCell.swift */; };
 		55DA3785229D8BEA000712CA /* VPAutoCompleteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */; };
 		55ECB6AB22B3E2B100C95EE7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECB6AA22B3E2B100C95EE7 /* Session.swift */; };
-		55ECB6AD22B3E2E900C95EE7 /* TestGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECB6AC22B3E2E900C95EE7 /* TestGet.swift */; };
-		55ECB6AF22B3E37900C95EE7 /* TestGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECB6AE22B3E37900C95EE7 /* TestGetService.swift */; };
+		55ECB6AD22B3E2E900C95EE7 /* CategoryGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECB6AC22B3E2E900C95EE7 /* CategoryGet.swift */; };
+		55ECB6AF22B3E37900C95EE7 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECB6AE22B3E37900C95EE7 /* CategoryService.swift */; };
 		89FFE2DA2289928100784297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FFE2D92289928100784297 /* AppDelegate.swift */; };
 		89FFE2DC2289928100784297 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FFE2DB2289928100784297 /* ListController.swift */; };
 		89FFE2DF2289928100784297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FFE2DD2289928100784297 /* Main.storyboard */; };
@@ -37,6 +43,12 @@
 /* Begin PBXFileReference section */
 		249FD9E3F756712DE3414E77 /* Pods_BuyList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuyList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		550DCA59228ACAF400A04E7F /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		55253FBD22B518F300D092AB /* ListGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGet.swift; sourceTree = "<group>"; };
+		55253FBF22B5191700D092AB /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
+		55253FC122B5267000D092AB /* ItemGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemGet.swift; sourceTree = "<group>"; };
+		55253FC322B5267F00D092AB /* ItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
+		55253FC522B5309D00D092AB /* ChecklistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistService.swift; sourceTree = "<group>"; };
+		55253FC722B5528200D092AB /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		5541767E229458A700AE8E8F /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		55417680229458D000AE8E8F /* RecipeInstructionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInstructionCell.swift; sourceTree = "<group>"; };
 		554176822294591800AE8E8F /* RecipeInformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInformationController.swift; sourceTree = "<group>"; };
@@ -53,8 +65,8 @@
 		55DA3782229D8BC6000712CA /* VPAutoCompleteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPAutoCompleteViewCell.swift; sourceTree = "<group>"; };
 		55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VPAutoCompleteViewCell.xib; sourceTree = "<group>"; };
 		55ECB6AA22B3E2B100C95EE7 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		55ECB6AC22B3E2E900C95EE7 /* TestGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGet.swift; sourceTree = "<group>"; };
-		55ECB6AE22B3E37900C95EE7 /* TestGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGetService.swift; sourceTree = "<group>"; };
+		55ECB6AC22B3E2E900C95EE7 /* CategoryGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGet.swift; sourceTree = "<group>"; };
+		55ECB6AE22B3E37900C95EE7 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		855E86923BAA10D101038F08 /* Pods-BuyList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyList.debug.xcconfig"; path = "Target Support Files/Pods-BuyList/Pods-BuyList.debug.xcconfig"; sourceTree = "<group>"; };
 		89FFE2D62289928100784297 /* BuyList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FFE2D92289928100784297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,7 +152,11 @@
 		55ECB6A822B3E26800C95EE7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				55ECB6AE22B3E37900C95EE7 /* TestGetService.swift */,
+				55ECB6AE22B3E37900C95EE7 /* CategoryService.swift */,
+				55253FBF22B5191700D092AB /* ListService.swift */,
+				55253FC322B5267F00D092AB /* ItemService.swift */,
+				55253FC522B5309D00D092AB /* ChecklistService.swift */,
+				55253FC722B5528200D092AB /* TokenService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -149,7 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				55ECB6AA22B3E2B100C95EE7 /* Session.swift */,
-				55ECB6AC22B3E2E900C95EE7 /* TestGet.swift */,
+				55ECB6AC22B3E2E900C95EE7 /* CategoryGet.swift */,
+				55253FBD22B518F300D092AB /* ListGet.swift */,
+				55253FC122B5267000D092AB /* ItemGet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,22 +351,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				55772E0E228C5AE000211630 /* HeaderList.swift in Sources */,
+				55253FBE22B518F300D092AB /* ListGet.swift in Sources */,
 				554176852294595700AE8E8F /* RecipeProductCell.swift in Sources */,
 				55BDA4CC22A024F70044B6AE /* NewCategoryViewController.swift in Sources */,
+				55253FC222B5267000D092AB /* ItemGet.swift in Sources */,
 				55BC4F102296E9F8001D231A /* HeaderRecipe.swift in Sources */,
+				55253FC422B5267F00D092AB /* ItemService.swift in Sources */,
 				554176832294591800AE8E8F /* RecipeInformationController.swift in Sources */,
+				55253FC622B5309D00D092AB /* ChecklistService.swift in Sources */,
 				550DCA5A228ACAF400A04E7F /* ListCell.swift in Sources */,
 				55CA361E22ABD15C00900BDF /* DateRecipe.swift in Sources */,
 				55417687229463A900AE8E8F /* RecipeCell.swift in Sources */,
-				55ECB6AD22B3E2E900C95EE7 /* TestGet.swift in Sources */,
+				55253FC022B5191700D092AB /* ListService.swift in Sources */,
+				55ECB6AD22B3E2E900C95EE7 /* CategoryGet.swift in Sources */,
 				55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */,
+				55253FC822B5528200D092AB /* TokenService.swift in Sources */,
 				55BDA4CE22A026320044B6AE /* CategoryCircleView.swift in Sources */,
 				89FFE2DC2289928100784297 /* ListController.swift in Sources */,
 				89FFE2DA2289928100784297 /* AppDelegate.swift in Sources */,
 				55ECB6AB22B3E2B100C95EE7 /* Session.swift in Sources */,
 				5541767F229458A700AE8E8F /* RecipeController.swift in Sources */,
 				55DA3783229D8BC6000712CA /* VPAutoCompleteViewCell.swift in Sources */,
-				55ECB6AF22B3E37900C95EE7 /* TestGetService.swift in Sources */,
+				55ECB6AF22B3E37900C95EE7 /* CategoryService.swift in Sources */,
 				55DA3781229D8BA3000712CA /* VPAutoComplete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
