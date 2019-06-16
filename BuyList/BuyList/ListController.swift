@@ -40,7 +40,7 @@ extension ListController {
         let cell: ListCell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListCell ??
             ListCell(style: .default, reuseIdentifier: "ListCell")
         
-        let item: Item = sections[indexPath.section].items[indexPath.row]
+        let item: Item1 = sections[indexPath.section].items[indexPath.row]
         
         cell.listName.text = item.name
         
@@ -76,7 +76,7 @@ extension ListController {
         }
         
         func newOkHandler(alert: UIAlertAction!) {
-            sections[section].items.insert(Item.init(name: listTextField!.text!), at: 0)
+            sections[section].items.insert(Item1.init(name: listTextField!.text!), at: 0)
             tableView.reloadData()
         }
 

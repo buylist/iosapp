@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol HeaderRecipeDelegate {
+    func toggleSection(_ header: HeaderRecipe, section: Int)
+}
+
 class HeaderRecipe: UITableViewHeaderFooterView {
+    
+    var delegate: HeaderRecipeDelegate?
     
     @IBOutlet weak var headerName: UILabel!
     @IBOutlet weak var createButton: UIButton!
@@ -18,5 +24,17 @@ class HeaderRecipe: UITableViewHeaderFooterView {
     
     @IBAction func createPressed(_ sender: Any) {
         onHeaderCreatePressed?(index)
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        //custom logic goes here
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(HeaderRecipe.tapHeader(_:))))
+    }
+    
+    @objc func tapHeader(_ gestureRecognizer: UITapGestureRecognizer) {
+        guard let cell = gestureRecognizer.view as? HeaderRecipe else {
+            return
+        }
+        delegate?.toggleSection(self, section: cell.index)
     }
 }

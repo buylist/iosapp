@@ -11,55 +11,50 @@ import UIKit
 class RecipeInformationController: UITableViewController {
     
     @IBOutlet weak var lableRecipeName: UILabel!
-    @IBOutlet weak var editRecipeButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    
-    var indexIsHidden: Int = 0
+    @IBOutlet weak var cencelView: UIView!
     
     var nameLable: String!
     var textFieldName: UITextField?
     var textFieldMass: UITextField?
     
-    var ProductNameArray = ["Бананы", "Ананасы", "Яблоки"]
-    var ProductMassArray = ["400г", "500г", "250г"]
-    var InstructArray = ["Купить.", "Помыть.", "Скушать."]
+    var recipe = sectionsDataRecipe
+    var indexView = 0
     
     override func viewDidLoad() {
+        
+        self.tableView.separatorColor = UIColor.clear
         
         let headerNib = UINib.init(nibName: "HeaderRecipe", bundle: Bundle.main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderRecipe")
         
         lableRecipeName.text = nameLable
+        cencelView.backgroundColor = UIColor(patternImage: UIImage(named: "Back")!)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return recipe.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0 {
-        return ProductNameArray.count
-        } else if section == 1 {
-            return InstructArray.count
-        }
-        
-        return section
+        return recipe[section].collapsed ? 0 : recipe[section].items.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderRecipe") as! HeaderRecipe
-        
-        if indexIsHidden == 0 {
-            headerView.createButton.isHidden = true
-        } else if indexIsHidden == 1 {
-            headerView.createButton.isHidden = false
-        }
-        
         // section1
         if section == 0 {
-            headerView.headerName.text = "Ингредиенты"
+            headerView.headerName.text = recipe[section].name
             
             headerView.onHeaderCreatePressed = {
                 [weak self] index in
@@ -86,9 +81,8 @@ class RecipeInformationController: UITableViewController {
             }
             
             func newOkHandler(alert: UIAlertAction!) {
-                if !(ProductNameArray.contains(textFieldName!.text!)) && textFieldName!.text! != "" {
-                    ProductNameArray.append(textFieldName!.text!)
-                    ProductMassArray.append(textFieldMass!.text!)
+                if !(recipe[section].name.contains(textFieldName!.text!)) && textFieldName!.text! != "" {
+                    recipe[section].items.append(Item.init(name: textFieldName!.text!, count: textFieldMass!.text!, okView: false))
                     tableView.reloadData()
                 } else if  textFieldName!.text! == "" {
                     let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
@@ -103,9 +97,9 @@ class RecipeInformationController: UITableViewController {
                 }
             }
             
-        // section2
+            // section2
         } else if section == 1 {
-            headerView.headerName.text = "Инструкция"
+            headerView.headerName.text = recipe[section].name
             
             headerView.onHeaderCreatePressed = {
                 [weak self] index in
@@ -126,22 +120,20 @@ class RecipeInformationController: UITableViewController {
             }
             
             func newOkHandler(alert: UIAlertAction!) {
-                if !(InstructArray.contains(textFieldName!.text!)) && textFieldName!.text! != "" {
-                    InstructArray.append(textFieldName!.text!)
+                if textFieldName!.text! != "" {
+                    recipe[section].items.append(Item.init(name: textFieldName!.text!, count: "", okView: false))
                     tableView.reloadData()
-                } else if  textFieldName!.text! == "" {
-                    let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true)
                 } else {
-                    let alertController = UIAlertController(title: "Ошибка!", message:  "Инструкция с таким название уже существует.", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Ошибка!", message:  "Пусто.", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
                     alertController.addAction(okAction)
                     self.present(alertController, animated: true)
                 }
             }
         }
+        
+        headerView.index = section
+        headerView.delegate = self
         
         return headerView
     }
@@ -151,143 +143,41 @@ class RecipeInformationController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell!
         
+        var item: Item = recipe[indexPath.section].items[indexPath.row]
+        
         if indexPath.section == 0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "RecipeProductCell", for: indexPath) as! RecipeProductCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "RecipeProductCell", for: indexPath) as? RecipeProductCell ?? RecipeProductCell(style: .default, reuseIdentifier: "RecipeProductCell")
             let cellProduct = tableView.dequeueReusableCell(withIdentifier: "RecipeProductCell", for: indexPath) as! RecipeProductCell
-            cellProduct.productName.text = ProductNameArray[indexPath.row]
-            cellProduct.productMass.text = ProductMassArray[indexPath.row]
-            cellProduct.productView.backgroundColor = UIColor.red
             
-            if indexIsHidden == 0 {
-                cellProduct.probuctEditButton.isHidden = true
-                cellProduct.productDeleteButton.isHidden = true
-            } else if indexIsHidden == 1 {
-                cellProduct.probuctEditButton.isHidden = false
-                cellProduct.productDeleteButton.isHidden = false
-            }
+            cellProduct.productName.text = item.name
+            cellProduct.productMass.text = item.count
+            
+            cellProduct.productButtonView.layer.borderWidth = 1
+            cellProduct.productButtonView.layer.borderColor = UIColor.red.cgColor
+            cellProduct.productButtonView.backgroundColor = UIColor.white
             
             cellProduct.onViewPressed = {
                 [weak self] index in
-                if cellProduct.productView.backgroundColor == UIColor.red {
-                    cellProduct.productView.backgroundColor = UIColor.green
-                    cellProduct.productButtonView.setTitle("ok", for: .normal)
-                } else if cellProduct.productView.backgroundColor == UIColor.green {
-                    cellProduct.productView.backgroundColor = UIColor.red
-                    cellProduct.productButtonView.setTitle("", for: .normal)
-                }
-            }
-            
-            cellProduct.onDeletePressed = {
-                [weak self] index in
-                self?.ProductNameArray.remove(at: indexPath.row)
-                self?.ProductMassArray.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                tableView.reloadData()
-            }
-            
-            cellProduct.onEditPressed = {
-                [weak self] index in
-                
-                let alertController = UIAlertController(title: "Изменить название Ингредиент?", message: nil, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Изменить", style: .default, handler: editOkHandler)
-                let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-                alertController.addTextField(configurationHandler: editTextFieldName)
-                alertController.addTextField(configurationHandler: editTextFieldMass)
-                alertController.addAction(okAction)
-                alertController.addAction(cancelAction)
-                
-                self?.present(alertController, animated: true)
-            }
-            
-            func editTextFieldName(textField: UITextField!) {
-                textFieldName = textField
-                textFieldName?.placeholder = ProductNameArray[indexPath.row]
-            }
-            
-            func editTextFieldMass(textField: UITextField!) {
-                textFieldMass = textField
-                textFieldMass?.placeholder = ProductMassArray[indexPath.row]
-            }
-            
-            func editOkHandler(alert: UIAlertAction!) {
-                if (!(ProductNameArray.contains(textFieldName!.text!)) || ProductNameArray[indexPath.row] == textFieldName!.text!) && textFieldName!.text! != "" {
-                    ProductNameArray[indexPath.row] = textFieldName!.text!
-                    ProductMassArray[indexPath.row] = textFieldMass!.text!
-                    tableView.reloadData()
-                } else if textFieldName!.text! == "" {
-                    let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true)
-                } else {
-                    let alertController = UIAlertController(title: "Ошибка!", message:  "Ингредиент с таким название уже существует.", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true)
+                if !item.okView {
+                    cellProduct.productButtonView.backgroundColor = UIColor.red
+                    item.okView = true
+                } else if item.okView {
+                    cellProduct.productButtonView.backgroundColor = UIColor.white
+                    item.okView = false
                 }
             }
             
             return cellProduct
             
             
-            } else if indexPath.section == 1 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInstructionCell", for: indexPath) as! RecipeInstructionCell
+        } else if indexPath.section == 1 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInstructionCell", for: indexPath) as? RecipeInstructionCell ?? RecipeProductCell(style: .default, reuseIdentifier: "RecipeProductCell")
             let cellInstruction = tableView.dequeueReusableCell(withIdentifier: "RecipeInstructionCell") as! RecipeInstructionCell
             let indexNumber = indexPath.row + 1
             
-            cellInstruction.instructionText.text = InstructArray[indexPath.row]
+            cellInstruction.instructionText.text = item.name
             cellInstruction.instructionNumber.text = "\(indexNumber)."
             
-            if indexIsHidden == 0 {
-                cellInstruction.instructionEditButton.isHidden = true
-                cellInstruction.instructionDeleteButton.isHidden = true
-            } else if indexIsHidden == 1 {
-                cellInstruction.instructionEditButton.isHidden = false
-                cellInstruction.instructionDeleteButton.isHidden = false
-            }
-            
-            cellInstruction.onDeletePressed = {
-                [weak self] index in
-                self?.InstructArray.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                tableView.reloadData()
-                print(index)
-            }
-            
-            cellInstruction.onEditPressed = {
-                [weak self] index in
-                
-                let alertController = UIAlertController(title: "Изменить название Инструкции?", message: nil, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Изменить", style: .default, handler: editOkHandler)
-                let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-                alertController.addTextField(configurationHandler: editTextField)
-                alertController.addAction(okAction)
-                alertController.addAction(cancelAction)
-                
-                self?.present(alertController, animated: true)
-            }
-            
-            func editTextField(textField: UITextField!) {
-                textFieldName = textField
-                textFieldName?.placeholder = InstructArray[indexPath.row]
-            }
-            
-            func editOkHandler(alert: UIAlertAction!) {
-                if (!(InstructArray.contains(textFieldName!.text!)) || InstructArray[indexPath.row] == textFieldName!.text!) && textFieldName!.text! != "" {
-                    InstructArray[indexPath.row] = textFieldName!.text!
-                    tableView.reloadData()
-                } else if textFieldName!.text! == "" {
-                    let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true)
-                } else {
-                    let alertController = UIAlertController(title: "Ошибка!", message:  "Инструкция с таким название уже существует.", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true)
-                }
-            }
             return cellInstruction
         }
         return cell
@@ -298,17 +188,89 @@ class RecipeInformationController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func editButton(_ sender: Any) {
-        
-        if editRecipeButton.titleLabel?.text == "Ред." {
-            editRecipeButton.setTitle("Отмена", for: .normal)
-            editRecipeButton.setTitleColor(UIColor.red, for: .normal)
-            indexIsHidden = 1
-        } else if editRecipeButton.titleLabel?.text == "Отмена"{
-            editRecipeButton.setTitle("Ред.", for: .normal)
-            editRecipeButton.setTitleColor(UIColor.blue, for: .normal)
-            indexIsHidden = 0
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = editAction(at: indexPath)
+        let delete = deleteAction(at: indexPath)
+        if indexPath.section == 0 {
+            return UISwipeActionsConfiguration(actions: [delete, edit])
+        } else {
+            return UISwipeActionsConfiguration(actions: [delete])
         }
-        tableView.reloadData()
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        
+        let action = UIContextualAction(style: .normal, title: nil) {
+            (action, view, complection) in
+            self.recipe[indexPath.section].items.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
+        }
+        action.backgroundColor = .red
+        action.image = UIImage(named: "remove")
+        
+        return action
+    }
+    
+    func editAction(at indexPath: IndexPath) -> UIContextualAction {
+        
+        var item = recipe[indexPath.section].items[indexPath.row]
+        
+        let action = UIContextualAction(style: .normal, title: nil) {
+            (action, view, complection) in
+            
+            let alertController = UIAlertController(title: "Изменить название Ингредиента?", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Изменить", style: .default, handler: editOkHandler)
+            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+            alertController.addTextField(configurationHandler: editTextFieldName)
+            alertController.addTextField(configurationHandler: editTextFieldMass)
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true)
+        }
+        
+        func editTextFieldName(textField: UITextField!) {
+            textFieldName = textField
+            textFieldName?.placeholder = recipe[indexPath.section].items[indexPath.row].name
+        }
+        
+        func editTextFieldMass(textField: UITextField!) {
+            textFieldMass = textField
+            textFieldMass?.placeholder = recipe[indexPath.section].items[indexPath.row].count
+        }
+        
+        func editOkHandler(alert: UIAlertAction!) {
+            if (!item.name.contains(textFieldName!.text!) || item.name == textFieldName!.text!) && textFieldName!.text! != "" {
+                recipe[indexPath.section].items[indexPath.row].name = textFieldName!.text!
+                recipe[indexPath.section].items[indexPath.row].count = textFieldMass!.text!
+                tableView.reloadData()
+            } else if textFieldName!.text! == "" {
+                let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            } else {
+                let alertController = UIAlertController(title: "Ошибка!", message:  "Ингредиент с таким название уже существует.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }
+        }
+        action.backgroundColor = .gray
+        action.image = UIImage(named: "edit")
+        
+        return action
+    }
+}
+
+extension RecipeInformationController: HeaderRecipeDelegate {
+    func toggleSection(_ header: HeaderRecipe, section: Int) {
+        
+        let collapsed = !recipe[section].collapsed
+        
+        recipe[section].collapsed = collapsed
+        
+        tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
     }
 }
