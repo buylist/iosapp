@@ -12,14 +12,16 @@ class ListDetailController: UITableViewController {
     
     @IBAction func addButton(_ sender: Any) {
         
-        let alertController = UIAlertController(title: "Добавить новый продукт?", message: nil, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Добавить", style: .default, handler: newOkHandler)
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        alertController.addTextField(configurationHandler: newTextField)
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true)
+//        let alertController = UIAlertController(title: "Добавить новый продукт?", message: nil, preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "Добавить", style: .default, handler: newOkHandler)
+//        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+//        alertController.addTextField(configurationHandler: newTextField)
+//        alertController.addAction(okAction)
+//        alertController.addAction(cancelAction)
+//
+//        self.present(alertController, animated: true)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewCategoryViewCointroller")
+        self.navigationController?.pushViewController(vc!, animated: true)
         
 //        func newTextField(textField: UITextField!) {
 //            listTextField = textField
@@ -34,10 +36,18 @@ class ListDetailController: UITableViewController {
     
     @IBAction func shablonButton(_ sender: Any) {
         let alertController = UIAlertController(title: "Выберите шаблон:", message: nil, preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "Добавить", style: .default, handler: newOkHandler)
+        let okAction = UIAlertAction(title: "Шаблон 1", style: .default, handler: { (action) -> Void in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PatternDetailController")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        })
+        let okAction1 = UIAlertAction(title: "Шаблон 2", style: .default, handler: { (action) -> Void in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PatternDetailController")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        })
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
 //        alertController.addTextField(configurationHandler: newTextField)
-//        alertController.addAction(okAction)
+        alertController.addAction(okAction)
+        alertController.addAction(okAction1)
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true)
@@ -46,9 +56,22 @@ class ListDetailController: UITableViewController {
     @IBAction func riciptButton(_ sender: Any) {
         let alertController = UIAlertController(title: "Выберите рецепт:", message: nil, preferredStyle: .alert)
         //        let okAction = UIAlertAction(title: "Добавить", style: .default, handler: newOkHandler)
+        
+        let okAction = UIAlertAction(title: "Рецепт 1", style: .default, handler: { (action) -> Void in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "RecipeInformationController")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        })
+        let okAction1 = UIAlertAction(title: "Рецепт 2", style: .default, handler: { (action) -> Void in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "RecipeInformationController")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        })
+        
+        
+        
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         //        alertController.addTextField(configurationHandler: newTextField)
-        //        alertController.addAction(okAction)
+        alertController.addAction(okAction)
+        alertController.addAction(okAction1)
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true)
@@ -66,6 +89,8 @@ class ListDetailController: UITableViewController {
     var listTextField: UITextField?
     
     var listArray = ["Морковь", "Лук", "Вода"]
+    
+    var okView: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +116,21 @@ extension ListDetailController {
         let cell: ListDetailCell = tableView.dequeueReusableCell(withIdentifier: "ListDetailCell") as! ListDetailCell
         
         cell.listName.text = listArray[indexPath.row]
+        
+        cell.productButtonView.layer.borderWidth = 1
+        cell.productButtonView.layer.borderColor = UIColor.blue.cgColor
+        cell.productButtonView.backgroundColor = UIColor.white
+        
+        cell.onViewPressed = {
+            [weak self] index in
+            if self!.okView == false {
+                cell.productButtonView.backgroundColor = UIColor.blue
+                self!.okView = true
+            } else if self!.okView {
+                cell.productButtonView.backgroundColor = UIColor.white
+                self!.okView = false
+            }
+        }
         
         return cell
     }

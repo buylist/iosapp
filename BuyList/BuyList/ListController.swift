@@ -24,6 +24,16 @@ class ListController: UITableViewController {
         let footerNib = UINib.init(nibName: "FooterList", bundle: Bundle.main)
         tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: "FooterList")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 }
 
 extension ListController {

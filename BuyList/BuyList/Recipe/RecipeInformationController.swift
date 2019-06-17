@@ -28,8 +28,8 @@ class RecipeInformationController: UITableViewController {
         let headerNib = UINib.init(nibName: "HeaderRecipe", bundle: Bundle.main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderRecipe")
         
-        lableRecipeName.text = nameLable
-        cencelView.backgroundColor = UIColor(patternImage: UIImage(named: "Back")!)
+//        lableRecipeName.text = nameLable
+//        cencelView.backgroundColor = UIColor(patternImage: UIImage(named: "Back")!)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

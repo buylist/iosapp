@@ -34,6 +34,8 @@ class PatternDetailController: UITableViewController {
     
     var listArray = ["Хлеб", "Сыр", "Творог"]
     
+    var okView: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //        let headerNib = UINib.init(nibName: "HeaderList", bundle: Bundle.main)
@@ -58,6 +60,21 @@ extension PatternDetailController {
         let cell: PatternDetailCell = tableView.dequeueReusableCell(withIdentifier: "PatternProductCell") as! PatternDetailCell
         
         cell.listName.text = listArray[indexPath.row]
+        
+        cell.productButtonView.layer.borderWidth = 1
+        cell.productButtonView.layer.borderColor = UIColor.orange.cgColor
+        cell.productButtonView.backgroundColor = UIColor.white
+        
+        cell.onViewPressed = {
+            [weak self] index in
+            if self!.okView == false {
+                cell.productButtonView.backgroundColor = UIColor.orange
+                self!.okView = true
+            } else if self!.okView {
+                cell.productButtonView.backgroundColor = UIColor.white
+                self!.okView = false
+            }
+        }
         
         return cell
     }

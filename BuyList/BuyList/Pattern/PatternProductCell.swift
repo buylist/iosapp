@@ -11,8 +11,15 @@ import UIKit
 class PatternDetailCell: UITableViewCell {
     
     @IBOutlet weak var listName: UILabel!
+    @IBOutlet weak var productButtonView: UIButton!
     
     var index: Int = 0
+    
+    var onViewPressed: ((Int) -> ())?
+    
+    @IBAction func onViewPressed(_ sender: Any) {
+        onViewPressed?(index)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
