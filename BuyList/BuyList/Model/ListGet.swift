@@ -10,7 +10,37 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
+class Rrr: Object {
+    
+    @objc dynamic  var url_Item_s = ""
+    @objc dynamic  var quantity_Item_s = ""
+    @objc dynamic  var unit_Item_s = ""
+    @objc dynamic  var deleted_Item_s = false
+    
+    @objc dynamic  var url_Item = ""
+    @objc dynamic  var item_id_Item = 0
+    @objc dynamic  var name_Item = ""
+    @objc dynamic  var buyer_id_Item = 0
+    @objc dynamic  var category_id_Item = 0
+    
+    convenience init(json: JSON) {
+        self.init()
+        
+        self.url_Item_s = json["items"][0]["url"].stringValue
+        self.quantity_Item_s = json["items"]["quantity"].stringValue
+        self.unit_Item_s = json["items"]["unit"].stringValue
+        self.deleted_Item_s = json["items"]["deleted"].boolValue
+        
+        self.url_Item = json["items"]["item"]["url"].stringValue
+        self.item_id_Item = json["items"]["item"]["item_id"].intValue
+        self.name_Item = json["items"]["item"]["name"].stringValue
+        self.buyer_id_Item = json["items"]["item"]["buyer_id"].intValue
+        self.category_id_Item = json["items"]["item"]["category_id"].intValue
+    }
+}
+
 class ListGet: Object {
+
     
     @objc dynamic var uuid = UUID().uuidString
     @objc dynamic var url_List = ""
@@ -26,15 +56,18 @@ class ListGet: Object {
     @objc dynamic var name_Item = ""
     @objc dynamic var buyer_id_Item = 0
     @objc dynamic var category_id_Item = 0
+    var rrr = List<Rrr>()
     
     convenience init(json: JSON) {
         self.init()
         
+//        guard let result: [Any] = json["items"].arrayValue.map({$0["item"].stringValue}) else { return}
+        
         self.url_List = json["url"].stringValue
         self.name_List = json["name"].stringValue
         
-        self.url_Item_s = json["items"].stringValue
-        self.quantity_Item_s = json["quantity"].stringValue
+        self.url_Item_s = json["items"][0]["url"].stringValue
+        self.quantity_Item_s = json["items"][0]["quantity"].stringValue
         self.unit_Item_s = json["items"][0]["unit"].stringValue
         self.deleted_Item_s = json["items"][0]["deleted"].boolValue
         
@@ -43,6 +76,9 @@ class ListGet: Object {
         self.name_Item = json["items"][0]["item"]["name"].stringValue
         self.buyer_id_Item = json["items"][0]["item"]["buyer_id"].intValue
         self.category_id_Item = json["items"][0]["item"]["category_id"].intValue
+        
+        
+//        let arrayNames =  json["users"].arrayValue.map {$0["name"].stringValue}
         
 //        for items in json["items"].arrayValue
 //        {

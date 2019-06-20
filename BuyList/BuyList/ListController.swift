@@ -15,6 +15,8 @@ class ListController: UITableViewController {
     var sections = sectionsData
     var listSectionImages = [0: #imageLiteral(resourceName: "списки"), 1: #imageLiteral(resourceName: "шаблоны"), 2: #imageLiteral(resourceName: "рецепты")]
     
+    let listService = ListService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +25,8 @@ class ListController: UITableViewController {
         
         let footerNib = UINib.init(nibName: "FooterList", bundle: Bundle.main)
         tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: "FooterList")
+        
+        listService.loadListListGet()
     }
 }
 
