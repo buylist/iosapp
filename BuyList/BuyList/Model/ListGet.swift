@@ -10,103 +10,55 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-class Rrr: Object {
-    
-    @objc dynamic  var url_Item_s = ""
-    @objc dynamic  var quantity_Item_s = ""
-    @objc dynamic  var unit_Item_s = ""
-    @objc dynamic  var deleted_Item_s = false
-    
-    @objc dynamic  var url_Item = ""
-    @objc dynamic  var item_id_Item = 0
-    @objc dynamic  var name_Item = ""
-    @objc dynamic  var buyer_id_Item = 0
-    @objc dynamic  var category_id_Item = 0
-    
-    convenience init(json: JSON) {
-        self.init()
-        
-        self.url_Item_s = json["items"][0]["url"].stringValue
-        self.quantity_Item_s = json["items"]["quantity"].stringValue
-        self.unit_Item_s = json["items"]["unit"].stringValue
-        self.deleted_Item_s = json["items"]["deleted"].boolValue
-        
-        self.url_Item = json["items"]["item"]["url"].stringValue
-        self.item_id_Item = json["items"]["item"]["item_id"].intValue
-        self.name_Item = json["items"]["item"]["name"].stringValue
-        self.buyer_id_Item = json["items"]["item"]["buyer_id"].intValue
-        self.category_id_Item = json["items"]["item"]["category_id"].intValue
-    }
-}
-
 class ListGet: Object {
 
-    
     @objc dynamic var uuid = UUID().uuidString
     @objc dynamic var url_List = ""
     @objc dynamic var name_List = ""
     
-    @objc dynamic var url_Item_s = ""
-    @objc dynamic var quantity_Item_s = ""
-    @objc dynamic var unit_Item_s = ""
-    @objc dynamic var deleted_Item_s = false
-        
-    @objc dynamic var url_Item = ""
-    @objc dynamic var item_id_Item = 0
-    @objc dynamic var name_Item = ""
-    @objc dynamic var buyer_id_Item = 0
-    @objc dynamic var category_id_Item = 0
-    var rrr = List<Rrr>()
+    var url_Checklists = List<String>()
+    var quantity_Checklists = List<String>()
+    var unit_Checklists = List<String>()
+    var deleted_Checklists = List<Bool>()
+    
+    var url_Item = List<String>()
+    var item_id_Item = List<Int>()
+    var name_Item = List<String>()
+    var buyer_id_Item = List<Int>()
+    var category_id_Item = List<Int>()
+    
+    var listGetItems = ListGetItems()
     
     convenience init(json: JSON) {
         self.init()
         
-//        guard let result: [Any] = json["items"].arrayValue.map({$0["item"].stringValue}) else { return}
-        
         self.url_List = json["url"].stringValue
         self.name_List = json["name"].stringValue
         
-        self.url_Item_s = json["items"][0]["url"].stringValue
-        self.quantity_Item_s = json["items"][0]["quantity"].stringValue
-        self.unit_Item_s = json["items"][0]["unit"].stringValue
-        self.deleted_Item_s = json["items"][0]["deleted"].boolValue
-        
-        self.url_Item = json["items"][0]["item"]["url"].stringValue
-        self.item_id_Item = json["items"][0]["item"]["item_id"].intValue
-        self.name_Item = json["items"][0]["item"]["name"].stringValue
-        self.buyer_id_Item = json["items"][0]["item"]["buyer_id"].intValue
-        self.category_id_Item = json["items"][0]["item"]["category_id"].intValue
-        
-        
-//        let arrayNames =  json["users"].arrayValue.map {$0["name"].stringValue}
-        
-//        for items in json["items"].arrayValue
-//        {
-//            if let url_Item_s = items["url"].string,
-//            let quantity_Item_s = items["quantity"].string,
-//            let unit_Item_s = items["unit"].string,
-//            let deleted_Item_s = items["deleted"].bool,
-//
-//            let url_Item = items["item"]["url"].string,
-//            let item_id_Item = items["item"]["item_id"].int,
-//            let name_Item = items["item"]["name"].string,
-//            let buyer_id_Item = items["item"]["buyer_id"].int,
-//            let category_id_Item = items["item"]["category_id"].int {
-//
-//                self.url_Item_s = url_Item_s
-//                self.quantity_Item_s = quantity_Item_s
-//                self.unit_Item_s = unit_Item_s
-//                self.deleted_Item_s = deleted_Item_s
-//
-//                self.url_Item = url_Item
-//                self.item_id_Item = item_id_Item
-//                self.name_Item = name_Item
-//                self.buyer_id_Item = buyer_id_Item
-//                self.category_id_Item = category_id_Item
-//                print(name_Item)
-//
-//            }
-//        }
+        for item in json["items"].arrayValue {
+            
+            listGetItems.url_Checklists = item["url"].stringValue
+            listGetItems.quantity_Checklists = item["quantity"].stringValue
+            listGetItems.unit_Checklists = item["unit"].stringValue
+            listGetItems.deleted_Checklists = item["deleted"].boolValue
+            
+            listGetItems.url_Item = item["item"]["url"].stringValue
+            listGetItems.item_id_Item = item["item"]["item_id"].intValue
+            listGetItems.name_Item = item["item"]["name"].stringValue
+            listGetItems.buyer_id_Item = item["item"]["buyer_id"].intValue
+            listGetItems.category_id_Item = item["item"]["category_id"].intValue
+            
+            url_Checklists.append(listGetItems.url_Checklists)
+            quantity_Checklists.append(listGetItems.quantity_Checklists)
+            unit_Checklists.append(listGetItems.unit_Checklists)
+            deleted_Checklists.append(listGetItems.deleted_Checklists)
+            
+            url_Item.append(listGetItems.url_Item)
+            item_id_Item.append(listGetItems.item_id_Item)
+            name_Item.append(listGetItems.name_Item)
+            buyer_id_Item.append(listGetItems.buyer_id_Item)
+            category_id_Item.append(listGetItems.category_id_Item)
+        }
     }
     
     override static func primaryKey() -> String? {

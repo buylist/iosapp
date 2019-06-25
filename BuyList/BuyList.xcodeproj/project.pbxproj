@@ -15,6 +15,7 @@
 		55417687229463A900AE8E8F /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55417686229463A900AE8E8F /* RecipeCell.swift */; };
 		55772E0C228C5ACF00211630 /* HeaderList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55772E0B228C5ACF00211630 /* HeaderList.xib */; };
 		55772E0E228C5AE000211630 /* HeaderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772E0D228C5AE000211630 /* HeaderList.swift */; };
+		55B827C722C27EF2001903FD /* ListGetItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B827C622C27EF2001903FD /* ListGetItems.swift */; };
 		55BC4F102296E9F8001D231A /* HeaderRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC4F0F2296E9F8001D231A /* HeaderRecipe.swift */; };
 		55BC4F122296EA0B001D231A /* HeaderRecipe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BC4F112296EA0B001D231A /* HeaderRecipe.xib */; };
 		55BDA4CC22A024F70044B6AE /* NewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4CB22A024F70044B6AE /* NewCategoryViewController.swift */; };
@@ -56,6 +57,7 @@
 		55417686229463A900AE8E8F /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		55772E0B228C5ACF00211630 /* HeaderList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderList.xib; sourceTree = "<group>"; };
 		55772E0D228C5AE000211630 /* HeaderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderList.swift; sourceTree = "<group>"; };
+		55B827C622C27EF2001903FD /* ListGetItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGetItems.swift; sourceTree = "<group>"; };
 		55BC4F0F2296E9F8001D231A /* HeaderRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRecipe.swift; sourceTree = "<group>"; };
 		55BC4F112296EA0B001D231A /* HeaderRecipe.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderRecipe.xib; sourceTree = "<group>"; };
 		55BDA4CB22A024F70044B6AE /* NewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				8943090522B6A50300EEDE73 /* Session.swift */,
 				8943090622B6A50300EEDE73 /* ItemGet.swift */,
 				8943090722B6A50300EEDE73 /* ListGet.swift */,
+				55B827C622C27EF2001903FD /* ListGetItems.swift */,
 				8943090822B6A50300EEDE73 /* CategoryGet.swift */,
 			);
 			path = Model;
@@ -397,6 +400,7 @@
 				8943090E22B6AA7F00EEDE73 /* Session.swift in Sources */,
 				55BDA4CE22A026320044B6AE /* CategoryCircleView.swift in Sources */,
 				89FFE2DC2289928100784297 /* ListController.swift in Sources */,
+				55B827C722C27EF2001903FD /* ListGetItems.swift in Sources */,
 				8943090F22B6AA8300EEDE73 /* ListGet.swift in Sources */,
 				89FFE2DA2289928100784297 /* AppDelegate.swift in Sources */,
 				8943091022B6AA8600EEDE73 /* CategoryGet.swift in Sources */,
