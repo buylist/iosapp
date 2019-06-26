@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ListController: UITableViewController {
     
@@ -14,6 +15,9 @@ class ListController: UITableViewController {
     
     var sections = sectionsData
     var listSectionImages = [0: #imageLiteral(resourceName: "списки"), 1: #imageLiteral(resourceName: "шаблоны"), 2: #imageLiteral(resourceName: "рецепты")]
+    
+    var list: Results<ListGet>? = DatabaseService.get(ListGet.self)
+    var notificationToken: NotificationToken?
     
     let listService = ListService()
     
@@ -26,8 +30,40 @@ class ListController: UITableViewController {
         let footerNib = UINib.init(nibName: "FooterList", bundle: Bundle.main)
         tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: "FooterList")
         
-        listService.loadListListGet()
+        listService.loadListListGet() { [weak self] list, error in
+            guard let self = self, error == nil,
+                let list = list else { print(error?.localizedDescription as Any); return }
+            
+            let realm = try? Realm()
+            try? realm?.write {
+                if self.list != nil {
+                    realm?.delete(self.list!)
+                }
+            }
+            
+            try? DatabaseService.save(list, update: true)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        notificationToken = list?.observe { [weak self] changes in
+//            guard let self = self else { return }
+//            switch changes {
+//            case .initial(_):
+//                self.tableView.reloadData()
+//            case .update(_, let dels, let ins, let mods):
+//                self.tableView.applyChanges(deletions: dels, insertions: ins, updates: mods)
+//            case .error(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
+
 }
 
 extension ListController {
@@ -45,6 +81,10 @@ extension ListController {
             ListCell(style: .default, reuseIdentifier: "ListCell")
         
         let item: Item1 = sections[indexPath.section].items[indexPath.row]
+        
+//        let listt = list?[indexPath.row]
+        
+//        item.name = (listt?.name_List)!
         
         cell.listName.text = item.name
         
@@ -81,6 +121,7 @@ extension ListController {
         
         func newOkHandler(alert: UIAlertAction!) {
             sections[section].items.insert(Item1.init(name: listTextField!.text!), at: 0)
+//            listService.loadListListPost(name: listTextField!.text!, checklist_id: Int.random(in: 1...1000))
             tableView.reloadData()
         }
 

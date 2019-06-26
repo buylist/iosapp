@@ -23,6 +23,8 @@
 		55DA3781229D8BA3000712CA /* VPAutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA3780229D8BA3000712CA /* VPAutoComplete.swift */; };
 		55DA3783229D8BC6000712CA /* VPAutoCompleteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA3782229D8BC6000712CA /* VPAutoCompleteViewCell.swift */; };
 		55DA3785229D8BEA000712CA /* VPAutoCompleteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */; };
+		55F01F5122C3B9CB004DA8B6 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F01F5022C3B9CB004DA8B6 /* DatabaseService.swift */; };
+		55F01F5322C3BA5E004DA8B6 /* RealmChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F01F5222C3BA5E004DA8B6 /* RealmChanges.swift */; };
 		894308FA22B6A4B400EEDE73 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894308F922B6A4B400EEDE73 /* TokenService.swift */; };
 		894308FF22B6A4CC00EEDE73 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894308FB22B6A4CC00EEDE73 /* ItemService.swift */; };
 		8943090022B6A4CC00EEDE73 /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894308FE22B6A4CC00EEDE73 /* ListService.swift */; };
@@ -65,6 +67,8 @@
 		55DA3780229D8BA3000712CA /* VPAutoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPAutoComplete.swift; sourceTree = "<group>"; };
 		55DA3782229D8BC6000712CA /* VPAutoCompleteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPAutoCompleteViewCell.swift; sourceTree = "<group>"; };
 		55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VPAutoCompleteViewCell.xib; sourceTree = "<group>"; };
+		55F01F5022C3B9CB004DA8B6 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		55F01F5222C3BA5E004DA8B6 /* RealmChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChanges.swift; sourceTree = "<group>"; };
 		855E86923BAA10D101038F08 /* Pods-BuyList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyList.debug.xcconfig"; path = "Target Support Files/Pods-BuyList/Pods-BuyList.debug.xcconfig"; sourceTree = "<group>"; };
 		894308F922B6A4B400EEDE73 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		894308FB22B6A4CC00EEDE73 /* ItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
@@ -232,6 +236,8 @@
 				8989784522AAAAAF00918F95 /* ListDetailController.swift */,
 				8989784722AAAABA00918F95 /* ListDetailCell.swift */,
 				8989784122AA79D700918F95 /* ExampleData.swift */,
+				55F01F5022C3B9CB004DA8B6 /* DatabaseService.swift */,
+				55F01F5222C3BA5E004DA8B6 /* RealmChanges.swift */,
 				89FFE2DD2289928100784297 /* Main.storyboard */,
 				8943090422B6A50300EEDE73 /* Model */,
 				8943090322B6A4DA00EEDE73 /* Networking */,
@@ -383,6 +389,7 @@
 				894308FF22B6A4CC00EEDE73 /* ItemService.swift in Sources */,
 				55772E0E228C5AE000211630 /* HeaderList.swift in Sources */,
 				554176852294595700AE8E8F /* RecipeProductCell.swift in Sources */,
+				55F01F5122C3B9CB004DA8B6 /* DatabaseService.swift in Sources */,
 				8943090122B6A4CC00EEDE73 /* CategoryService.swift in Sources */,
 				8943090222B6A4CC00EEDE73 /* ChecklistService.swift in Sources */,
 				8989784222AA79D700918F95 /* ExampleData.swift in Sources */,
@@ -402,6 +409,7 @@
 				89FFE2DC2289928100784297 /* ListController.swift in Sources */,
 				55B827C722C27EF2001903FD /* ListGetItems.swift in Sources */,
 				8943090F22B6AA8300EEDE73 /* ListGet.swift in Sources */,
+				55F01F5322C3BA5E004DA8B6 /* RealmChanges.swift in Sources */,
 				89FFE2DA2289928100784297 /* AppDelegate.swift in Sources */,
 				8943091022B6AA8600EEDE73 /* CategoryGet.swift in Sources */,
 				5541767F229458A700AE8E8F /* RecipeController.swift in Sources */,

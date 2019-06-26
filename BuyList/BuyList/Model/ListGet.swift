@@ -62,7 +62,7 @@ class ListGet: Object {
     }
     
     override static func primaryKey() -> String? {
-        return "uuid"
+        return "url_List"
     }
 }
 
