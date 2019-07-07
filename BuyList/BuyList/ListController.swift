@@ -31,26 +31,26 @@ class ListController: UITableViewController {
         tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: "FooterList")
         
         listService.loadListListGet() { [weak self] list, error in
-            guard let self = self, error == nil,
+            guard let _ = self, error == nil,
                 let list = list else { print(error?.localizedDescription as Any); return }
             
-            let realm = try? Realm()
-            try? realm?.write {
-                if self.list != nil {
-                    realm?.delete(self.list!)
-                }
-            }
+//            let realm = try? Realm()
+//            try? realm?.write {
+//                if self.list != nil {
+//                    realm?.delete(self.list!)
+//                }
+//            }
             
             try? DatabaseService.save(list, update: true)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
         }
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
 //        notificationToken = list?.observe { [weak self] changes in
 //            guard let self = self else { return }
 //            switch changes {
@@ -62,7 +62,7 @@ class ListController: UITableViewController {
 //                print(error.localizedDescription)
 //            }
 //        }
-//    }
+    }
 
 }
 
