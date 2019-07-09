@@ -13,16 +13,51 @@ class ListController: UITableViewController {
     
     var listTextField: UITextField?
     
-    var sections = sectionsData
+    var sections = sectionData1
+    
+//    var sectionsData: [Section1] = [
+    //    Section1(name: "Коллекция списков", items: [
+    //        Item1(name: "Ашан"),
+    //        Item1(name: "Косметика")
+    //        ]),
+    //    Section1(name: "Шаблоны", items: [
+    //        Item1(name: "Вечеринка"),
+    //        Item1(name: "Бытовая")
+    //        ]),
+    //    Section1(name: "Рецепты", items: [
+    //        Item1(name: "Наполеон"),
+    //        Item1(name: "Драники")
+    //        ])
+    //]
     var listSectionImages = [0: #imageLiteral(resourceName: "списки"), 1: #imageLiteral(resourceName: "шаблоны"), 2: #imageLiteral(resourceName: "рецепты")]
     
     var list: Results<ListGet>? = DatabaseService.get(ListGet.self)
     var notificationToken: NotificationToken?
     
+    var temp = [String]()
+    
     let listService = ListService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        notificationToken = list?.observe { [weak self] changes in
+//            self?.tableView.reloadData()
+//        }
+//
+//                notificationToken = list?.observe { [weak self] changes in
+//                    guard let self = self else { return }
+//                    switch changes {
+//                    case .initial(_):
+//                        self.tableView.reloadData()
+//                    case .update(_, let dels, let ins, let mods):
+//                        self.tableView.applyChanges(deletions: dels, insertions: ins, updates: mods)
+//                    case .error(let error):
+//                        print(error.localizedDescription)
+//                    }
+//                }
+
         
         let headerNib = UINib.init(nibName: "HeaderList", bundle: Bundle.main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderList")
@@ -42,14 +77,17 @@ class ListController: UITableViewController {
 //            }
             
             try? DatabaseService.save(list, update: true)
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
+            
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+//        self.tableView.reloadData()
 
 //        notificationToken = list?.observe { [weak self] changes in
 //            guard let self = self else { return }
@@ -73,20 +111,22 @@ extension ListController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].collapsed ? 0 : sections[section].items.count
+        return sections[section].collapsed ? 0 : (list?.count)!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ListCell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListCell ??
             ListCell(style: .default, reuseIdentifier: "ListCell")
         
-        let item: Item1 = sections[indexPath.section].items[indexPath.row]
+//        var item: Item1 = sections[indexPath.section].items[indexPath.row]
         
-//        let listt = list?[indexPath.row]
+        var item1 = sections[0]
         
-//        item.name = (listt?.name_List)!
+        let listt = list?[indexPath.row]
         
-        cell.listName.text = item.name
+        item1.name = (listt?.name_List)!
+        
+        cell.listName.text = item1.name
         
         return cell
     }
@@ -120,9 +160,14 @@ extension ListController {
         }
         
         func newOkHandler(alert: UIAlertAction!) {
-            sections[section].items.insert(Item1.init(name: listTextField!.text!), at: 0)
-//            listService.loadListListPost(name: listTextField!.text!, checklist_id: Int.random(in: 1...1000))
-            tableView.reloadData()
+//            sections[section].items.insert(Item1.init(name: listTextField!.text!), at: 0)
+            listService.loadListListPost(name: listTextField!.text!, checklist_id: Int.random(in: 1...1000))
+            
+//            let realm = try? Realm()
+//
+//            try realm.write {
+//                realm.add(listTextField!.text!, update: true)
+//            }
         }
 
         headerView.index = section
