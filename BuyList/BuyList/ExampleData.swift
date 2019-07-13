@@ -32,7 +32,7 @@ public struct Section2 {
     var name: String
     var collapsed: Bool
     
-    public init(name:String, collapsed: Bool = true) {
+    public init(name:String, collapsed: Bool = false) {
         self.name = name
         self.collapsed = collapsed
     }

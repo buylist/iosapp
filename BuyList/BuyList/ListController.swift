@@ -88,18 +88,18 @@ class ListController: UITableViewController {
         super.viewWillAppear(animated)
         
 //        self.tableView.reloadData()
-
-//        notificationToken = list?.observe { [weak self] changes in
-//            guard let self = self else { return }
-//            switch changes {
-//            case .initial(_):
-//                self.tableView.reloadData()
-//            case .update(_, let dels, let ins, let mods):
-//                self.tableView.applyChanges(deletions: dels, insertions: ins, updates: mods)
-//            case .error(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
+//
+        self.notificationToken = list?.observe { [weak self] changes in
+            guard let self = self else { return }
+            switch changes {
+            case .initial(_):
+                self.tableView.reloadData()
+            case .update(_, let dels, let ins, let mods):
+                self.tableView.applyChanges(deletions: dels, insertions: ins, updates: mods)
+            case .error(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
 }
@@ -194,6 +194,80 @@ extension ListController {
             return 2
         }
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let edit = editAction(at: indexPath)
+        let delete = deleteAction(at: indexPath)
+        
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        
+        let action = UIContextualAction(style: .normal, title: nil) {
+            (action, view, complection) in
+            let listt = self.list?[indexPath.row]
+            self.listService.loadListListDelete(url: (listt?.url_List)!)
+//            DatabaseService.delete()
+//            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
+        }
+        action.backgroundColor = .red
+        action.image = UIImage(named: "remove")
+        
+        return action
+    }
+    
+//    func editAction(at indexPath: IndexPath) -> UIContextualAction {
+//
+//        var item = recipe[indexPath.section].items[indexPath.row]
+//
+//        let action = UIContextualAction(style: .normal, title: nil) {
+//            (action, view, complection) in
+//
+//            let alertController = UIAlertController(title: "Изменить название Ингредиента?", message: nil, preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "Изменить", style: .default, handler: editOkHandler)
+//            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+//            alertController.addTextField(configurationHandler: editTextFieldName)
+//            alertController.addTextField(configurationHandler: editTextFieldMass)
+//            alertController.addAction(okAction)
+//            alertController.addAction(cancelAction)
+//
+//            self.present(alertController, animated: true)
+//        }
+//
+//        func editTextFieldName(textField: UITextField!) {
+//            textFieldName = textField
+//            textFieldName?.placeholder = recipe[indexPath.section].items[indexPath.row].name
+//        }
+//
+//        func editTextFieldMass(textField: UITextField!) {
+//            textFieldMass = textField
+//            textFieldMass?.placeholder = recipe[indexPath.section].items[indexPath.row].count
+//        }
+//
+//        func editOkHandler(alert: UIAlertAction!) {
+//            if (!item.name.contains(textFieldName!.text!) || item.name == textFieldName!.text!) && textFieldName!.text! != "" {
+//                recipe[indexPath.section].items[indexPath.row].name = textFieldName!.text!
+//                recipe[indexPath.section].items[indexPath.row].count = textFieldMass!.text!
+//                tableView.reloadData()
+//            } else if textFieldName!.text! == "" {
+//                let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
+//                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+//                alertController.addAction(okAction)
+//                self.present(alertController, animated: true)
+//            } else {
+//                let alertController = UIAlertController(title: "Ошибка!", message:  "Ингредиент с таким название уже существует.", preferredStyle: .alert)
+//                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+//                alertController.addAction(okAction)
+//                self.present(alertController, animated: true)
+//            }
+//        }
+//        action.backgroundColor = .gray
+//        action.image = UIImage(named: "edit")
+//
+//        return action
+//    }
     
 }
 
