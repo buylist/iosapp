@@ -51,8 +51,10 @@ class ListController: UITableViewController {
 //                    switch changes {
 //                    case .initial(_):
 //                        self.tableView.reloadData()
+//                        print("Up")
 //                    case .update(_, let dels, let ins, let mods):
 //                        self.tableView.applyChanges(deletions: dels, insertions: ins, updates: mods)
+//                        print("UpUp")
 //                    case .error(let error):
 //                        print(error.localizedDescription)
 //                    }
@@ -78,24 +80,26 @@ class ListController: UITableViewController {
             
             try? DatabaseService.save(list, update: true)
             
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
+//            DispatchQueue.main.async {
+//                self?.tableView.reloadData()
+//            }
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        self.tableView.reloadData()
-//
-        self.notificationToken = list?.observe { [weak self] changes in
+        self.tableView.reloadData()
+
+        notificationToken = list?.observe { [weak self] changes in
             guard let self = self else { return }
             switch changes {
             case .initial(_):
                 self.tableView.reloadData()
+                print("Up")
             case .update(_, let dels, let ins, let mods):
                 self.tableView.applyChanges(deletions: dels, insertions: ins, updates: mods)
+                print("UpUp")
             case .error(let error):
                 print(error.localizedDescription)
             }
@@ -163,11 +167,13 @@ extension ListController {
 //            sections[section].items.insert(Item1.init(name: listTextField!.text!), at: 0)
             listService.loadListListPost(name: listTextField!.text!, checklist_id: Int.random(in: 1...1000))
             
-//            let realm = try? Realm()
-//
-//            try realm.write {
-//                realm.add(listTextField!.text!, update: true)
-//            }
+            listService.loadListListGet() { [weak self] list, error in
+                guard let _ = self, error == nil,
+                    let list = list else { print(error?.localizedDescription as Any); return }
+                
+                try? DatabaseService.save(list, update: true)
+
+            }
         }
 
         headerView.index = section
@@ -207,10 +213,16 @@ extension ListController {
         let action = UIContextualAction(style: .normal, title: nil) {
             (action, view, complection) in
             let listt = self.list?[indexPath.row]
+            let realm = try? Realm()
             self.listService.loadListListDelete(url: (listt?.url_List)!)
-//            DatabaseService.delete()
-//            self.tableView.deleteRows(at: [indexPath], with: .fade)
-            self.tableView.reloadData()
+            
+            do {
+            realm?.beginWrite()
+            realm?.delete(listt!)
+                try realm?.commitWrite()
+            } catch {
+                print(error)
+            }
         }
         action.backgroundColor = .red
         action.image = UIImage(named: "remove")

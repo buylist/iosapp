@@ -30,7 +30,7 @@ class DatabaseService {
     }
     
     @discardableResult
-    static func delete<T: Object>(_ items: [T], config: Realm.Configuration = Realm.Configuration.defaultConfiguration) throws -> Realm {
+    static func delete<T: Object>(_ items: [T], config: Realm.Configuration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)) throws -> Realm {
         let realm = try Realm(configuration: config)
         
         try realm.write {

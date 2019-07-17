@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5505C5AA22DF4F0C0013371D /* RecieptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505C5A922DF4F0C0013371D /* RecieptService.swift */; };
+		5505C5AC22DF52E20013371D /* PatternService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505C5AB22DF52E20013371D /* PatternService.swift */; };
 		550DCA5A228ACAF400A04E7F /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550DCA59228ACAF400A04E7F /* ListCell.swift */; };
 		5541767F229458A700AE8E8F /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541767E229458A700AE8E8F /* RecipeController.swift */; };
 		55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55417680229458D000AE8E8F /* RecipeInstructionCell.swift */; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		249FD9E3F756712DE3414E77 /* Pods_BuyList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuyList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5505C5A922DF4F0C0013371D /* RecieptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieptService.swift; sourceTree = "<group>"; };
+		5505C5AB22DF52E20013371D /* PatternService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternService.swift; sourceTree = "<group>"; };
 		550DCA59228ACAF400A04E7F /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		5541767E229458A700AE8E8F /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		55417680229458D000AE8E8F /* RecipeInstructionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInstructionCell.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				894308FD22B6A4CC00EEDE73 /* ChecklistService.swift */,
 				894308FB22B6A4CC00EEDE73 /* ItemService.swift */,
 				894308FE22B6A4CC00EEDE73 /* ListService.swift */,
+				5505C5A922DF4F0C0013371D /* RecieptService.swift */,
+				5505C5AB22DF52E20013371D /* PatternService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -400,11 +406,13 @@
 				89F2D9C222B69C1E004D7AF0 /* PatternProductCell.swift in Sources */,
 				550DCA5A228ACAF400A04E7F /* ListCell.swift in Sources */,
 				89F2D9C022B69C0B004D7AF0 /* PatternInformationController.swift in Sources */,
+				5505C5AC22DF52E20013371D /* PatternService.swift in Sources */,
 				8989784822AAAABA00918F95 /* ListDetailCell.swift in Sources */,
 				8989784622AAAAAF00918F95 /* ListDetailController.swift in Sources */,
 				55417687229463A900AE8E8F /* RecipeCell.swift in Sources */,
 				55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */,
 				8943090E22B6AA7F00EEDE73 /* Session.swift in Sources */,
+				5505C5AA22DF4F0C0013371D /* RecieptService.swift in Sources */,
 				55BDA4CE22A026320044B6AE /* CategoryCircleView.swift in Sources */,
 				89FFE2DC2289928100784297 /* ListController.swift in Sources */,
 				55B827C722C27EF2001903FD /* ListGetItems.swift in Sources */,
