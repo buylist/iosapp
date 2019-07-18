@@ -172,7 +172,6 @@ extension ListController {
                     let list = list else { print(error?.localizedDescription as Any); return }
                 
                 try? DatabaseService.save(list, update: true)
-
             }
         }
 
@@ -202,10 +201,10 @@ extension ListController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let edit = editAction(at: indexPath)
+        let edit = editAction(at: indexPath)
         let delete = deleteAction(at: indexPath)
         
-        return UISwipeActionsConfiguration(actions: [delete])
+        return UISwipeActionsConfiguration(actions: [delete, edit])
     }
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
@@ -230,56 +229,61 @@ extension ListController {
         return action
     }
     
-//    func editAction(at indexPath: IndexPath) -> UIContextualAction {
-//
+    func editAction(at indexPath: IndexPath) -> UIContextualAction {
+
 //        var item = recipe[indexPath.section].items[indexPath.row]
-//
-//        let action = UIContextualAction(style: .normal, title: nil) {
-//            (action, view, complection) in
-//
-//            let alertController = UIAlertController(title: "Изменить название Ингредиента?", message: nil, preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "Изменить", style: .default, handler: editOkHandler)
-//            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-//            alertController.addTextField(configurationHandler: editTextFieldName)
-//            alertController.addTextField(configurationHandler: editTextFieldMass)
-//            alertController.addAction(okAction)
-//            alertController.addAction(cancelAction)
-//
-//            self.present(alertController, animated: true)
-//        }
-//
-//        func editTextFieldName(textField: UITextField!) {
-//            textFieldName = textField
-//            textFieldName?.placeholder = recipe[indexPath.section].items[indexPath.row].name
-//        }
-//
-//        func editTextFieldMass(textField: UITextField!) {
-//            textFieldMass = textField
-//            textFieldMass?.placeholder = recipe[indexPath.section].items[indexPath.row].count
-//        }
-//
-//        func editOkHandler(alert: UIAlertAction!) {
-//            if (!item.name.contains(textFieldName!.text!) || item.name == textFieldName!.text!) && textFieldName!.text! != "" {
-//                recipe[indexPath.section].items[indexPath.row].name = textFieldName!.text!
-//                recipe[indexPath.section].items[indexPath.row].count = textFieldMass!.text!
-//                tableView.reloadData()
-//            } else if textFieldName!.text! == "" {
+        
+        var item1 = sections[0]
+        
+        let listt = list?[indexPath.row]
+        
+        item1.name = (listt?.name_List)!
+
+        let action = UIContextualAction(style: .normal, title: nil) {
+            (action, view, complection) in
+
+            let alertController = UIAlertController(title: "Изменить название?", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Изменить", style: .default, handler: editOkHandler)
+            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+            alertController.addTextField(configurationHandler: editTextFieldName)
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+
+            self.present(alertController, animated: true)
+        }
+
+        func editTextFieldName(textField: UITextField!) {
+            listTextField = textField
+            listTextField?.placeholder = item1.name
+        }
+
+        func editOkHandler(alert: UIAlertAction!) {
+//            if (!item1.name.contains(listTextField!.text!) || item1.name == listTextField!.text!) && listTextField!.text! != "" {
+                listService.loadListListPatch(url: (listt?.url_List)!, name: listTextField!.text!, checklist_id: Int.random(in: 1...1000))
+                
+                listService.loadListListGet() { [weak self] list, error in
+                    guard let _ = self, error == nil,
+                        let list = list else { print(error?.localizedDescription as Any); return }
+                    
+                    try? DatabaseService.save(list, update: true)
+                }
+//            } else if listTextField!.text! == "" {
 //                let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
 //                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
 //                alertController.addAction(okAction)
 //                self.present(alertController, animated: true)
 //            } else {
-//                let alertController = UIAlertController(title: "Ошибка!", message:  "Ингредиент с таким название уже существует.", preferredStyle: .alert)
+//                let alertController = UIAlertController(title: "Ошибка!", message:  "Такое название уже существует.", preferredStyle: .alert)
 //                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
 //                alertController.addAction(okAction)
 //                self.present(alertController, animated: true)
 //            }
-//        }
-//        action.backgroundColor = .gray
-//        action.image = UIImage(named: "edit")
-//
-//        return action
-//    }
+        }
+        action.backgroundColor = .gray
+        action.image = UIImage(named: "edit")
+
+        return action
+    }
     
 }
 
