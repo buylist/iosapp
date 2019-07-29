@@ -38,7 +38,7 @@ class ListService {
         }
     }
     
-    public func loadListListPost(name: String, mobile_id: Int, completionHandler: (([ListGet]?, Error? ) -> Void)? = nil) {
+    public func loadListListPost(name: String, mobile_id: Int) {
         
         let header: HTTPHeaders = [
             "Authorization": token
@@ -56,21 +56,6 @@ class ListService {
                 print(error)
             case .success(let value):
                 print(value)
-            }
-        }
-        
-        Alamofire.request(url, method: .get, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
-            (response) in
-            switch response.result {
-            case .failure(let error):
-                completionHandler?(nil, error)
-            case .success(let value):
-                let json = JSON(value)
-                
-                let listGet = json.arrayValue.map { ListGet(json: $0) }
-                completionHandler?(listGet, nil)
-                
-                print(listGet)
             }
         }
     }
