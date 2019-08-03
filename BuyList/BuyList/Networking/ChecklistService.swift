@@ -13,12 +13,13 @@ import RealmSwift
 
 class ChecklistService {
     
-    private let url = "http://35.228.148.217:8000/api/v1/checklists/"
+    private let url = "http://35.228.148.217:80/api/v1/checklists/"
+    private let token = "Token c971f845bc2cc6ed50c75220f0e2eb32d315f7b0"
     
     public func loadListChecklistPost(name: String, checklist: String, deleted: Bool, quantity: Int, unit: String) {
         
         let header: HTTPHeaders = [
-            "Authorization": "Token 9c65603928b743c64480e88dea77a50fd90f3f41"
+            "Authorization": token
         ]
         
         let params: Parameters = [
@@ -45,7 +46,7 @@ class ChecklistService {
         let url = url
         
         let header: HTTPHeaders = [
-            "Authorization": "Token 9c65603928b743c64480e88dea77a50fd90f3f41"
+            "Authorization": token
         ]
         
         let params: Parameters = [
@@ -68,7 +69,7 @@ class ChecklistService {
         let url = url
         
         let header: HTTPHeaders = [
-            "Authorization": "Token 9c65603928b743c64480e88dea77a50fd90f3f41"
+            "Authorization": token
         ]
         
         Alamofire.request(url, method: .delete, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {

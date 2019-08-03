@@ -13,12 +13,13 @@ import RealmSwift
 
 class ItemService {
     
-    private let url = "http://35.228.148.217:8000/api/v1/items/"
+    private let url = "http://35.228.148.217:80/api/v1/items/"
+    private let token = "Token c971f845bc2cc6ed50c75220f0e2eb32d315f7b0"
     
     public func loadListItemGet(completionHandler: (([ItemGet]?, Error? ) -> Void)? = nil) {
         
         let header: HTTPHeaders = [
-            "Authorization": "Token 9c65603928b743c64480e88dea77a50fd90f3f41"
+            "Authorization": token
         ]
         
         Alamofire.request(url, method: .get, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
@@ -40,7 +41,7 @@ class ItemService {
     public func loadListItemPost(name: String, category_name: String, item_id: Int) {
         
         let header: HTTPHeaders = [
-            "Authorization": "Token 9c65603928b743c64480e88dea77a50fd90f3f41"
+            "Authorization": token
         ]
         
         let params: Parameters = [
@@ -65,7 +66,7 @@ class ItemService {
         let url = url
         
         let header: HTTPHeaders = [
-            "Authorization": "Token 9c65603928b743c64480e88dea77a50fd90f3f41"
+            "Authorization": token
         ]
         
         let params: Parameters = [
@@ -88,7 +89,7 @@ class ItemService {
         let url = url
         
         let header: HTTPHeaders = [
-            "Authorization": "Token 9c65603928b743c64480e88dea77a50fd90f3f41"
+            "Authorization": token
         ]
         
         Alamofire.request(url, method: .delete, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {

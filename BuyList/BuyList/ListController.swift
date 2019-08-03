@@ -37,6 +37,8 @@ class ListController: UITableViewController {
     var temp = [String]()
     
     let listService = ListService()
+    let servise1 = RecieptService()
+    let servise2 = PatternService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +68,11 @@ class ListController: UITableViewController {
         
         let footerNib = UINib.init(nibName: "FooterList", bundle: Bundle.main)
         tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: "FooterList")
+        
+        servise1.loadRecieptListGet()
+        servise2.loadPatternListGet()
+        servise1.loadRecieptItemListPost(url: "http://35.228.148.217:80/api/v1/reciept/1/",item: "Бананы", reciept: "Торт", deleted: false, quantity: 5, unit: "кг")
+        servise2.loadPatternItemListPost(url: "http://35.228.148.217:80/api/v1/pattern/1/", item: "Кетчуп", pattern: "Пицца", deleted: false, quantity: 2, unit: "кг")
         
         listService.loadListListGet() { [weak self] list, error in
             guard let _ = self, error == nil,

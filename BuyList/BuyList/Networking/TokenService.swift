@@ -13,7 +13,7 @@ import RealmSwift
 
 class TokenService {
     
-    private let url = "http://35.228.148.217:8000/api/token/"
+    private let url = "http://35.228.148.217:80/api/token/"
     
     public func loadListTokenPost(username: String, password: String) {
         

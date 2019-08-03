@@ -22,6 +22,8 @@
 		55BC4F122296EA0B001D231A /* HeaderRecipe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BC4F112296EA0B001D231A /* HeaderRecipe.xib */; };
 		55BDA4CC22A024F70044B6AE /* NewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4CB22A024F70044B6AE /* NewCategoryViewController.swift */; };
 		55BDA4CE22A026320044B6AE /* CategoryCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDA4CD22A026320044B6AE /* CategoryCircleView.swift */; };
+		55C0ECB722F5977000CC2B5A /* RecieptGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0ECB622F5977000CC2B5A /* RecieptGet.swift */; };
+		55C0ECB922F5978400CC2B5A /* PatternGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0ECB822F5978400CC2B5A /* PatternGet.swift */; };
 		55DA3781229D8BA3000712CA /* VPAutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA3780229D8BA3000712CA /* VPAutoComplete.swift */; };
 		55DA3783229D8BC6000712CA /* VPAutoCompleteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA3782229D8BC6000712CA /* VPAutoCompleteViewCell.swift */; };
 		55DA3785229D8BEA000712CA /* VPAutoCompleteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */; };
@@ -68,6 +70,8 @@
 		55BC4F112296EA0B001D231A /* HeaderRecipe.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderRecipe.xib; sourceTree = "<group>"; };
 		55BDA4CB22A024F70044B6AE /* NewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryViewController.swift; sourceTree = "<group>"; };
 		55BDA4CD22A026320044B6AE /* CategoryCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCircleView.swift; sourceTree = "<group>"; };
+		55C0ECB622F5977000CC2B5A /* RecieptGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieptGet.swift; sourceTree = "<group>"; };
+		55C0ECB822F5978400CC2B5A /* PatternGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternGet.swift; sourceTree = "<group>"; };
 		55DA3780229D8BA3000712CA /* VPAutoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPAutoComplete.swift; sourceTree = "<group>"; };
 		55DA3782229D8BC6000712CA /* VPAutoCompleteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPAutoCompleteViewCell.swift; sourceTree = "<group>"; };
 		55DA3784229D8BEA000712CA /* VPAutoCompleteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VPAutoCompleteViewCell.xib; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				8943090722B6A50300EEDE73 /* ListGet.swift */,
 				55B827C622C27EF2001903FD /* ListGetItems.swift */,
 				8943090822B6A50300EEDE73 /* CategoryGet.swift */,
+				55C0ECB622F5977000CC2B5A /* RecieptGet.swift */,
+				55C0ECB822F5978400CC2B5A /* PatternGet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -409,12 +415,14 @@
 				5505C5AC22DF52E20013371D /* PatternService.swift in Sources */,
 				8989784822AAAABA00918F95 /* ListDetailCell.swift in Sources */,
 				8989784622AAAAAF00918F95 /* ListDetailController.swift in Sources */,
+				55C0ECB922F5978400CC2B5A /* PatternGet.swift in Sources */,
 				55417687229463A900AE8E8F /* RecipeCell.swift in Sources */,
 				55417681229458D000AE8E8F /* RecipeInstructionCell.swift in Sources */,
 				8943090E22B6AA7F00EEDE73 /* Session.swift in Sources */,
 				5505C5AA22DF4F0C0013371D /* RecieptService.swift in Sources */,
 				55BDA4CE22A026320044B6AE /* CategoryCircleView.swift in Sources */,
 				89FFE2DC2289928100784297 /* ListController.swift in Sources */,
+				55C0ECB722F5977000CC2B5A /* RecieptGet.swift in Sources */,
 				55B827C722C27EF2001903FD /* ListGetItems.swift in Sources */,
 				8943090F22B6AA8300EEDE73 /* ListGet.swift in Sources */,
 				55F01F5322C3BA5E004DA8B6 /* RealmChanges.swift in Sources */,
