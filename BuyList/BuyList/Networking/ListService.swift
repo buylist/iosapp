@@ -102,4 +102,68 @@ class ListService {
             }
         }
     }
+    
+    public func loadListFullListPost(name: String, mobile_id: Int, itemName: String, itemCategory: String, iteMmob_cat_id: Int, itemMobile_id: Int, unit: String, quanity: Int, deleted: Bool) {
+        
+        let header: HTTPHeaders = [
+            "Authorization": token
+        ]
+        
+        let params: Parameters = [
+            "name": name,
+            "mobile_id": mobile_id,
+            "items": [
+                    "name": itemName,
+                    "category": itemCategory,
+                    "mob_cat_id": iteMmob_cat_id,
+                    "mobile_id": itemMobile_id,
+            ],
+                "unit": unit,
+                "quanity": quanity,
+                "deleted": deleted
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
+            (response) in
+            switch response.result {
+            case .failure(let error):
+                print(error)
+            case .success(let value):
+                print(value)
+            }
+        }
+    }
+    
+    public func loadListFullListPatch(url: String, name: String, mobile_id: Int, itemName: String, itemCategory: String, iteMmob_cat_id: Int, itemMobile_id: Int, unit: String, quanity: Int, deleted: Bool) {
+        
+        let url = url
+        
+        let header: HTTPHeaders = [
+            "Authorization": token
+        ]
+        
+        let params: Parameters = [
+            "name": name,
+            "mobile_id": mobile_id,
+            "items": [
+                "name": itemName,
+                "category": itemCategory,
+                "mob_cat_id": iteMmob_cat_id,
+                "mobile_id": itemMobile_id,
+            ],
+            "unit": unit,
+            "quanity": quanity,
+            "deleted": deleted
+        ]
+        
+        Alamofire.request(url, method: .patch, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
+            (response) in
+            switch response.result {
+            case .failure(let error):
+                print(error)
+            case .success(let value):
+                print(value)
+            }
+        }
+    }
 }

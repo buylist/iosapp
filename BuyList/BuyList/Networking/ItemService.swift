@@ -38,7 +38,7 @@ class ItemService {
         }
     }
     
-    public func loadListItemPost(name: String, category_name: String, item_id: Int) {
+    public func loadListItemPost(name: String, category: String, mob_cat_id: Int, mobile_id: Int) {
         
         let header: HTTPHeaders = [
             "Authorization": token
@@ -46,8 +46,9 @@ class ItemService {
         
         let params: Parameters = [
             "name": name,
-            "category_name": category_name,
-            "item_id": item_id
+            "category": category,
+            "mob_cat_id": mob_cat_id,
+            "mobile_id": mobile_id
         ]
         
         Alamofire.request(url, method: .post, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {

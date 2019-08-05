@@ -62,9 +62,9 @@ class RecieptService {
         }
     }
     
-    public func loadRecieptItemListPost(url: String ,item: String, reciept: String, deleted: Bool, quantity: Int, unit: String) {
+    public func loadRecieptItemListPost(item: String, reciept: String, deleted: Bool, quantity: Int, unit: String) {
         
-        let url = url
+        let url = "http://35.228.148.217:80/api/v1/reciept_item/"
         
         let header: HTTPHeaders = [
             "Authorization": token

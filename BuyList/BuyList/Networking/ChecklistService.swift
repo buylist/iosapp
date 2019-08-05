@@ -82,4 +82,73 @@ class ChecklistService {
             }
         }
     }
+    
+    public func loadListAccess1ChecklistPatch(mobile_id: Int) {
+        
+        let url = "http://35.228.148.217:80/api/checklists/share/"
+        
+        let header: HTTPHeaders = [
+            "Authorization": token
+        ]
+        
+        let params: Parameters = [
+            "mobile_id": mobile_id
+        ]
+        
+        Alamofire.request(url, method: .patch, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
+            (response) in
+            switch response.result {
+            case .failure(let error):
+                print(error)
+            case .success(let value):
+                print(value)
+            }
+        }
+    }
+    
+    public func loadListAccess2ChecklistPatch(mobile_id: Int) {
+        
+        let url = "http://35.228.148.217:80/api/checklists/noshare/"
+        
+        let header: HTTPHeaders = [
+            "Authorization": token
+        ]
+        
+        let params: Parameters = [
+            "mobile_id": mobile_id
+        ]
+        
+        Alamofire.request(url, method: .patch, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
+            (response) in
+            switch response.result {
+            case .failure(let error):
+                print(error)
+            case .success(let value):
+                print(value)
+            }
+        }
+    }
+    
+    public func loadListAccess3ChecklistPatch(mobile_id: Int) {
+        
+        let url = "http://35.228.148.217:80/api/checklists/noshare/"
+        
+        let header: HTTPHeaders = [
+            "Authorization": token
+        ]
+        
+        let params: Parameters = [
+            "mobile_id": mobile_id
+        ]
+        
+        Alamofire.request(url, method: .patch, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
+            (response) in
+            switch response.result {
+            case .failure(let error):
+                print(error)
+            case .success(let value):
+                print(value)
+            }
+        }
+    }
 }

@@ -61,8 +61,10 @@ class PatternService {
         }
     }
     
-    public func loadPatternItemListPost(url: String ,item: String, pattern: String, deleted: Bool, quantity: Int, unit: String) {
-        let url = url
+    public func loadPatternItemListPost(item: String, pattern: String, deleted: Bool, quantity: Int, unit: String) {
+        
+        let url = "http://35.228.148.217:80/api/v1/pattern_item/"
+        
         let header: HTTPHeaders = [
             "Authorization": token
         ]

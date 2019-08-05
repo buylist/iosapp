@@ -14,19 +14,15 @@ class ItemGet: Object {
     
     @objc dynamic var uuid = UUID().uuidString
     @objc dynamic var url = ""
-    @objc dynamic var item_id = 0
     @objc dynamic var name = ""
-    @objc dynamic var buyer_id = 0
-    @objc dynamic var category_id = 0
+    @objc dynamic var category = ""
     
     convenience init(json: JSON) {
         self.init()
         
         self.url = json["url"].stringValue
-        self.item_id = json["item_id"].intValue
         self.name = json["name"].stringValue
-        self.buyer_id = json["buyer_id"].intValue
-        self.category_id = json["category_id"].intValue
+        self.category = json["category"].stringValue
     }
     
     override static func primaryKey() -> String? {
@@ -41,3 +37,12 @@ class ItemGet: Object {
 //    "buyer_id": 2,
 //    "category_id": 4
 //},
+
+//[
+//    {
+//        "url": "http://35.228.148.217:80/api/v1/items/149/",
+//        "name": "Соль",
+//        "category": "Category object (26)",
+//        "mobile_id": 123
+//    }
+//]

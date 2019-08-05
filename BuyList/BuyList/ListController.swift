@@ -71,8 +71,6 @@ class ListController: UITableViewController {
         
         servise1.loadRecieptListGet()
         servise2.loadPatternListGet()
-        servise1.loadRecieptItemListPost(url: "http://35.228.148.217:80/api/v1/reciept/1/",item: "Бананы", reciept: "Торт", deleted: false, quantity: 5, unit: "кг")
-        servise2.loadPatternItemListPost(url: "http://35.228.148.217:80/api/v1/pattern/1/", item: "Кетчуп", pattern: "Пицца", deleted: false, quantity: 2, unit: "кг")
         
         listService.loadListListGet() { [weak self] list, error in
             guard let _ = self, error == nil,
