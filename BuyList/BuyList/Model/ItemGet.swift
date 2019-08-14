@@ -16,6 +16,7 @@ class ItemGet: Object {
     @objc dynamic var url = ""
     @objc dynamic var name = ""
     @objc dynamic var category = ""
+    @objc dynamic var mobile_id = 0
     
     convenience init(json: JSON) {
         self.init()
@@ -23,6 +24,7 @@ class ItemGet: Object {
         self.url = json["url"].stringValue
         self.name = json["name"].stringValue
         self.category = json["category"].stringValue
+        self.mobile_id = json["mobile_id"].intValue
     }
     
     override static func primaryKey() -> String? {

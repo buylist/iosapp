@@ -18,8 +18,30 @@ class ListGetItems: Object {
     @objc dynamic  var deleted_Checklists = false
     
     @objc dynamic  var url_Item = ""
-    @objc dynamic  var item_id_Item = 0
     @objc dynamic  var name_Item = ""
-    @objc dynamic  var buyer_id_Item = 0
-    @objc dynamic  var category_id_Item = 0
+    @objc dynamic  var category_Item = ""
+    @objc dynamic  var mobile_id_Item = 0
 }
+
+
+//[
+//    {
+//        "url": "http://35.228.148.217:80/api/v1/lists/4/",
+//        "name": "aqaq",
+//        "mobile_id": 129,
+//        "items": [
+//        {
+//        "url": "http://35.228.148.217:80/api/v1/checklists/19/",
+//        "quantity": "8.0000",
+//        "unit": "шт",
+//        "deleted": false,
+//        "item": {
+//        "url": "http://35.228.148.217:80/api/v1/items/153/",
+//        "name": "Сок",
+//        "category": "Category object (18)",
+//        "mobile_id": 123
+//        }
+//        }
+//        ]
+//    }
+//]

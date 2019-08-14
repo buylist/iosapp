@@ -39,6 +39,9 @@ class ListController: UITableViewController {
     let listService = ListService()
     let servise1 = RecieptService()
     let servise2 = PatternService()
+    let category1 = CategoryService()
+    let check = ChecklistService()
+    let qqq = ListGetItems()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +72,9 @@ class ListController: UITableViewController {
         let footerNib = UINib.init(nibName: "FooterList", bundle: Bundle.main)
         tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: "FooterList")
         
-        servise1.loadRecieptListGet()
-        servise2.loadPatternListGet()
+//        servise1.loadRecieptListGet()
+//        servise2.loadPatternListGet()
+//        category1.loadListCategoriesGet()
         
         listService.loadListListGet() { [weak self] list, error in
             guard let _ = self, error == nil,

@@ -16,15 +16,17 @@ class ChecklistService {
     private let url = "http://35.228.148.217:80/api/v1/checklists/"
     private let token = "Token c971f845bc2cc6ed50c75220f0e2eb32d315f7b0"
     
-    public func loadListChecklistPost(name: String, checklist: String, deleted: Bool, quantity: Int, unit: String) {
+    public func loadListChecklistPost(mob_item_id: Int, item_name: String, checklist_name: String, mob_check_id: Int, deleted: Bool, quantity: Int, unit: String) {
         
         let header: HTTPHeaders = [
             "Authorization": token
         ]
         
         let params: Parameters = [
-            "item": name,
-            "checklist": checklist,
+            "mob_item_id": mob_item_id,
+            "item_name": item_name,
+            "checklist_name": checklist_name,
+            "mob_check_id": mob_check_id,
             "deleted": deleted,
             "quantity": quantity,
             "unit": unit

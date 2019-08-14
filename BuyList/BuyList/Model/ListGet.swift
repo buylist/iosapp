@@ -15,6 +15,7 @@ class ListGet: Object {
     @objc dynamic var uuid = UUID().uuidString
     @objc dynamic var url_List = ""
     @objc dynamic var name_List = ""
+    @objc dynamic var mobile_id = 0
     
     var url_Checklists = List<String>()
     var quantity_Checklists = List<String>()
@@ -22,10 +23,9 @@ class ListGet: Object {
     var deleted_Checklists = List<Bool>()
     
     var url_Item = List<String>()
-    var item_id_Item = List<Int>()
     var name_Item = List<String>()
-    var buyer_id_Item = List<Int>()
-    var category_id_Item = List<Int>()
+    var category_Item = List<String>()
+    var mobile_id_Item = List<Int>()
     
     var listGetItems = ListGetItems()
     
@@ -34,6 +34,7 @@ class ListGet: Object {
         
         self.url_List = json["url"].stringValue
         self.name_List = json["name"].stringValue
+        self.mobile_id = json["mobile_id"].intValue
         
         for item in json["items"].arrayValue {
             
@@ -43,10 +44,9 @@ class ListGet: Object {
             listGetItems.deleted_Checklists = item["deleted"].boolValue
             
             listGetItems.url_Item = item["item"]["url"].stringValue
-            listGetItems.item_id_Item = item["item"]["item_id"].intValue
             listGetItems.name_Item = item["item"]["name"].stringValue
-            listGetItems.buyer_id_Item = item["item"]["buyer_id"].intValue
-            listGetItems.category_id_Item = item["item"]["category_id"].intValue
+            listGetItems.category_Item = item["item"]["category"].stringValue
+            listGetItems.mobile_id_Item = item["item"]["mobile_id"].intValue
             
             url_Checklists.append(listGetItems.url_Checklists)
             quantity_Checklists.append(listGetItems.quantity_Checklists)
@@ -54,10 +54,9 @@ class ListGet: Object {
             deleted_Checklists.append(listGetItems.deleted_Checklists)
             
             url_Item.append(listGetItems.url_Item)
-            item_id_Item.append(listGetItems.item_id_Item)
             name_Item.append(listGetItems.name_Item)
-            buyer_id_Item.append(listGetItems.buyer_id_Item)
-            category_id_Item.append(listGetItems.category_id_Item)
+            category_Item.append(listGetItems.category_Item)
+            mobile_id_Item.append(listGetItems.mobile_id_Item)
         }
     }
     
@@ -83,3 +82,25 @@ class ListGet: Object {
 //    },
 //    "deleted": true
 //    },
+
+//[
+//    {
+//        "url": "http://35.228.148.217:80/api/v1/lists/4/",
+//        "name": "aqaq",
+//        "mobile_id": 129,
+//        "items": [
+//        {
+//        "url": "http://35.228.148.217:80/api/v1/checklists/19/",
+//        "quantity": "8.0000",
+//        "unit": "шт",
+//        "deleted": false,
+//        "item": {
+//        "url": "http://35.228.148.217:80/api/v1/items/153/",
+//        "name": "Сок",
+//        "category": "Category object (18)",
+//        "mobile_id": 123
+//        }
+//        }
+//        ]
+//    }
+//]

@@ -17,6 +17,7 @@ class CategoryGet: Object {
     @objc dynamic var name = ""
     @objc dynamic var modified = ""
     @objc dynamic var color = ""
+    @objc dynamic var mobile_id = 0
     
     convenience init(json: JSON) {
         self.init()
@@ -25,6 +26,7 @@ class CategoryGet: Object {
         self.name = json["name"].stringValue
         self.modified = json["modified"].stringValue
         self.color = json["color"].stringValue
+        self.mobile_id = json["mobile_id"].intValue
     }
     
     override static func primaryKey() -> String? {
@@ -32,11 +34,10 @@ class CategoryGet: Object {
     }
 }
 
-//[
-//    {
-//        "url": "http://35.228.148.217:8000/api/v1/items/3/",
-//        "item_id": 653,
-//        "name": "Cola",
-//        "buyer_id": 2,
-//        "category_id": 4
-//    },
+//{
+//    "url": "http://35.228.148.217:80/api/v1/categories/18/",
+//    "name": "Для дома",
+//    "modified": "2019-08-05T16:03:30.068371+03:00",
+//    "color": "green",
+//    "mobile_id": 0
+//}
