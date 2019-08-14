@@ -75,6 +75,7 @@ class ListController: UITableViewController {
 //        servise1.loadRecieptListGet()
 //        servise2.loadPatternListGet()
 //        category1.loadListCategoriesGet()
+        check.loadListAccess1ChecklistPost(mobile_id: 129)
         
         listService.loadListListGet() { [weak self] list, error in
             guard let _ = self, error == nil,

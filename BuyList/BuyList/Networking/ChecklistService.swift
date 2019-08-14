@@ -85,7 +85,7 @@ class ChecklistService {
         }
     }
     
-    public func loadListAccess1ChecklistPatch(mobile_id: Int) {
+    public func loadListAccess1ChecklistPost(mobile_id: Int) {
         
         let url = "http://35.228.148.217:80/api/checklists/share/"
         
@@ -97,7 +97,7 @@ class ChecklistService {
             "mobile_id": mobile_id
         ]
         
-        Alamofire.request(url, method: .patch, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
+        Alamofire.request(url, method: .post, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
             (response) in
             switch response.result {
             case .failure(let error):
@@ -108,7 +108,7 @@ class ChecklistService {
         }
     }
     
-    public func loadListAccess2ChecklistPatch(mobile_id: Int) {
+    public func loadListAccess2ChecklistPost(mobile_id: Int) {
         
         let url = "http://35.228.148.217:80/api/checklists/noshare/"
         
@@ -120,7 +120,7 @@ class ChecklistService {
             "mobile_id": mobile_id
         ]
         
-        Alamofire.request(url, method: .patch, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
+        Alamofire.request(url, method: .post, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
             (response) in
             switch response.result {
             case .failure(let error):
@@ -131,7 +131,7 @@ class ChecklistService {
         }
     }
     
-    public func loadListAccess3ChecklistPatch(mobile_id: Int) {
+    public func loadListAccess3ChecklistPost(mobile_id: Int) {
         
         let url = "http://35.228.148.217:80/api/checklists/noshare/"
         
@@ -143,7 +143,7 @@ class ChecklistService {
             "mobile_id": mobile_id
         ]
         
-        Alamofire.request(url, method: .patch, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
+        Alamofire.request(url, method: .post, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {
             (response) in
             switch response.result {
             case .failure(let error):
