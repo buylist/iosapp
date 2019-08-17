@@ -32,4 +32,19 @@ class TokenService {
             }
         }
     }
+    
+    public func loadListGooglePost() {
+        
+        let url = "http://www.buy-list.cloud/auth/login/google-oauth2/"
+        
+        Alamofire.request(url, method: .get).responseJSON(queue: .global(qos: .userInitiated)) {
+            (response) in
+            switch response.result {
+            case .failure(let error):
+                print(error)
+            case .success(let value):
+                print(value)
+            }
+        }
+    }
 }

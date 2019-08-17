@@ -133,7 +133,7 @@ class ChecklistService {
     
     public func loadListAccess3ChecklistPost(mobile_id: Int) {
         
-        let url = "http://35.228.148.217:80/api/checklists/noshare/"
+        let url = "http://35.228.148.217:80/api/checklists/pull_to_origin/"
         
         let header: HTTPHeaders = [
             "Authorization": token

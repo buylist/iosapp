@@ -19,6 +19,7 @@
 		55772E0E228C5AE000211630 /* HeaderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772E0D228C5AE000211630 /* HeaderList.swift */; };
 		55805E6622F8765300B595A6 /* RecieptGetItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55805E6522F8765300B595A6 /* RecieptGetItems.swift */; };
 		55805E6822F8766600B595A6 /* PatternGetItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55805E6722F8766600B595A6 /* PatternGetItems.swift */; };
+		55A0F9DD2308306C000C285C /* LoginFromController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0F9DC2308306C000C285C /* LoginFromController.swift */; };
 		55B827C722C27EF2001903FD /* ListGetItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B827C622C27EF2001903FD /* ListGetItems.swift */; };
 		55BC4F102296E9F8001D231A /* HeaderRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC4F0F2296E9F8001D231A /* HeaderRecipe.swift */; };
 		55BC4F122296EA0B001D231A /* HeaderRecipe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BC4F112296EA0B001D231A /* HeaderRecipe.xib */; };
@@ -69,6 +70,7 @@
 		55772E0D228C5AE000211630 /* HeaderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderList.swift; sourceTree = "<group>"; };
 		55805E6522F8765300B595A6 /* RecieptGetItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieptGetItems.swift; sourceTree = "<group>"; };
 		55805E6722F8766600B595A6 /* PatternGetItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternGetItems.swift; sourceTree = "<group>"; };
+		55A0F9DC2308306C000C285C /* LoginFromController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFromController.swift; sourceTree = "<group>"; };
 		55B827C622C27EF2001903FD /* ListGetItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGetItems.swift; sourceTree = "<group>"; };
 		55BC4F0F2296E9F8001D231A /* HeaderRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRecipe.swift; sourceTree = "<group>"; };
 		55BC4F112296EA0B001D231A /* HeaderRecipe.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderRecipe.xib; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				8989784122AA79D700918F95 /* ExampleData.swift */,
 				55F01F5022C3B9CB004DA8B6 /* DatabaseService.swift */,
 				55F01F5222C3BA5E004DA8B6 /* RealmChanges.swift */,
+				55A0F9DC2308306C000C285C /* LoginFromController.swift */,
 				89FFE2DD2289928100784297 /* Main.storyboard */,
 				8943090422B6A50300EEDE73 /* Model */,
 				8943090322B6A4DA00EEDE73 /* Networking */,
@@ -284,6 +287,7 @@
 				89FFE2D32289928100784297 /* Frameworks */,
 				89FFE2D42289928100784297 /* Resources */,
 				0031A0104841B42BB866FA14 /* [CP] Embed Pods Frameworks */,
+				5643D752131EF17AECFC29CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -355,6 +359,9 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BuyList/Pods-BuyList-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -365,6 +372,9 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -373,6 +383,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuyList/Pods-BuyList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5643D752131EF17AECFC29CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BuyList/Pods-BuyList-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuyList/Pods-BuyList-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		75B10A170E7DD9803F727793 /* [CP] Check Pods Manifest.lock */ = {
@@ -438,6 +470,7 @@
 				8943091022B6AA8600EEDE73 /* CategoryGet.swift in Sources */,
 				5541767F229458A700AE8E8F /* RecipeController.swift in Sources */,
 				8943090D22B6AA7900EEDE73 /* ItemGet.swift in Sources */,
+				55A0F9DD2308306C000C285C /* LoginFromController.swift in Sources */,
 				8943090A22B6A5CC00EEDE73 /* DateRecipe.swift in Sources */,
 				55DA3783229D8BC6000712CA /* VPAutoCompleteViewCell.swift in Sources */,
 				55DA3781229D8BA3000712CA /* VPAutoComplete.swift in Sources */,
