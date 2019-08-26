@@ -10,6 +10,7 @@ target 'BuyList' do
   pod 'SwiftyJSON', '~> 4.2.0'
   pod 'RealmSwift'
   pod 'GoogleSignIn'
+  pod 'OAuthSwift', '~> 1.2.0'
 
   # Pods for BuyList
 
