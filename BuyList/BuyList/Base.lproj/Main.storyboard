@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEz-pO-c9B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qGc-CL-Ora">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,7 +71,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="listName" destination="oao-xJ-m9f" id="XAr-yV-eG0"/>
-                                    <segue destination="OAA-tl-fEK" kind="show" id="fZp-m8-oZg"/>
+                                    <segue destination="OAA-tl-fEK" kind="show" identifier="listDetailController" id="fZp-m8-oZg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -207,13 +207,20 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPs-eF-Ota">
+                                            <rect key="frame" x="295" y="12" width="51" height="30"/>
+                                            <state key="normal" title="скрыть"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="QPs-eF-Ota" secondAttribute="bottom" constant="1" id="3mJ-nr-TfF"/>
                                         <constraint firstItem="Sho-tk-U26" firstAttribute="top" secondItem="lk8-dI-CGc" secondAttribute="top" constant="14" id="97h-h6-sgA"/>
                                         <constraint firstAttribute="bottom" secondItem="Sho-tk-U26" secondAttribute="bottom" constant="14" id="Nlz-ta-tYm"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QPs-eF-Ota" secondAttribute="trailing" constant="13" id="OGR-CQ-5DM"/>
                                         <constraint firstItem="F5P-Mi-37E" firstAttribute="centerY" secondItem="lk8-dI-CGc" secondAttribute="centerY" id="U70-eu-92M"/>
                                         <constraint firstItem="Sho-tk-U26" firstAttribute="leading" secondItem="F5P-Mi-37E" secondAttribute="trailing" constant="10" id="XXE-vx-7uf"/>
                                         <constraint firstItem="F5P-Mi-37E" firstAttribute="leading" secondItem="lk8-dI-CGc" secondAttribute="leading" constant="32" id="ppG-Ir-6jx"/>
+                                        <constraint firstItem="QPs-eF-Ota" firstAttribute="top" secondItem="lk8-dI-CGc" secondAttribute="topMargin" constant="1" id="re6-yO-i8i"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

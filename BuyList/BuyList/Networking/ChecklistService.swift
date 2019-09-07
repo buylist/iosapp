@@ -43,7 +43,7 @@ class ChecklistService {
         }
     }
     
-    public func loadListChecklistPatch(url: String, deleted: Bool) {
+    public func loadListChecklistPatch(url: String, deleted: Bool, quantity: Int) {
         
         let url = url
         
@@ -52,7 +52,8 @@ class ChecklistService {
         ]
         
         let params: Parameters = [
-            "deleted": deleted
+            "deleted": deleted,
+            "quantity": quantity
         ]
         
         Alamofire.request(url, method: .patch, parameters: params, headers: header).responseJSON(queue: .global(qos: .userInitiated)) {

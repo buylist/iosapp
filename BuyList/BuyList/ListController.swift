@@ -41,7 +41,6 @@ class ListController: UITableViewController {
     let servise2 = PatternService()
     let category1 = CategoryService()
     let check = ChecklistService()
-    let qqq = ListGetItems()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +74,8 @@ class ListController: UITableViewController {
 //        servise1.loadRecieptListGet()
 //        servise2.loadPatternListGet()
 //        category1.loadListCategoriesGet()
-        check.loadListAccess1ChecklistPost(mobile_id: 129)
+//        check.loadListAccess1ChecklistPost(mobile_id: 129)
+        check.loadListChecklistPatch(url: "http://35.228.148.217:80/api/v1/checklists/20/", deleted: true, quantity: 8)
         
         listService.loadListListGet() { [weak self] list, error in
             guard let _ = self, error == nil,
@@ -295,6 +295,17 @@ extension ListController {
         return action
     }
     
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+            if segue.identifier == "listDetailController" {
+                if let listDetailController = segue.destination as? ListDetailController {
+                    let indexPath = tableView.indexPathForSelectedRow
+                    let listName = list?[indexPath!.row]
+                    listDetailController.listName = (listName?.name_List)!
+                    listDetailController.title = listName?.name_List
+                }
+            }
+        }
 }
 
 extension ListController: HeaderListDelegate {

@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ListDetailController: UITableViewController {
+    
+    var list: Results<ListGet>? = DatabaseService.get(ListGet.self)
+    var listName = ""
+    let checklistService = ChecklistService()
     
     @IBAction func addButton(_ sender: Any) {
         
@@ -66,6 +71,7 @@ class ListDetailController: UITableViewController {
     var listTextField: UITextField?
     
     var listArray = ["Морковь", "Лук", "Вода"]
+    var listInt = [0, 0, 0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,19 +84,43 @@ class ListDetailController: UITableViewController {
 }
 
 extension ListDetailController {
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listArray.count
+
+        return list?.filter("name_List == '\(listName)'").count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let listDetail = list?.filter("name_List == '\(listName)'")
+        let checklistsUrl = listDetail![indexPath.row].url_Checklists[indexPath.row]
+        
+        if listDetail![indexPath.row].deleted_Checklists[indexPath.row] {
+//            checklistService.loadListChecklistPatch(url: checklistsUrl, deleted: false)
+            print(listDetail![indexPath.row].deleted_Checklists[indexPath.row])
+        } else {
+//            checklistService.loadListChecklistPatch(url: checklistsUrl, deleted: true)
+            print(listDetail![indexPath.row].deleted_Checklists[indexPath.row])
+        }
+        
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ListDetailCell = tableView.dequeueReusableCell(withIdentifier: "ListDetailCell") as! ListDetailCell
         
-        cell.listName.text = listArray[indexPath.row]
+        let listDetail = list?.filter("name_List == '\(listName)'")
+        cell.listName.text = listDetail![indexPath.row].name_Item[indexPath.row]
+        
+        if listDetail![indexPath.row].deleted_Checklists[indexPath.row] {
+            cell.listName.textColor = UIColor.red
+        } else {
+            cell.listName.textColor = UIColor.black
+        }
         
         return cell
     }
@@ -149,6 +179,10 @@ extension ListDetailController {
         action.backgroundColor = UIColor.gray
         
         return action
+    }
+    
+    @IBAction func buttonClose(_ sender: Any ) {
+        
     }
     
 }
