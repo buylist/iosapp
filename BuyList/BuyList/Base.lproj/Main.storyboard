@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qGc-CL-Ora">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RXB-Nj-aEJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -251,7 +251,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bZ-3z-D4n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200.8" y="11.244377811094454"/>
+            <point key="canvasLocation" x="2140" y="11.244377811094454"/>
         </scene>
         <!--Шаблоны-->
         <scene sceneID="kRc-Pj-ghg">
@@ -317,7 +317,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAr-DF-kCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934" y="11"/>
+            <point key="canvasLocation" x="2872.8000000000002" y="10.344827586206897"/>
         </scene>
         <!--Recipe Controller-->
         <scene sceneID="tMI-0x-0eB">
@@ -451,7 +451,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1u-dS-pQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1201" y="-702"/>
+            <point key="canvasLocation" x="2140" y="-702.09895052473769"/>
         </scene>
         <!--Рецепт-->
         <scene sceneID="0oJ-NC-JEN">
@@ -487,7 +487,6 @@
                                     <constraint firstAttribute="width" constant="300" id="1De-qW-t2R"/>
                                     <constraint firstAttribute="height" constant="30" id="Eba-i4-qJf"/>
                                 </constraints>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -605,7 +604,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8I-9u-amk">
-                                <rect key="frame" x="98.5" y="82" width="178" height="36"/>
+                                <rect key="frame" x="98.5" y="126" width="178" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="178" id="H7X-Do-nUc"/>
                                     <constraint firstAttribute="height" constant="36" id="Y4b-1V-jLq"/>
@@ -618,11 +617,11 @@
                                 <rect key="frame" x="39" y="425" width="297" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="GOOGLE AUTH">
+                                <state key="normal" title="Авторизоваться">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="share:" destination="dEz-pO-c9B" eventType="touchUpInside" id="5Fb-xG-TaB"/>
+                                    <action selector="loginButtonTapped" destination="dEz-pO-c9B" eventType="touchUpInside" id="grj-aH-fNZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -634,15 +633,53 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pPB-EB-9vB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="419-mY-4Se"/>
+                    <connections>
+                        <outlet property="loginButton" destination="f5Q-O2-8JR" id="Asa-cJ-oFM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzW-pi-a3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626.39999999999998" y="-527.58620689655174"/>
+            <point key="canvasLocation" x="-618" y="-586"/>
+        </scene>
+        <!--Login Webkit View Controller-->
+        <scene sceneID="03h-W9-1MN">
+            <objects>
+                <viewController storyboardIdentifier="LoginWebkitViewController" id="JNU-NE-pHj" customClass="LoginWebkitViewController" customModule="BuyList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sAI-pu-T6z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" customUserAgent="Version/8.0.2 Safari/600.2.5" translatesAutoresizingMaskIntoConstraints="NO" id="x2c-7P-gqV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="x2c-7P-gqV" firstAttribute="top" secondItem="KMz-UQ-zUp" secondAttribute="top" id="U8S-jm-1WL"/>
+                            <constraint firstItem="KMz-UQ-zUp" firstAttribute="trailing" secondItem="x2c-7P-gqV" secondAttribute="trailing" id="ZGf-pc-Ssr"/>
+                            <constraint firstItem="x2c-7P-gqV" firstAttribute="leading" secondItem="KMz-UQ-zUp" secondAttribute="leading" id="phC-uq-zfR"/>
+                            <constraint firstItem="KMz-UQ-zUp" firstAttribute="bottom" secondItem="x2c-7P-gqV" secondAttribute="bottom" id="ysx-96-Xl1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KMz-UQ-zUp"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="x2c-7P-gqV" id="8TH-Rj-14C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ML3-Bm-MZE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="174" y="-586"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="djT-My-J9N">
             <objects>
-                <navigationController id="qGc-CL-Ora" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNavigationController" id="qGc-CL-Ora" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Rob-Bj-9LV">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -727,13 +764,13 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 г" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFQ-nb-wjZ">
-                                            <rect key="frame" x="327.5" y="12" width="31.5" height="21"/>
+                                            <rect key="frame" x="327.5" y="12" width="31.5" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название продукта" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFH-qL-24P">
-                                            <rect key="frame" x="57" y="11" width="165" height="21"/>
+                                            <rect key="frame" x="57" y="11" width="165" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -807,7 +844,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdF-5Z-oeE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="-702"/>
+            <point key="canvasLocation" x="2912.8000000000002" y="-702.09895052473769"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kjw-hL-C9N">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RXB-Nj-aEJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eCW-Sn-QKA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dEz-pO-c9B" kind="relationship" relationship="rootViewController" id="cr3-4v-So5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YVa-90-Awr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1418" y="-585"/>
         </scene>
     </scenes>
     <resources>
