@@ -6,58 +6,29 @@
 //  Copyright © 2019 WORTUS Inc. All rights reserved.
 //
 
-import Foundation
 import UIKit
-//import GoogleSignIn
-import OAuthSwift
+
 
 class LoginFromController: UIViewController {
     
-    private func presentAlert(_ title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
-//    @IBOutlet weak var signInButton: GIDSignInButton!
-    
-    @IBAction private func share(_ sender: AnyObject) {
-        let oauthswift = OAuth2Swift(
-            consumerKey: "",         // [1] Enter google app settings
-            consumerSecret: "",        // No secret required
-            authorizeUrl: "http://www.buy-list.cloud/auth/login/google-oauth2/",
-            accessTokenUrl: "",
-            responseType: "code"
-        )
-        
-        oauthswift.allowMissingStateCheck = true
-        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
-        
-        guard let rwURL = URL(string: "http://www.google.com") else { return }
-        oauthswift.authorize(withCallbackURL: rwURL, scope: "", state: "", success: { (credential, response, parameters) in
-        }) { (error) in
-            self.presentAlert("Error", message: error.localizedDescription)
-        }
-    }
+    @IBOutlet private weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        GIDSignIn.sharedInstance()?.presentingViewController = self
-
-        
-        // Automatically sign in the user.
-//        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
     }
     
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        let checkUser = GIDSignIn.sharedInstance()?.restorePreviousSignIn()
-//
-//        return checkUser
-//    }
-    
-//    Метод для выхода из аккаунта.
-//    func didTapSignOut(_ sender: AnyObject) {
-//        GIDSignIn.sharedInstance().signOut()
-//    }
+    @IBAction private func loginButtonTapped() {
+        guard let loginUrl = URL(string: "http://www.buy-list.cloud/auth/login/google-oauth2/") else { fatalError() }
+        guard let loginWebkitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginWebkitViewController") as? LoginWebkitViewController else { return }
+        loginWebkitViewController.setup(url: loginUrl, delegate: self)
+        navigationController?.pushViewController(loginWebkitViewController, animated: true)
+    }
+}
+
+extension LoginFromController: LoginWebkitViewControllerDelegate {
+    func didReceive(token: String) {
+        let alert = UIAlertController(title: "Токен получен", message: "Токен:\n\(token)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }

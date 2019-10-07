@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C16507C23485E8E002256DE /* TokenCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C16507B23485E8E002256DE /* TokenCodable.swift */; };
+		0CA2601A2348579C00F2E8DD /* LoginWebkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA260192348579C00F2E8DD /* LoginWebkitViewController.swift */; };
 		5505C5AA22DF4F0C0013371D /* RecieptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505C5A922DF4F0C0013371D /* RecieptService.swift */; };
 		5505C5AC22DF52E20013371D /* PatternService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505C5AB22DF52E20013371D /* PatternService.swift */; };
 		550DCA5A228ACAF400A04E7F /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550DCA59228ACAF400A04E7F /* ListCell.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C16507B23485E8E002256DE /* TokenCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCodable.swift; sourceTree = "<group>"; };
+		0CA260192348579C00F2E8DD /* LoginWebkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebkitViewController.swift; sourceTree = "<group>"; };
 		249FD9E3F756712DE3414E77 /* Pods_BuyList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuyList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5505C5A922DF4F0C0013371D /* RecieptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieptService.swift; sourceTree = "<group>"; };
 		5505C5AB22DF52E20013371D /* PatternService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternService.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 				55805E6522F8765300B595A6 /* RecieptGetItems.swift */,
 				55C0ECB822F5978400CC2B5A /* PatternGet.swift */,
 				55805E6722F8766600B595A6 /* PatternGetItems.swift */,
+				0C16507B23485E8E002256DE /* TokenCodable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,7 +242,9 @@
 				08A2656D6F4B21F2B7564E5A /* Pods */,
 				67145A9783A1BEB0F12F7774 /* Frameworks */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		89FFE2D72289928100784297 /* Products */ = {
 			isa = PBXGroup;
@@ -259,6 +266,7 @@
 				55F01F5022C3B9CB004DA8B6 /* DatabaseService.swift */,
 				55F01F5222C3BA5E004DA8B6 /* RealmChanges.swift */,
 				55A0F9DC2308306C000C285C /* LoginFromController.swift */,
+				0CA260192348579C00F2E8DD /* LoginWebkitViewController.swift */,
 				89FFE2DD2289928100784297 /* Main.storyboard */,
 				8943090422B6A50300EEDE73 /* Model */,
 				8943090322B6A4DA00EEDE73 /* Networking */,
@@ -439,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				894308FF22B6A4CC00EEDE73 /* ItemService.swift in Sources */,
+				0C16507C23485E8E002256DE /* TokenCodable.swift in Sources */,
 				55772E0E228C5AE000211630 /* HeaderList.swift in Sources */,
 				554176852294595700AE8E8F /* RecipeProductCell.swift in Sources */,
 				55F01F5122C3B9CB004DA8B6 /* DatabaseService.swift in Sources */,
@@ -454,6 +463,7 @@
 				89F2D9C022B69C0B004D7AF0 /* PatternInformationController.swift in Sources */,
 				55805E6622F8765300B595A6 /* RecieptGetItems.swift in Sources */,
 				5505C5AC22DF52E20013371D /* PatternService.swift in Sources */,
+				0CA2601A2348579C00F2E8DD /* LoginWebkitViewController.swift in Sources */,
 				55805E6822F8766600B595A6 /* PatternGetItems.swift in Sources */,
 				8989784822AAAABA00918F95 /* ListDetailCell.swift in Sources */,
 				8989784622AAAAAF00918F95 /* ListDetailController.swift in Sources */,
@@ -624,7 +634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NS9Y676XLH;
+				DEVELOPMENT_TEAM = GCD2MCUEP4;
 				INFOPLIST_FILE = BuyList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
