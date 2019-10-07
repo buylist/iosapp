@@ -6,7 +6,7 @@ target 'BuyList' do
   use_frameworks!
 
   pod 'IQKeyboardManagerSwift', '~> 6.0.4'
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 4.8.0'
   pod 'SwiftyJSON', '~> 4.2.0'
   pod 'RealmSwift'
   pod 'GoogleSignIn'

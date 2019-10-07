@@ -14,8 +14,8 @@ import RealmSwift
 class ListService {
     
     private let url = "http://35.228.148.217:80/api/v1/lists/"
-    private let token = "Token c971f845bc2cc6ed50c75220f0e2eb32d315f7b0"
-    
+    let token = "Token \(Session.instance.token)"
+//    c971f845bc2cc6ed50c75220f0e2eb32d315f7b0
     public func loadListListGet(completionHandler: (([ListGet]?, Error? ) -> Void)? = nil) {
         
         let header: HTTPHeaders = [

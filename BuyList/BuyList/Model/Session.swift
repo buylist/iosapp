@@ -14,5 +14,4 @@ class Session {
     public static let instance = Session()
     
     var token: String = ""
-    var userld: Int = 0
 }

@@ -44,7 +44,7 @@ class LoginWebkitViewController: UIViewController {
             guard let response = response as? String,
                 let responseData = response.data(using: .utf8),
                 let tokenCodable = try? JSONDecoder().decode(TokenCodable.self, from: responseData) else { return }
-            self?.navigationController?.popViewController(animated: true)
+//            self?.navigationController?.popViewController(animated: true)
             self?.delegate?.didReceive(token: tokenCodable.token)
         }
     }
