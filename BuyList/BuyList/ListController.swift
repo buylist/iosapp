@@ -7,32 +7,16 @@
 //
 
 import UIKit
-import RealmSwift
 
 class ListController: UITableViewController {
     
     var listTextField: UITextField?
     
     var sections = sectionData1
-    
-//    var sectionsData: [Section1] = [
-    //    Section1(name: "Коллекция списков", items: [
-    //        Item1(name: "Ашан"),
-    //        Item1(name: "Косметика")
-    //        ]),
-    //    Section1(name: "Шаблоны", items: [
-    //        Item1(name: "Вечеринка"),
-    //        Item1(name: "Бытовая")
-    //        ]),
-    //    Section1(name: "Рецепты", items: [
-    //        Item1(name: "Наполеон"),
-    //        Item1(name: "Драники")
-    //        ])
-    //]
+
     var listSectionImages = [0: #imageLiteral(resourceName: "списки"), 1: #imageLiteral(resourceName: "шаблоны"), 2: #imageLiteral(resourceName: "рецепты")]
     
-    var list: Results<ListGet>? = DatabaseService.get(ListGet.self)
-    var notificationToken: NotificationToken?
+    var list = [ListGet]()
     
     var temp = [String]()
     
@@ -44,78 +28,31 @@ class ListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-//        notificationToken = list?.observe { [weak self] changes in
-//            self?.tableView.reloadData()
-//        }
-//
-//                notificationToken = list?.observe { [weak self] changes in
-//                    guard let self = self else { return }
-//                    switch changes {
-//                    case .initial(_):
-//                        self.tableView.reloadData()
-//                        print("Up")
-//                    case .update(_, let dels, let ins, let mods):
-//                        self.tableView.applyChanges(deletions: dels, insertions: ins, updates: mods)
-//                        print("UpUp")
-//                    case .error(let error):
-//                        print(error.localizedDescription)
-//                    }
-//                }
 
-        
         let headerNib = UINib.init(nibName: "HeaderList", bundle: Bundle.main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderList")
         
         let footerNib = UINib.init(nibName: "FooterList", bundle: Bundle.main)
         tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: "FooterList")
-        
-//        servise1.loadRecieptListGet()
-//        servise2.loadPatternListGet()
-//        category1.loadListCategoriesGet()
-//        check.loadListAccess1ChecklistPost(mobile_id: 129)
-        check.loadListChecklistPatch(url: "http://35.228.148.217:80/api/v1/checklists/20/", deleted: true, quantity: 8)
-        
-        listService.loadListListGet() { [weak self] list, error in
-            guard let _ = self, error == nil,
-                let list = list else { print(error?.localizedDescription as Any); return }
-            
-//            let realm = try? Realm()
-//            try? realm?.write {
-//                if self.list != nil {
-//                    realm?.delete(self.list!)
-//                }
-//            }
-            
-            try? DatabaseService.save(list, update: true)
-            
-//            DispatchQueue.main.async {
-//                self?.tableView.reloadData()
-//            }
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tableView.reloadData()
-
-        notificationToken = list?.observe { [weak self] changes in
-            guard let self = self else { return }
-            switch changes {
-            case .initial(_):
-                self.tableView.reloadData()
-                print("Up")
-            case .update(_, let dels, let ins, let mods):
-                self.tableView.applyChanges(deletions: dels, insertions: ins, updates: mods)
-                print("UpUp")
-            case .error(let error):
+        listService.loadListListGet() { [weak self] list, error in
+            if let error = error {
                 print(error.localizedDescription)
+                return
+            }
+            
+            guard let list = list, let self = self else { return }
+            
+            self.list = list
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
     }
-
 }
 
 extension ListController {
@@ -125,7 +62,7 @@ extension ListController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].collapsed ? 0 : (list?.count)!
+        return sections[section].collapsed ? 0 : (list.count)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -136,9 +73,9 @@ extension ListController {
         
         var item1 = sections[0]
         
-        let listt = list?[indexPath.row]
+        let listt = list[indexPath.row]
         
-        item1.name = (listt?.name_List)!
+        item1.name = (listt.name_List)
         
         cell.listName.text = item1.name
         
@@ -176,13 +113,13 @@ extension ListController {
         func newOkHandler(alert: UIAlertAction!) {
 //            sections[section].items.insert(Item1.init(name: listTextField!.text!), at: 0)
             listService.loadListListPost(name: listTextField!.text!, mobile_id: Int.random(in: 1...1000))
-            
-            listService.loadListListGet() { [weak self] list, error in
-                guard let _ = self, error == nil,
-                    let list = list else { print(error?.localizedDescription as Any); return }
-                
-                try? DatabaseService.save(list, update: true)
-            }
+            tableView.reloadData()
+//            listService.loadListListGet() { [weak self] list, error in
+//                guard let _ = self, error == nil,
+//                    let list = list else { print(error?.localizedDescription as Any); return }
+//
+//                try? DatabaseService.save(list, update: true)
+//            }
         }
 
         headerView.index = section
@@ -221,17 +158,8 @@ extension ListController {
         
         let action = UIContextualAction(style: .normal, title: nil) {
             (action, view, complection) in
-            let listt = self.list?[indexPath.row]
-            let realm = try? Realm()
-            self.listService.loadListListDelete(url: (listt?.url_List)!)
-            
-            do {
-            realm?.beginWrite()
-            realm?.delete(listt!)
-                try realm?.commitWrite()
-            } catch {
-                print(error)
-            }
+            let listt = self.list[indexPath.row]
+            self.listService.loadListListDelete(url: (listt.url_List))
         }
         action.backgroundColor = .red
         action.image = UIImage(named: "remove")
@@ -245,9 +173,9 @@ extension ListController {
         
         var item1 = sections[0]
         
-        let listt = list?[indexPath.row]
+        let listt = list[indexPath.row]
         
-        item1.name = (listt?.name_List)!
+        item1.name = (listt.name_List)
 
         let action = UIContextualAction(style: .normal, title: nil) {
             (action, view, complection) in
@@ -269,14 +197,9 @@ extension ListController {
 
         func editOkHandler(alert: UIAlertAction!) {
 //            if (!item1.name.contains(listTextField!.text!) || item1.name == listTextField!.text!) && listTextField!.text! != "" {
-                listService.loadListListPatch(url: (listt?.url_List)!, name: listTextField!.text!, checklist_id: Int.random(in: 1...1000))
-                
-                listService.loadListListGet() { [weak self] list, error in
-                    guard let _ = self, error == nil,
-                        let list = list else { print(error?.localizedDescription as Any); return }
-                    
-                    try? DatabaseService.save(list, update: true)
-                }
+            
+            listService.loadListListPatch(url: (listt.url_List), name: listTextField!.text!, checklist_id: Int.random(in: 1...1000))
+            
 //            } else if listTextField!.text! == "" {
 //                let alertController = UIAlertController(title: "Ошибка!", message:  "Пустое название.", preferredStyle: .alert)
 //                let okAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
@@ -300,9 +223,9 @@ extension ListController {
             if segue.identifier == "listDetailController" {
                 if let listDetailController = segue.destination as? ListDetailController {
                     let indexPath = tableView.indexPathForSelectedRow
-                    let listName = list?[indexPath!.row]
-                    listDetailController.listName = (listName?.name_List)!
-                    listDetailController.title = listName?.name_List
+                    let listName = list[indexPath!.row]
+                    listDetailController.listName = (listName.name_List)
+                    listDetailController.title = listName.name_List
                 }
             }
         }

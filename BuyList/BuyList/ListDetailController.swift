@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import RealmSwift
+
 
 class ListDetailController: UITableViewController {
     
-    var list: Results<ListGet>? = DatabaseService.get(ListGet.self)
+    var list = [ListGet]()
     var listName = ""
     let checklistService = ChecklistService()
     
@@ -90,21 +90,21 @@ extension ListDetailController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return list?.filter("name_List == '\(listName)'").count ?? 0
+        let listt = list.filter { _ in "name_List" == "\(listName)" }
+        return listt.count
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let listDetail = list?.filter("name_List == '\(listName)'")
-        let checklistsUrl = listDetail![indexPath.row].url_Checklists[indexPath.row]
+        let listDetail = list.filter { _ in "name_List" == "\(listName)" }
+//        let checklistsUrl = listDetail[indexPath.row].url_Checklists[indexPath.row]
         
-        if listDetail![indexPath.row].deleted_Checklists[indexPath.row] {
+        if listDetail[indexPath.row].deleted_Checklists[indexPath.row] {
 //            checklistService.loadListChecklistPatch(url: checklistsUrl, deleted: false)
-            print(listDetail![indexPath.row].deleted_Checklists[indexPath.row])
+            print(listDetail[indexPath.row].deleted_Checklists[indexPath.row])
         } else {
 //            checklistService.loadListChecklistPatch(url: checklistsUrl, deleted: true)
-            print(listDetail![indexPath.row].deleted_Checklists[indexPath.row])
+            print(listDetail[indexPath.row].deleted_Checklists[indexPath.row])
         }
         
         tableView.reloadData()
@@ -113,10 +113,10 @@ extension ListDetailController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ListDetailCell = tableView.dequeueReusableCell(withIdentifier: "ListDetailCell") as! ListDetailCell
         
-        let listDetail = list?.filter("name_List == '\(listName)'")
-        cell.listName.text = listDetail![indexPath.row].name_Item[indexPath.row]
+        let listDetail = list.filter { _ in "name_List" == "\(listName)" }
+        cell.listName.text = listDetail[indexPath.row].name_Item[indexPath.row]
         
-        if listDetail![indexPath.row].deleted_Checklists[indexPath.row] {
+        if listDetail[indexPath.row].deleted_Checklists[indexPath.row] {
             cell.listName.textColor = UIColor.red
         } else {
             cell.listName.textColor = UIColor.black

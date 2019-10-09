@@ -8,9 +8,8 @@
 
 import Foundation
 import SwiftyJSON
-import RealmSwift
 
-class ListGetItems: Object {
+class ListGetItems {
     
     @objc dynamic  var url_Checklists = ""
     @objc dynamic  var quantity_Checklists = ""

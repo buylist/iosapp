@@ -8,24 +8,23 @@
 
 import Foundation
 import SwiftyJSON
-import RealmSwift
 
-class ListGet: Object {
+class ListGet {
 
     @objc dynamic var uuid = UUID().uuidString
     @objc dynamic var url_List = ""
     @objc dynamic var name_List = ""
     @objc dynamic var mobile_id = 0
     
-    var url_Checklists = List<String>()
-    var quantity_Checklists = List<String>()
-    var unit_Checklists = List<String>()
-    var deleted_Checklists = List<Bool>()
+    var url_Checklists = [String]()
+    var quantity_Checklists = [String]()
+    var unit_Checklists = [String]()
+    var deleted_Checklists = [Bool]()
     
-    var url_Item = List<String>()
-    var name_Item = List<String>()
-    var category_Item = List<String>()
-    var mobile_id_Item = List<Int>()
+    var url_Item = [String]()
+    var name_Item = [String]()
+    var category_Item = [String]()
+    var mobile_id_Item = [Int]()
     
     var listGetItems = ListGetItems()
     
@@ -60,9 +59,9 @@ class ListGet: Object {
         }
     }
     
-    override static func primaryKey() -> String? {
-        return "url_List"
-    }
+//    override static func primaryKey() -> String? {
+//        return "url_List"
+//    }
 }
 
 //{

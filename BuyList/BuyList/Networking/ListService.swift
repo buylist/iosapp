@@ -9,7 +9,6 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
-import RealmSwift
 
 class ListService {
     
@@ -33,7 +32,7 @@ class ListService {
                 let listGet = json.arrayValue.map { ListGet(json: $0) }
                 completionHandler?(listGet, nil)
                 
-//                print(listGet)
+                print(listGet)
             }
         }
     }
